@@ -1,0 +1,32 @@
+= form_with(model: [:admin, @user], local: true) do |form|
+  .card
+    .card-body
+      %h4.card-title Create New user
+      %form
+        - if user.errors.any?
+          .row
+            .form-group
+              = render "shared/error_messages", resource: user
+        .row
+          %label.col-sm-2.col-form-label First Name
+          .col-sm-10
+            .form-group
+              = form.text_field :first_name, class: 'form-control', placeholder: 'First Name', required: true
+        .row
+          %label.col-sm-2.col-form-label Last Name
+          .col-sm-10
+            .form-group
+              = form.text_field :last_name, class: 'form-control', placeholder: 'Last Name', required: true
+        .row
+          %label.col-sm-2.col-form-label Email
+          .col-sm-10
+            .form-group
+              = form.email_field :email, class: 'form-control', placeholder: 'Email Address', required: true
+        .row
+          %label.col-sm-2.col-form-label Password
+          .col-sm-10
+            .form-group
+              = form.password_field :password, class: 'form-control', placeholder: 'Password', required: true
+        %button.btn.btn-theme.mt-4{type: "submit"} Create User
+      %br
+      %br

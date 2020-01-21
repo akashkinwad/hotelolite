@@ -1,0 +1,67 @@
+.kt-grid.kt-grid--ver.kt-grid--root
+  #kt_login.kt-grid.kt-grid--hor.kt-grid--root.kt-login.kt-login--v1
+    .kt-grid__item.kt-grid__item--fluid.kt-grid.kt-grid--desktop.kt-grid--ver-desktop.kt-grid--hor-tablet-and-mobile
+      / begin::Aside
+      .kt-grid__item.kt-grid__item--order-tablet-and-mobile-2.kt-grid.kt-grid--hor.kt-login__aside{style: "background-image: url(/assets/admin/media/bg/bg-4.jpg);"}
+        .kt-grid__item
+          %a.kt-login__logo{href: "/users/sign_in"}
+            %img{src: "/assets/user/media/logos/gp_2.png", height: '25px'}
+        .kt-grid__item.kt-grid__item--fluid.kt-grid.kt-grid--ver
+          .kt-grid__item.kt-grid__item--middle
+            %h3.kt-login__title Welcome to Hoteloite!
+            %h4.kt-login__subtitle The ultimate Bootstrap  Angular 6 admin theme framework for next generation web apps.
+        .kt-grid__item
+          .kt-login__info
+            .kt-login__copyright
+              2019 Hoteloite
+            .kt-login__menu
+              %a.kt-link{href: "#"} Privacy
+              %a.kt-link{href: "#"} Legal
+              %a.kt-link{href: "#"} Contact
+        / begin::Aside
+      / begin::Content
+      .kt-grid__item.kt-grid__item--fluid.kt-grid__item--order-tablet-and-mobile-1.kt-login__wrapper
+        / begin::Head
+        .kt-login__head
+          %span.kt-login__signup-label Don't have an account yet?
+          %a.kt-link.kt-login__signup-link{href: "/users/sign_up"} Sign Up!
+        / end::Head
+        / begin::Body
+        .kt-login__body
+
+          / begin::Signin
+          .kt-login__form
+            .kt-login__title
+            / begin::Form
+            = content_tag(:div, flash[:error], id: "flash_error") if flash[:error]
+            = content_tag(:div, flash[:notice], id: "flash_notice") if flash[:notice]
+            = content_tag(:div, flash[:alert], id: "flash_alert") if flash[:alert]
+            %h2 Resend confirmation instructions
+            = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+              = render "devise/shared/error_messages", resource: resource
+              .form-group
+                = f.email_field :email, autofocus: true, class: 'form-control', autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "Email"
+              .kt-login__actions
+                = f.submit "Resend confirmation instructions", class: 'actions btn btn-primary btn-elevate kt-login__btn-primary btn-block'
+            = render "users/shared/links"
+            .kt-login__divider
+              .kt-divider
+                %span
+                %span OR
+                %span
+            / end::Divider
+            / begin::Options
+            .kt-login__options
+              %a.btn.btn-primary.kt-btn{href: "#"}
+                %i.fab.fa-facebook-f
+                Facebook
+              %a.btn.btn-info.kt-btn{href: "#"}
+                %i.fab.fa-twitter
+                Twitter
+              %a.btn.btn-danger.kt-btn{href: "#"}
+                %i.fab.fa-google
+                Google
+            / end::Options
+          / end::Signin
+        / end::Body
+      / end::Content

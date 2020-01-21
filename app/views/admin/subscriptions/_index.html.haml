@@ -1,0 +1,51 @@
+.kt-portlet__body
+  .kt-section
+    .kt-section__content
+      .table-responsive
+        %table.table.table-striped.table-head-bg-brand
+          %thead
+            %tr
+              %th Id
+              %th User
+              %th Plan
+              %th Active
+              %th Auto Renewal
+              %th Type
+              %th Start Date
+              %th End Date
+              %th Action
+
+          %tbody
+            - @subscriptions.each do |subscription|
+              %tr
+                %td
+                  = subscription.id
+                %td
+                  = subscription.user.first_name && subscription.user.last_name ? subscription.user.full_name : subscription.user.email
+                %td
+                  = subscription.plan.name
+                %td
+                  %span.kt-switch.kt-switch--outline.kt-switch--icon.kt-switch--success
+                    %label
+                      = check_box_tag :active, subscription.active? ? '1' : '0', subscription.active, { disabled: true }
+                      %span
+                %td
+                  %span.kt-switch.kt-switch--outline.kt-switch--icon.kt-switch--success
+                    %label
+                      = check_box_tag :auto_renewal, subscription.auto_renewal? ? '1' : '0', subscription.auto_renewal, { disabled: true }
+                      %span
+                %td
+                  %span.kt-badge.kt-badge--inline.kt-badge--pill{class: subscription.s_type == 'monthly' ? 'kt-badge--danger' : 'kt-badge--success'}
+                    = subscription.s_type
+                %td
+                  = dateformatter(subscription.start_time)
+                %td
+                  = dateformatter(subscription.end_time)
+                %td
+                  = link_to edit_admin_subscription_path(subscription), class: 'btn btn-sm btn-clean btn-icon btn-icon-md', title: "Edit details" do
+                    %i.kt-font-brand.flaticon-edit
+                  = link_to admin_subscription_path(subscription), class: 'btn btn-sm btn-clean btn-icon btn-icon-md', title: "Show details" do
+                    %i.kt-font-brand.flaticon-eye
+                  = link_to admin_subscription_path(subscription), remote: true, method: :delete,  data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-clean btn-icon btn-icon-md', title: "Delete" do
+                    %i.kt-font-brand.flaticon-delete
+  = paginate @subscriptions

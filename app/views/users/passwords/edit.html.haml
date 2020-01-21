@@ -1,0 +1,58 @@
+.kt-grid.kt-grid--ver.kt-grid--root
+  #kt_login.kt-grid.kt-grid--hor.kt-grid--root.kt-login.kt-login--v1
+    .kt-grid__item.kt-grid__item--fluid.kt-grid.kt-grid--desktop.kt-grid--ver-desktop.kt-grid--hor-tablet-and-mobile
+      .kt-grid__item.kt-grid__item--order-tablet-and-mobile-2.kt-grid.kt-grid--hor.kt-login__aside{style: "background-image: url(/assets/admin/media/bg/bg-4.jpg);"}
+        .kt-grid__item
+          %a.kt-login__logo{href: "/users/sign_in"}
+            %img{src: "/assets/user/media/logos/gp_2.png", height: '25px'}
+        .kt-grid__item.kt-grid__item--fluid.kt-grid.kt-grid--ver
+          .kt-grid__item.kt-grid__item--middle
+            %h3.kt-login__title Welcome to Hoteloite!
+            %h4.kt-login__subtitle The ultimate Bootstrap  Angular 6 admin theme framework for next generation web apps.
+        .kt-grid__item
+          .kt-login__info
+            .kt-login__copyright
+              2019 Hoteloite
+            .kt-login__menu
+              %a.kt-link{href: "#"} Privacy
+              %a.kt-link{href: "#"} Legal
+              %a.kt-link{href: "#"} Contact
+      .kt-grid__item.kt-grid__item--fluid.kt-grid__item--order-tablet-and-mobile-1.kt-login__wrapper
+        .kt-login__head
+          %span.kt-login__signup-label Don't have an account yet?
+          %a.kt-link.kt-login__signup-link{href: "/users/sign_up"} Sign Up!
+        .kt-login__body
+          .kt-login__form
+            .kt-login__title
+              %h3 Change your password
+            = content_tag(:div, flash[:error], id: "flash_error") if flash[:error]
+            = content_tag(:div, flash[:notice], id: "flash_notice") if flash[:notice]
+            = content_tag(:div, flash[:alert], id: "flash_alert") if flash[:alert]
+
+            = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+              = render "shared/error_messages", resource: resource
+              = f.hidden_field :reset_password_token
+              .form-group
+                - if @minimum_password_length
+                  %em
+                    (#{@minimum_password_length} characters minimum)
+                = f.password_field :password, class: "form-control", placeholder: "New password"
+              .form-group
+                = f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm new password"
+              .actions
+                = f.submit "Change my password", class: 'actions btn btn-primary btn-elevate kt-login__btn-primary btn-block'
+            .kt-login__divider
+              .kt-divider
+                %span
+                %span OR
+                %span
+            .kt-login__options
+              %a.btn.btn-primary.kt-btn{href: "#"}
+                %i.fab.fa-facebook-f
+                Facebook
+              %a.btn.btn-info.kt-btn{href: "#"}
+                %i.fab.fa-twitter
+                Twitter
+              %a.btn.btn-danger.kt-btn{href: "#"}
+                %i.fab.fa-google
+                Google

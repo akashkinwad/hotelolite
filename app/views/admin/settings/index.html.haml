@@ -1,0 +1,23 @@
+#kt_content.kt-content.kt-grid__item.kt-grid__item--fluid
+  .kt-portlet.kt-portlet--mobile
+    .kt-portlet__head.kt-portlet__head--lg
+      .kt-portlet__head-label
+        %span.kt-portlet__head-icon
+          %i.kt-font-brand.flaticon2-settings
+        %h3.kt-portlet__head-title
+          Settings
+      .kt-portlet__head-toolbar
+        .kt-portlet__head-wrapper
+          %a.btn.btn-clean.btn-icon-sm{href: "#"}
+            %i.la.la-long-arrow-left
+            Back
+           
+          .dropdown.dropdown-inline
+            = link_to new_admin_setting_path, class: 'btn btn-brand btn-icon-sm' do
+              %i.flaticon2-plus
+              Add New
+
+    - if notice.present?
+      = render "shared/notice", notice: notice
+
+    = render partial: 'index'

@@ -1,0 +1,40 @@
+#kt_content.kt-content.kt-grid__item.kt-grid__item--fluid
+  .kt-portlet.kt-portlet--mobile
+    .kt-portlet__head.kt-portlet__head--lg
+      .kt-portlet__head-label
+        %span.kt-portlet__head-icon
+          .kt-demo-icon__preview
+        %h3.kt-portlet__head-title
+          Tournaments Details:
+      .kt-portlet__head-toolbar
+        .kt-portlet__head-wrapper
+          = link_to admin_tournaments_path, class: 'btn btn-clean btn-icon-sm' do
+            %i.la.la-long-arrow-left
+            Back 
+        .kt-portlet__head-wrapper
+          = link_to edit_admin_tournament_path(@tournament), class: 'btn btn-brand btn-icon-sm' do
+            Edit 
+    .kt-portlet__body
+      .kt-widget12
+        .kt-portlet__body.kt-portlet__body--fi
+          .kt-widget12__content
+            .kt-widget12__item
+              .kt-widget12__info
+                %span.kt-widget12__desc Tournament Name:
+                .kt-widget12__value
+                  = @tournament.name.capitalize
+              .kt-widget12__info
+                %span.kt-widget12__desc Provider Tournament ID:
+                .kt-widget12__value
+                  = @tournament.provider_tournament_id
+            .kt-widget12__item
+              .kt-widget12__info
+                %span.kt-widget12__desc Plans:
+                .kt-widget12__value
+                  %ul
+                    - @plans.each do |plan|
+                      %li= plan.name.capitalize
+              .kt-widget12__info
+                %span.kt-widget12__desc Status:
+                .kt-widget12__value
+                  = @tournament.status

@@ -1,0 +1,54 @@
+= form_with(model: [@plan, @subscription], local: true) do |form|
+  .modal-dialog.modal-dialog-centered{role: "document"}
+    .modal-content
+      .modal-header
+        %h5#exampleModalLongTitle.modal-title Edit Subscription
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
+      .modal-body
+        .kt-portlet__body.kt-portlet__body--fit
+          = form.hidden_field :plan_id, value: @subscription.plan_id
+          = form.hidden_field :user_id, value: @subscription.user_id
+          = form.hidden_field :s_type, value: @subscription.s_type
+          %br/
+          .kt-widget12
+            .kt-widget12__content
+              .kt-widget12__item
+                .kt-widget12__info
+                  %span.kt-widget12__desc Plan:
+                  .kt-widget12__value
+                    = @plan.name
+                .kt-widget12__info
+                  %span.kt-widget12__desc Subscription Type :
+                  .kt-widget12__value
+                    = @subscription.s_type
+              %br/
+              .kt-widget12__item
+                .kt-widget12__info
+                  %span.kt-widget12__desc Price :
+                  .kt-widget12__value
+                    = (@subscription.s_type == 'monthly' ? @plan.price_per_month : @plan.price_per_year)
+                    %span.kt-pricing-1__label &#8377
+                .kt-widget12__info
+                  %span.kt-widget12__desc Auto Renewal :
+                  .kt-widget12__value
+                    %span.kt-switch.kt-switch--outline.kt-switch--icon.kt-switch--success
+                      %label
+                        = @subscription.auto_renewal == 'true' ? 'Yes' : 'No'
+                        %span
+              %br/
+              .kt-widget12__item
+                .kt-widget12__info
+                  %span.kt-widget12__desc End Time :
+                  .kt-widget12__value
+                    =  dateformatter(@subscription.end_time)
+                .kt-widget12__info
+                  %span.kt-widget12__desc Change Active Status:
+                  .kt-widget-value
+                    %span.kt-switch.kt-switch--outline.kt-switch--icon.kt-switch--success
+                      %label
+                        = form.check_box :active, { class: 'form-control' }, '1', '0'
+                        %span
+
+      .modal-footer
+        %button.btn.btn-secondary{"data-dismiss" => "modal", type: "button"} Cancel
+        %button.btn.btn-primary{id: 'kt_blockui_4_4', type: "submit"} Update

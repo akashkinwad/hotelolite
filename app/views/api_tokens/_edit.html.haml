@@ -1,0 +1,10 @@
+.kt-portlet__head
+  .kt-portlet__head-label
+    %h3.kt-portlet__head-title
+    = form_for @api_token do |f|
+      .form-group.row
+        %label.col-sm-3.col-form-label.text-md-right Token Name
+        .col-sm-5
+          = f.text_field :name, required: true, placeholder: "Enter API Token name", class: "form-control", id: 'api-token-name'
+        .col-sm-2
+          = f.submit "Update", id: "api-token-submit", class: "btn btn-primary"

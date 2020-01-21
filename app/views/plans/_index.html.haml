@@ -1,0 +1,53 @@
+.kt-pricing-1__items.row
+  - @plans.each do |plan|
+    .kt-pricing-1__item.col-lg-3
+      .kt-pricing-1__visual
+        .kt-pricing-1__hexagon1
+        .kt-pricing-1__hexagon2
+        %span.kt-pricing-1__icon{ class: plan.id.even? ? 'kt-font-success' : 'kt-font-danger' }
+          %i.fa{ class: plan.subscription_css_icon }
+      .monthly
+        %span.kt-pricing-1__price
+          = plan.price_per_month
+          %span.kt-pricing-1__label &#8377
+        .h6
+          %span Monthly
+      .annual
+        %span.kt-pricing-1__price
+          = plan.price_per_year
+          %span.kt-pricing-1__label &#8377
+        .h6
+          %span Annually
+      %h2.kt-pricing-1__subtitle
+        %button.btn.btn-bold.btn-label-brand.btn-sm{"data-target" => "#features_modal-#{plan.id}", "data-toggle" => "modal", type: "button"} Features
+      %span.kt-pricing-1__description
+        .h3.kt-font-warning
+          %span
+            = plan.name
+        %span
+          = "#{plan.free_trial_days} Day Trial"
+      .monthly
+        .kt-pricing-1__btn
+          = link_to "Purchase", new_plan_subscription_path(plan, s_type: 'monthly'), { class: "btn btn-brand btn-custom btn-pill btn-wide btn-uppercase btn-bolder btn-sm", 'data-target' => '#purchase-modal-window', 'data-toggle' => 'modal', remote: true }
+
+      .annual
+        .kt-pricing-1__btn
+          = link_to "Purchase", new_plan_subscription_path(plan, s_type: 'yearly'), { class: "btn btn-brand btn-custom btn-pill btn-wide btn-uppercase btn-bolder btn-sm", 'data-target' => '#purchase-modal-window', 'data-toggle' => 'modal', remote: true }
+
+- @plans.each do |plan|
+  = render partial: 'plans/features_modal', locals: { plan: plan }
+
+#purchase-modal-window.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog"}
+
+#spinner-modal-window.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog"}
+  .modal-dialog.modal-dialog-centered{role: "document"}
+    .sk-cube-grid
+      .sk-cube.sk-cube1
+      .sk-cube.sk-cube2
+      .sk-cube.sk-cube3
+      .sk-cube.sk-cube4
+      .sk-cube.sk-cube5
+      .sk-cube.sk-cube6
+      .sk-cube.sk-cube7
+      .sk-cube.sk-cube8
+      .sk-cube.sk-cube9

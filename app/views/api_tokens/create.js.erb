@@ -1,0 +1,5 @@
+var api_token = '<%= @api_token.token %>';
+$("#apiTokenModal").modal('show');
+document.getElementById('api-token').innerHTML = api_token;
+$('.api-tokens-table').html('<%= j render("index")  %>');
+$("#api-token-name").val("");

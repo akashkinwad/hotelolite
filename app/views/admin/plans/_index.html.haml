@@ -1,0 +1,53 @@
+.kt-portlet__body
+  .kt-section
+    .kt-section__content
+      .table-responsive
+        %table.table.table-striped.table-head-bg-brand
+          %thead
+            %tr
+              %th Id
+              %th Name
+              %th Usage
+              %th Features
+              %th Price Per Month
+              %th Price Per Year
+              %th Free Trial Days
+              %th Calls Limit Per Hour
+              %th Active
+              %th Sports Type
+              %th Actions
+
+          %tbody
+            - @plans.each do |plan|
+              %tr
+                %td
+                  = plan.id
+                %td
+                  = plan.name
+                %td
+                  = plan.usage
+                %td
+                  %button.btn.btn-bold.btn-label-brand.btn-sm{"data-target" => "#feature_modal-#{plan.id}", "data-toggle" => "modal", type: "button"} Features
+                %td
+                  = plan.price_per_month
+                %td
+                  = plan.price_per_year
+                %td
+                  = plan.free_trial_days
+                %td
+                  = plan.calls_limit_per_hour
+                %td
+                  %span.kt-switch.kt-switch--outline.kt-switch--icon.kt-switch--success
+                    %label
+                      = check_box_tag :active, plan.active? ? '1' : '0', plan.active, { disabled: true }
+                      %span
+                %td
+                  = plan.sports_type
+                %td
+                  = link_to edit_admin_plan_path(plan), class: 'btn btn-sm btn-clean btn-icon btn-icon-md', title: "Edit details" do
+                    %i.kt-font-brand.flaticon-edit
+                  = link_to admin_plan_path(plan), class: 'btn btn-sm btn-clean btn-icon btn-icon-md', title: "Show details" do
+                    %i.kt-font-brand.flaticon-eye
+
+              = render partial: 'features_modal', locals: { plan: plan }
+  = paginate @plans

@@ -1,0 +1,502 @@
+%html{lang: "en"}
+  %head
+    %meta{content: "text/html;charset=UTF-8", "http-equiv" => "content-type"}
+    %meta{charset: "utf-8"}
+    %title Hoteloite | Dashboard
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %meta{content: "Updates and statistics", name: "description"}
+    %meta{content: "width=device-width, initial-scale=1, shrink-to-fit=no", name: "viewport"}
+    / begin::Fonts
+    %script{src: "/assets/admin/fonts/webfont.js"}
+    :javascript
+      WebFont.load({
+          google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
+          active: function() {
+              sessionStorage.fonts = true;
+          }
+      });
+    / end::Fonts
+    / begin::Page Vendors Styles(used by this page)
+    %link{href: "/assets/admin_theme/vendors/custom/fullcalendar/fullcalendar.bundle.css", rel: "stylesheet", type: "text/css"}
+    / end::Page Vendors Styles
+    / begin::Global Theme Styles(used by all pages)
+    %link{href: "/assets/admin_theme/vendors/global/vendors.bundle.css", rel: "stylesheet", type: "text/css"}
+    %link{href: "/assets/admin_theme/css/demo1/style.bundle.css", rel: "stylesheet", type: "text/css"}
+    / end::Global Theme Styles
+    / begin::Layout Skins(used by all pages)
+    %link{href: "/assets/admin_theme/css/demo1/skins/header/base/light.css", rel: "stylesheet", type: "text/css"}
+    %link{href: "/assets/admin_theme/css/demo1/skins/header/menu/light.css", rel: "stylesheet", type: "text/css"}
+    %link{href: "/assets/admin_theme/css/demo1/skins/brand/dark.css", rel: "stylesheet", type: "text/css"}
+    %link{href: "/assets/admin_theme/css/demo1/skins/aside/dark.css", rel: "stylesheet", type: "text/css"}
+    / end::Layout Skins
+    %link{href: "/assets/user/media/logos/favicon.ico", rel: "shortcut icon"}
+    / end::Head
+    / begin::Body
+  %body.kt-quick-panel--right.kt-demo-panel--right.kt-offcanvas-panel--right.kt-header--fixed.kt-header-mobile--fixed.kt-subheader--fixed.kt-subheader--enabled.kt-subheader--solid.kt-aside--enabled.kt-aside--fixed.kt-page--loading
+    / begin:: Page
+    / begin:: Header Mobile
+    = render partial: "/layouts/admin_layout/mobile_header"
+    / end:: Header Mobile
+    .kt-grid.kt-grid--hor.kt-grid--root
+      .kt-grid__item.kt-grid__item--fluid.kt-grid.kt-grid--ver.kt-page
+        / begin:: Aside
+        %button#kt_aside_close_btn.kt-aside-close
+          %i.la.la-close
+        #kt_aside.kt-aside.kt-aside--fixed.kt-grid__item.kt-grid.kt-grid--desktop.kt-grid--hor-desktop
+          / begin:: Aside
+          = render partial: "/layouts/admin_layout/aside_tab"
+          / end:: Aside
+          / begin:: Aside Menu
+          = render partial: "/layouts/admin_layout/aside_menu"
+          / end:: Aside Menu
+        / end:: Aside
+        #kt_wrapper.kt-grid__item.kt-grid__item--fluid.kt-grid.kt-grid--hor.kt-wrapper
+          / begin:: Header
+          #kt_header.kt-header.kt-grid__item.kt-header--fixed
+            / begin:: Header Menu
+            = render partial: "/layouts/admin_layout/header_menu"
+            / end:: Header Menu
+            / begin:: Header Topbar
+            = render partial: "/layouts/admin_layout/header_topbar"
+            / end:: Header Topbar
+          / end:: Header
+          .kt-grid__item.kt-grid__item--fluid.kt-grid.kt-grid--hor
+            / begin:: Content Head
+            = render partial: "/layouts/admin_layout/navigation_tab"
+            / end:: Content Head
+            / begin:: Content
+            = yield
+            / end:: Content
+          / begin:: Footer
+          = render partial: "/layouts/admin_layout/footer"
+          / end:: Footer
+    / end:: Page
+    / begin::Quick Panel
+    #kt_quick_panel.kt-quick-panel
+      %a#kt_quick_panel_close_btn.kt-quick-panel__close{href: "#"}
+        %i.flaticon2-delete
+      .kt-quick-panel__nav
+        %ul.nav.nav-tabs.nav-tabs-line.nav-tabs-bold.nav-tabs-line-3x.nav-tabs-line-brand.kt-notification-item-padding-x{role: "tablist"}
+          %li.nav-item.active
+            %a.nav-link.active{"data-toggle" => "tab", href: "#kt_quick_panel_tab_notifications", role: "tab"} Notifications
+          %li.nav-item
+            %a.nav-link{"data-toggle" => "tab", href: "#kt_quick_panel_tab_logs", role: "tab"} Audit Logs
+          %li.nav-item
+            %a.nav-link{"data-toggle" => "tab", href: "#kt_quick_panel_tab_settings", role: "tab"} Settings
+      .kt-quick-panel__content
+        .tab-content
+          #kt_quick_panel_tab_notifications.tab-pane.fade.show.kt-scroll.active{role: "tabpanel"}
+            .kt-notification
+              %a.kt-notification__item{href: "#"}
+                .kt-notification__item-icon
+                  %i.flaticon2-line-chart.kt-font-success
+                .kt-notification__item-details
+                  .kt-notification__item-title
+                    New order has been received
+                  .kt-notification__item-time
+                    2 hrs ago
+              %a.kt-notification__item{href: "#"}
+                .kt-notification__item-icon
+                  %i.flaticon2-box-1.kt-font-brand
+                .kt-notification__item-details
+                  .kt-notification__item-title
+                    New customer is registered
+                  .kt-notification__item-time
+                    3 hrs ago
+              %a.kt-notification__item{href: "#"}
+                .kt-notification__item-icon
+                  %i.flaticon2-chart2.kt-font-danger
+                .kt-notification__item-details
+                  .kt-notification__item-title
+                    Application has been approved
+                  .kt-notification__item-time
+                    3 hrs ago
+              %a.kt-notification__item{href: "#"}
+                .kt-notification__item-icon
+                  %i.flaticon2-image-file.kt-font-warning
+                .kt-notification__item-details
+                  .kt-notification__item-title
+                    New file has been uploaded
+                  .kt-notification__item-time
+                    5 hrs ago
+              %a.kt-notification__item{href: "#"}
+                .kt-notification__item-icon
+                  %i.flaticon2-bar-chart.kt-font-info
+                .kt-notification__item-details
+                  .kt-notification__item-title
+                    New user feedback received
+                  .kt-notification__item-time
+                    8 hrs ago
+              %a.kt-notification__item{href: "#"}
+                .kt-notification__item-icon
+                  %i.flaticon2-pie-chart-2.kt-font-success
+                .kt-notification__item-details
+                  .kt-notification__item-title
+                    System reboot has been successfully completed
+                  .kt-notification__item-time
+                    12 hrs ago
+              %a.kt-notification__item{href: "#"}
+                .kt-notification__item-icon
+                  %i.flaticon2-favourite.kt-font-danger
+                .kt-notification__item-details
+                  .kt-notification__item-title
+                    New order has been placed
+                  .kt-notification__item-time
+                    15 hrs ago
+              %a.kt-notification__item.kt-notification__item--read{href: "#"}
+                .kt-notification__item-icon
+                  %i.flaticon2-safe.kt-font-primary
+                .kt-notification__item-details
+                  .kt-notification__item-title
+                    Company meeting canceled
+                  .kt-notification__item-time
+                    19 hrs ago
+              %a.kt-notification__item{href: "#"}
+                .kt-notification__item-icon
+                  %i.flaticon2-psd.kt-font-success
+                .kt-notification__item-details
+                  .kt-notification__item-title
+                    New report has been received
+                  .kt-notification__item-time
+                    23 hrs ago
+              %a.kt-notification__item{href: "#"}
+                .kt-notification__item-icon
+                  %i.flaticon-download-1.kt-font-danger
+                .kt-notification__item-details
+                  .kt-notification__item-title
+                    Finance report has been generated
+                  .kt-notification__item-time
+                    25 hrs ago
+              %a.kt-notification__item{href: "#"}
+                .kt-notification__item-icon
+                  %i.flaticon-security.kt-font-warning
+                .kt-notification__item-details
+                  .kt-notification__item-title
+                    New customer comment recieved
+                  .kt-notification__item-time
+                    2 days ago
+              %a.kt-notification__item{href: "#"}
+                .kt-notification__item-icon
+                  %i.flaticon2-pie-chart.kt-font-warning
+                .kt-notification__item-details
+                  .kt-notification__item-title
+                    New customer is registered
+                  .kt-notification__item-time
+                    3 days ago
+          #kt_quick_panel_tab_logs.tab-pane.fade.kt-scroll{role: "tabpanel"}
+            .kt-notification-v2
+              %a.kt-notification-v2__item{href: "#"}
+                .kt-notification-v2__item-icon
+                  %i.flaticon-bell.kt-font-brand
+                .kt-notification-v2__itek-wrapper
+                  .kt-notification-v2__item-title
+                    5 new user generated report
+                  .kt-notification-v2__item-desc
+                    Reports based on sales
+              %a.kt-notification-v2__item{href: "#"}
+                .kt-notification-v2__item-icon
+                  %i.flaticon2-box.kt-font-danger
+                .kt-notification-v2__itek-wrapper
+                  .kt-notification-v2__item-title
+                    2 new items submited
+                  .kt-notification-v2__item-desc
+                    by Grog John
+              %a.kt-notification-v2__item{href: "#"}
+                .kt-notification-v2__item-icon
+                  %i.flaticon-psd.kt-font-brand
+                .kt-notification-v2__itek-wrapper
+                  .kt-notification-v2__item-title
+                    79 PSD files generated
+                  .kt-notification-v2__item-desc
+                    Reports based on sales
+              %a.kt-notification-v2__item{href: "#"}
+                .kt-notification-v2__item-icon
+                  %i.flaticon2-supermarket.kt-font-warning
+                .kt-notification-v2__itek-wrapper
+                  .kt-notification-v2__item-title
+                    $2900 worth producucts sold
+                  .kt-notification-v2__item-desc
+                    Total 234 items
+              %a.kt-notification-v2__item{href: "#"}
+                .kt-notification-v2__item-icon
+                  %i.flaticon-paper-plane-1.kt-font-success
+                .kt-notification-v2__itek-wrapper
+                  .kt-notification-v2__item-title
+                    4.5h-avarage response time
+                  .kt-notification-v2__item-desc
+                    Fostest is Barry
+              %a.kt-notification-v2__item{href: "#"}
+                .kt-notification-v2__item-icon
+                  %i.flaticon2-information.kt-font-danger
+                .kt-notification-v2__itek-wrapper
+                  .kt-notification-v2__item-title
+                    Database server is down
+                  .kt-notification-v2__item-desc
+                    10 mins ago
+              %a.kt-notification-v2__item{href: "#"}
+                .kt-notification-v2__item-icon
+                  %i.flaticon2-mail-1.kt-font-brand
+                .kt-notification-v2__itek-wrapper
+                  .kt-notification-v2__item-title
+                    System report has been generated
+                  .kt-notification-v2__item-desc
+                    Fostest is Barry
+              %a.kt-notification-v2__item{href: "#"}
+                .kt-notification-v2__item-icon
+                  %i.flaticon2-hangouts-logo.kt-font-warning
+                .kt-notification-v2__itek-wrapper
+                  .kt-notification-v2__item-title
+                    4.5h-avarage response time
+                  .kt-notification-v2__item-desc
+                    Fostest is Barry
+          #kt_quick_panel_tab_settings.tab-pane.kt-quick-panel__content-padding-x.fade.kt-scroll{role: "tabpanel"}
+            %form.kt-form
+              .kt-heading.kt-heading--sm.kt-heading--space-sm Customer Care
+              .form-group.form-group-xs.row
+                %label.col-8.col-form-label Enable Notifications:
+                .col-4.kt-align-right
+                  %span.kt-switch.kt-switch--success.kt-switch--sm
+                    %label
+                      %input{checked: "checked", name: "quick_panel_notifications_1", type: "checkbox"}
+                      %span
+              .form-group.form-group-xs.row
+                %label.col-8.col-form-label Enable Case Tracking:
+                .col-4.kt-align-right
+                  %span.kt-switch.kt-switch--success.kt-switch--sm
+                    %label
+                      %input{name: "quick_panel_notifications_2", type: "checkbox"}
+                      %span
+              .form-group.form-group-last.form-group-xs.row
+                %label.col-8.col-form-label Support Portal:
+                .col-4.kt-align-right
+                  %span.kt-switch.kt-switch--success.kt-switch--sm
+                    %label
+                      %input{checked: "checked", name: "quick_panel_notifications_2", type: "checkbox"}
+                      %span
+              .kt-separator.kt-separator--space-md.kt-separator--border-dashed
+              .kt-heading.kt-heading--sm.kt-heading--space-sm Reports
+              .form-group.form-group-xs.row
+                %label.col-8.col-form-label Generate Reports:
+                .col-4.kt-align-right
+                  %span.kt-switch.kt-switch--sm.kt-switch--danger
+                    %label
+                      %input{checked: "checked", name: "quick_panel_notifications_3", type: "checkbox"}
+                      %span
+              .form-group.form-group-xs.row
+                %label.col-8.col-form-label Enable Report Export:
+                .col-4.kt-align-right
+                  %span.kt-switch.kt-switch--sm.kt-switch--danger
+                    %label
+                      %input{name: "quick_panel_notifications_3", type: "checkbox"}
+                      %span
+              .form-group.form-group-last.form-group-xs.row
+                %label.col-8.col-form-label Allow Data Collection:
+                .col-4.kt-align-right
+                  %span.kt-switch.kt-switch--sm.kt-switch--danger
+                    %label
+                      %input{checked: "checked", name: "quick_panel_notifications_4", type: "checkbox"}
+                      %span
+              .kt-separator.kt-separator--space-md.kt-separator--border-dashed
+              .kt-heading.kt-heading--sm.kt-heading--space-sm Memebers
+              .form-group.form-group-xs.row
+                %label.col-8.col-form-label Enable Member singup:
+                .col-4.kt-align-right
+                  %span.kt-switch.kt-switch--sm.kt-switch--brand
+                    %label
+                      %input{checked: "checked", name: "quick_panel_notifications_5", type: "checkbox"}
+                      %span
+              .form-group.form-group-xs.row
+                %label.col-8.col-form-label Allow User Feedbacks:
+                .col-4.kt-align-right
+                  %span.kt-switch.kt-switch--sm.kt-switch--brand
+                    %label
+                      %input{name: "quick_panel_notifications_5", type: "checkbox"}
+                      %span
+              .form-group.form-group-last.form-group-xs.row
+                %label.col-8.col-form-label Enable Customer Portal:
+                .col-4.kt-align-right
+                  %span.kt-switch.kt-switch--sm.kt-switch--brand
+                    %label
+                      %input{checked: "checked", name: "quick_panel_notifications_6", type: "checkbox"}
+                      %span
+    / end::Quick Panel
+    / begin::Scrolltop
+    #kt_scrolltop.kt-scrolltop
+      %i.fa.fa-arrow-up
+    / end::Scrolltop
+    / begin::Sticky Toolbar
+    %ul.kt-sticky-toolbar{style: "margin-top: 30px;"}
+      %li.kt-sticky-toolbar__item.kt-sticky-toolbar__item--brand{"data-placement" => "left", "data-toggle" => "kt-tooltip", title: "Layout Builder"}
+        %a{href: "builder.html"}
+          %i.flaticon2-gear
+      %li#kt_sticky_toolbar_chat_toggler.kt-sticky-toolbar__item.kt-sticky-toolbar__item--danger{"data-placement" => "left", "data-toggle" => "kt-tooltip", title: "Chat Example"}
+        %a{"data-target" => "#kt_chat_modal", "data-toggle" => "modal", href: "#"}
+          %i.flaticon2-chat-1
+    / end::Sticky Toolbar
+
+    / Begin:: Chat
+    #kt_chat_modal.modal.fade-.modal-sticky-bottom-right{"data-backdrop" => "false", role: "dialog"}
+      .modal-dialog{role: "document"}
+        .modal-content
+          .kt-chat
+            .kt-portlet.kt-portlet--last
+              .kt-portlet__head
+                .kt-chat__head
+                  .kt-chat__left
+                    .kt-chat__label
+                      %a.kt-chat__title{href: "#"} Jason Muller
+                      %span.kt-chat__status
+                        %span.kt-badge.kt-badge--dot.kt-badge--success
+                        Active
+                  .kt-chat__right
+                    .dropdown.dropdown-inline
+                      %button.btn.btn-clean.btn-sm.btn-icon.btn-icon-md{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", type: "button"}
+                        %i.flaticon-more-1
+                      .dropdown-menu.dropdown-menu-fit.dropdown-menu-right.dropdown-menu-md
+                        / begin::Nav
+                        %ul.kt-nav
+                          %li.kt-nav__head
+                            Messaging
+                            %i.flaticon2-information{"data-placement" => "right", "data-toggle" => "kt-tooltip", title: "Click to learn more..."}
+                          %li.kt-nav__separator
+                          %li.kt-nav__item
+                            %a.kt-nav__link{href: "#"}
+                              %i.kt-nav__link-icon.flaticon2-group
+                              %span.kt-nav__link-text New Group
+                          %li.kt-nav__item
+                            %a.kt-nav__link{href: "#"}
+                              %i.kt-nav__link-icon.flaticon2-open-text-book
+                              %span.kt-nav__link-text Contacts
+                              %span.kt-nav__link-badge
+                                %span.kt-badge.kt-badge--brand.kt-badge--rounded- 5
+                          %li.kt-nav__item
+                            %a.kt-nav__link{href: "#"}
+                              %i.kt-nav__link-icon.flaticon2-bell-2
+                              %span.kt-nav__link-text Calls
+                          %li.kt-nav__item
+                            %a.kt-nav__link{href: "#"}
+                              %i.kt-nav__link-icon.flaticon2-dashboard
+                              %span.kt-nav__link-text Settings
+                          %li.kt-nav__item
+                            %a.kt-nav__link{href: "#"}
+                              %i.kt-nav__link-icon.flaticon2-protected
+                              %span.kt-nav__link-text Help
+                          %li.kt-nav__separator
+                          %li.kt-nav__foot
+                            %a.btn.btn-label-brand.btn-bold.btn-sm{href: "#"} Upgrade plan
+                            %a.btn.btn-clean.btn-bold.btn-sm{"data-placement" => "right", "data-toggle" => "kt-tooltip", href: "#", title: "Click to learn more..."} Learn more
+                        / end::Nav
+                    %button.btn.btn-clean.btn-sm.btn-icon{"data-dismiss" => "modal", type: "button"}
+                      %i.flaticon2-cross
+              .kt-portlet__body
+                .kt-scroll.kt-scroll--pull{"data-height" => "410", "data-mobile-height" => "300"}
+                  .kt-chat__messages.kt-chat__messages.kt-chat__messages--modal
+                    .kt-chat__message.kt-bg-light-success
+                      .kt-chat__user
+                        %span.kt-userpic.kt-userpic--circle.kt-userpic--sm
+                          %img{alt: "image", src: "/assets/admin_theme/media/users/100_12.jpg"}
+                        %a.kt-chat__username{href: "#"} Jason Muller
+                        %span.kt-chat__datetime 2 Hours
+                      .kt-chat__text
+                        How likely are you to recommend our company
+                        %br/
+                        to your friends and family?
+                    .kt-chat__message.kt-chat__message--right.kt-bg-light-brand
+                      .kt-chat__user
+                        %span.kt-chat__datetime 30 Seconds
+                        %a.kt-chat__username{href: "#"} You
+                        %span.kt-userpic.kt-userpic--circle.kt-userpic--sm
+                          %img{alt: "image", src: "/assets/admin_theme/media/users/100_5.jpg"}
+                      .kt-chat__text
+                        Hey there, we’re just writing to let you know that you’ve
+                        %br/
+                        been subscribed to a repository on GitHub.
+                    .kt-chat__message.kt-bg-light-success
+                      .kt-chat__user
+                        %span.kt-userpic.kt-userpic--circle.kt-userpic--sm
+                          %img{alt: "image", src: "/assets/admin_theme/media/users/100_12.jpg"}
+                        %a.kt-chat__username{href: "#"} Jason Muller
+                        %span.kt-chat__datetime 30 Seconds
+                      .kt-chat__text
+                        Ok, Understood!
+                    .kt-chat__message.kt-chat__message--right.kt-bg-light-brand
+                      .kt-chat__user
+                        %span.kt-chat__datetime Just Now
+                        %a.kt-chat__username{href: "#"} You
+                        %span.kt-userpic.kt-userpic--circle.kt-userpic--sm
+                          %img{alt: "image", src: "/assets/admin_theme/media/users/100_5.jpg"}
+                      .kt-chat__text
+                        You’ll receive notifications for all issues, pull requests!
+                    .kt-chat__message.kt-bg-light-success
+                      .kt-chat__user
+                        %span.kt-userpic.kt-userpic--circle.kt-userpic--sm
+                          %img{alt: "image", src: "/assets/admin_theme/media/users/100_12.jpg"}
+                        %a.kt-chat__username{href: "#"} Jason Muller
+                        %span.kt-chat__datetime 2 Hours
+                      .kt-chat__text
+                        You were automatically
+                        %b.kt-font-brand subscribed
+                        = succeed "because" do
+                          %br/
+                    .kt-chat__message.kt-chat__message--right.kt-bg-light-brand
+                      .kt-chat__user
+                        %span.kt-chat__datetime 30 Seconds
+                        %a.kt-chat__username{href: "#"} You
+                        %span.kt-userpic.kt-userpic--circle.kt-userpic--sm
+                          %img{alt: "image", src: "/assets/admin_theme/media/users/100_5.jpg"}
+                      .kt-chat__text
+                        You can unwatch this repository immediately
+                        = succeed "by" do
+                          %br/
+                        %a.kt-font-bold.kt-link{href: "#"}
+                    .kt-chat__message.kt-bg-light-success
+                      .kt-chat__user
+                        %span.kt-userpic.kt-userpic--circle.kt-userpic--sm
+                          %img{alt: "image", src: "/assets/admin_theme/media/users/100_12.jpg"}
+                        %a.kt-chat__username{href: "#"} Jason Muller
+                        %span.kt-chat__datetime 30 Seconds
+                      .kt-chat__text
+                        Discover what students who viewed Learn
+                        = succeed "Figma" do
+                          %br/
+                    .kt-chat__message.kt-chat__message--right.kt-bg-light-brand
+                      .kt-chat__user
+                        %span.kt-chat__datetime Just Now
+                        %a.kt-chat__username{href: "#"} You
+                        %span.kt-userpic.kt-userpic--circle.kt-userpic--sm
+                          %img{alt: "image", src: "/assets/admin_theme/media/users/100_5.jpg"}
+                      .kt-chat__text
+                        Most purchased Business courses during this sale!
+              .kt-portlet__foot
+                .kt-chat__input
+                  .kt-chat__editor
+                    %textarea{placeholder: "Type here...", style: "height: 50px"}
+                  .kt-chat__toolbar
+                    .kt_chat__tools
+                      %a{href: "#"}
+                        %i.flaticon2-link
+                      %a{href: "#"}
+                        %i.flaticon2-photograph
+                      %a{href: "#"}
+                        %i.flaticon2-photo-camera
+                    .kt_chat__actions
+                      %button.btn.btn-brand.btn-md.btn-font-sm.btn-upper.btn-bold.kt-chat__reply{type: "button"} reply
+    / ENd:: Chat
+    / begin::Global Config(global config for global JS sciprts)
+    :javascript
+      var KTAppOptions = {"colors":{"state":{"brand":"#5d78ff","dark":"#282a3c","light":"#ffffff","primary":"#5867dd","success":"#34bfa3","info":"#36a3f7","warning":"#ffb822","danger":"#fd3995"},"base":{"label":["#c5cbe3","#a1a8c3","#3d4465","#3e4466"],"shape":["#f0f3ff","#d9dffa","#afb4d4","#646c9a"]}}};
+    / end::Global Config
+    / begin::Global Theme Bundle(used by all pages)
+    %script{src: "/assets/admin_theme/vendors/global/vendors.bundle.js", type: "text/javascript"}
+    %script{src: "/assets/admin_theme/js/demo1/scripts.bundle.js", type: "text/javascript"}
+    / end::Global Theme Bundle
+    / begin::Page Vendors(used by this page)
+    %script{src: "/assets/admin_theme/vendors/custom/fullcalendar/fullcalendar.bundle.js", type: "text/javascript"}
+    %script{src: "/assets/admin_theme/vendors/custom/gmaps/gmaps.js", type: "text/javascript"}
+    / end::Page Vendors
+    / begin::Page Scripts(used by this page)
+    %script{src: "/assets/admin_theme/js/demo1/pages/dashboard.js", type: "text/javascript"}
+    / end::Page Scripts

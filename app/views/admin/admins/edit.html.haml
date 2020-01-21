@@ -1,0 +1,29 @@
+.col-xl-12
+  / begin:: Widgets/Order Statistics
+  .kt-portlet.kt-portlet--height-fluid
+    .kt-portlet__head
+      .kt-portlet__head-label
+        %h3.kt-portlet__head-title
+          Update Profile
+    .kt-portlet__body
+      - if @admin.errors.any?
+        .form-group
+          = render "shared/error_messages", resource: @admin
+    .kt-portlet__body.kt-portlet__body--fluid
+      .kt-widget12
+        .kt-widget12__content
+          = form_with(model: [@admin, @admin], local: true) do |f|
+            .form-group.col-md-5
+              %label First name
+              %br/
+              = f.text_field :first_name , class: "form-control", required: true
+              %span.form-text.text-muted enter your first name
+            .form-group.col-md-5
+              %label Last name
+              %br
+              = f.text_field :last_name, class: "form-control" ,required: true
+              %span.form-text.text-muted enter your last name
+            .kt-portlet__foot
+              .kt-form__action
+                %button.btn.btn-primary{ type: "submit"} Update
+                = link_to 'Back', admin_dashboard_index_path, class: "btn btn-secondary ml-1"

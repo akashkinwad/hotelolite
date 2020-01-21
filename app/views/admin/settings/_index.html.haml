@@ -1,0 +1,28 @@
+.kt-portlet__body
+  .kt-section
+    .kt-section__content
+      .table-responsive
+        %table.table.table-striped.table-head-bg-brand
+          %thead
+            %tr
+              %th Id
+              %th Settings Key
+              %th Value
+              %th Actions
+
+          %tbody
+            - @settings.each do |setting|
+              %tr
+                %td
+                  = setting.id
+                %td
+                  = setting.key
+                %td
+                  = setting.value
+                %td
+                  = link_to edit_admin_setting_path(setting), class: 'btn btn-sm btn-clean btn-icon btn-icon-md', title: "Edit details" do
+                    %i.kt-font-brand.flaticon-edit
+                  = link_to admin_setting_path(setting), "data-confirm" => "Are you sure?", method: :delete, class: 'btn btn-sm btn-clean btn-icon btn-icon-md', title: "Delete Setting" do
+                    %i.kt-font-brand.flaticon-delete
+
+  = paginate @settings

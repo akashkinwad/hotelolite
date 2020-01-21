@@ -1,0 +1,45 @@
+.kt-datatable__pager.kt-datatable--paging-loaded
+  %ul.kt-datatable__pager-nav
+    %li
+      %a.kt-datatable__pager-link.kt-datatable__pager-link--first.kt-datatable__pager-link--disabled{"data-page" => "1", disabled: "disabled", title: "First"}
+        %i.flaticon2-fast-back
+    %li
+      %a.kt-datatable__pager-link.kt-datatable__pager-link--prev.kt-datatable__pager-link--disabled{"data-page" => "1", disabled: "disabled", title: "Previous"}
+        %i.flaticon2-back
+    %li{style: ""}
+    %li{style: "display: none;"}
+      %input.kt-pager-input.form-control{title: "Page number", type: "text"}
+    %li
+      %a.kt-datatable__pager-link.kt-datatable__pager-link-number.kt-datatable__pager-link--active{"data-page" => "1", title: "1"} 1
+    %li
+      %a.kt-datatable__pager-link.kt-datatable__pager-link-number{"data-page" => "2", title: "2"} 2
+    %li
+      %a.kt-datatable__pager-link.kt-datatable__pager-link-number{"data-page" => "3", title: "3"} 3
+    %li
+      %a.kt-datatable__pager-link.kt-datatable__pager-link-number{"data-page" => "4", title: "4"} 4
+    %li
+      %a.kt-datatable__pager-link.kt-datatable__pager-link-number{"data-page" => "5", title: "5"} 5
+    %li
+    %li
+      %a.kt-datatable__pager-link.kt-datatable__pager-link--next{"data-page" => "2", title: "Next"}
+        %i.flaticon2-next
+    %li
+      %a.kt-datatable__pager-link.kt-datatable__pager-link--last{"data-page" => "10", title: "Last"}
+        %i.flaticon2-fast-next
+  .kt-datatable__pager-info
+    .dropdown.bootstrap-select.kt-datatable__pager-size{style: "width: 60px;"}
+      %select.selectpicker.kt-datatable__pager-size{"data-selected" => "10", "data-width" => "60px", tabindex: "-98", title: "Select page size"}
+        %option.bs-title-option{value: ""}
+        %option{value: "10"} 10
+        %option{value: "20"} 20
+        %option{value: "30"} 30
+        %option{value: "50"} 50
+        %option{value: "100"} 100
+      %button.btn.dropdown-toggle.btn-light{"data-toggle" => "dropdown", role: "button", title: "Select page size", type: "button"}
+        .filter-option
+          .filter-option-inner
+            .filter-option-inner-inner 10
+      .dropdown-menu{role: "combobox"}
+        .inner.show{"aria-expanded" => "false", role: "listbox", tabindex: "-1"}
+          %ul.dropdown-menu.inner.show
+    %span.kt-datatable__pager-detail Showing 1 - 10 of 100

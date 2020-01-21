@@ -1,0 +1,89 @@
+:javascript
+  // page specific javascript
+  $(function() {
+    $("#monthlyPlans").click(function () {
+      $("#annualPlans").removeClass('active');
+      $(this).addClass('active');
+      $(".annual").hide();
+      $(".monthly").show();
+    });
+
+    $("#annualPlans").click(function () {
+      $("#monthlyPlans").removeClass('active');
+      $(this).addClass('active');
+      $(".monthly").hide();
+      $(".annual").show();
+    });
+
+    $(".annual").hide();
+
+    $(".monthlyAnnuallyPlans").click(function(){
+      var val = $(this).val();
+      plansList(val);
+    });
+
+    $(document).on("click", '#payment-method input[type=radio]', function() {
+      if ($(this).val() == 'stripe'){
+        $('.pay-with-paypal').hide();
+        $('.stripe-button-el').show();
+      }
+      else{
+        $('.stripe-button-el').hide();
+        $('.pay-with-paypal').show();
+      }
+    })
+
+    $(document).on("click", '.pay-with-paypal', function(e) {
+      $('#pay-with-paypal').attr('disabled', true);
+      e.preventDefault();
+      $.ajax({
+        type: "POST",
+        url: $('.subscription-form').attr('action'),
+        data: $('.subscription-form').serialize(),
+        success: function(data, textStatus, jqXHR){
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+        }
+      })
+    })
+
+    $(document).on("click", '#pay-with-paypal', function() {
+      $("#spinner-modal-window").modal();
+    })
+
+    $(document).on("click", '.cancel-button', function() {
+      location.reload();
+    })
+
+  } );
+
+.kt-portlet
+  .row
+    .col-sm-12
+      .kt-portlet__head
+        .kt-portlet__head-label
+          %span.kt-portlet__head-icon
+            %i.flaticon2-rocket-1.kt-font-danger
+          %h3.kt-portlet__head-title
+            Available Plans
+
+    - if notice.present?
+      .col-sm-8
+        .kt-portlet__head
+          .kt-portlet__head-label
+            .kt-portlet__head-title.alert.alert-solid-success.fade.show{role: "alert"}
+              .alert-icon
+                %i.flaticon-like
+              .alert-text
+                = notice
+              .alert-close
+                %button.close{"aria-label" => "Close", "data-dismiss" => "alert", type: "button"}
+                  %span{"aria-hidden" => "true"}
+                    %i.la.la-close
+
+  .kt-portlet__body
+    .kt-section__content.kt-section__content--solid.custom-btn-group
+      %button.custom-btn.l-round.active.monthlyAnnuallyPlans{type: "button", value: "monthly",id: "monthlyPlans"} Monthly Price
+      %button.custom-btn.r-round.monthlyAnnuallyPlans{type: "button", value: "yearly", id: "annualPlans"} Annual Price
+    .kt-pricing-1.plans-table
+      = render partial: 'index'

@@ -1,0 +1,41 @@
+= form_with(model: [:admin, @setting], local: true) do |form|
+  #kt-portlet.kt-content.kt-grid__item.kt-grid__item--fluid
+    .kt-portlet
+      .kt-portlet__head
+        .kt-portlet__head-label
+          %h3.kt-portlet__head-title
+            #{action_name.capitalize} Setting
+        .kt-portlet__head-toolbar
+          .kt-portlet__head-wrapper
+            = link_to admin_settings_path, class: 'btn btn-clean btn-icon-sm' do
+              %i.la.la-long-arrow-left
+              Back
+      / begin::Form
+      %form.kt-form
+        .kt-portlet__body
+          - if @setting.errors.any?
+            .form-group
+              = render "shared/error_messages", resource: setting
+
+          .kt-section.kt-section--first
+            .kt-section__body
+
+            .form-group
+              %label Key:
+              = form.text_field :key, class: 'form-control', placeholder: 'Enter Key', required: true
+              %span.form-text.text-muted Please enter setting's Key
+
+            .form-group
+              %label Value:
+              = form.text_field :value, class: 'form-control', placeholder: 'Enter Value', required: true
+              %span.form-text.text-muted Please enter setting's Value
+
+        .kt-portlet__foot
+          .kt-form__actions.kt-form__actions--right
+            .row
+              .col-lg-3
+              .col-lg-6
+                %button.btn.btn-primary{type: "submit"} Submit
+                %span.kt-margin-l-10
+                  or
+                  = link_to 'Cancel & Back', admin_settings_path, class: 'kt-link kt-font-bold'

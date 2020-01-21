@@ -1,0 +1,45 @@
+#kt_content.kt-content.kt-grid__item.kt-grid__item--fluid#transaction-id
+  .kt-portlet.kt-portlet--mobile
+    .kt-portlet__head.kt-portlet__head--lg
+      .kt-portlet__head-label
+        %span.kt-portlet__head-icon
+          %i.kt-font-brand.flaticon2-line-chart
+        %h3.kt-portlet__head-title
+          Orders Details
+      .kt-portlet__head-toolbar
+        .kt-portlet__head-wrapper
+          = link_to admin_dashboard_index_path, class: 'btn btn-clean btn-icon-sm' do
+            %i.la.la-long-arrow-left
+            Back
+    .kt-portlet__body
+      .kt-section
+        .kt-section__content
+          .table-responsive
+            %table.table.table-striped.table-head-bg-brand
+              %thead
+                %tr
+                  %th User
+                  %th Payer Email
+                  %th Plan Name
+                  %th Amount
+                  %th Currency
+                  %th Order Id
+                  %th Order Time
+              %tbody
+                - @orders.each do |order|
+                  %tr
+                    %td
+                      = link_to(order.user.full_name,admin_user_path(order.user),html_options = {remote: true, target: '_blank', style: 'color: #0099e5;'})
+                    %td
+                      = order.info.values[1]
+                    %td
+                      = order.subscription.plan.name
+                    %td
+                      = order.info.values[0]
+                    %td
+                      = order.info.values[2]
+                    %td
+                      = order.response.values[0]
+                    %td
+                      = sign_in_at_date_formatter(order.created_at)
+      = paginate @orders

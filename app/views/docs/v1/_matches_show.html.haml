@@ -1,0 +1,127 @@
+.row{:id => "matches_show"}
+  .column.padding-left-column
+    %h2
+      Match Details
+    %p.mt-10.description
+      Fetches details of the match.
+    %h5.http-request
+      Request
+    %ul.description
+      %li
+        Path:&nbsp;
+        %code
+          = api_v1_matches_url + "/\#{match_id}"
+      %li Method:&nbsp; GET
+      %li URL Params
+      %ul
+        %li match_id : Match ID
+      %li Params:
+      %ul
+        %li Api-Token
+    %h5.http-request.mb-20
+      Query parameters
+    %table.table.mt-10.table-params
+      %thead.thead-light
+        %tr
+          %th #
+          %th Parameter
+          %th Required
+          %th Description
+      %tbody
+        %tr
+          %th{:scope => "row"} 1
+          %td Api-Token
+          %td true
+          %td
+            This is the token that will allow you to access the API.
+    %h5.http-request.mb-20
+      Response attributes
+    %table.table.mt-10.table-params
+      %thead.thead-light
+        %tr
+          %th #
+          %th Name
+          %th Type
+          %th Description
+      %tbody
+        %tr
+          %th{:scope => "row"} 1
+          %td id
+          %td Integer
+          %td Match ID.
+        %tr
+          %th{:scope => "row"} 2
+          %td title
+          %td Sting
+          %td Match Title.
+        %tr
+          %th{:scope => "row"} 3
+          %td betfair_event_id
+          %td Integer
+          %td BetFair Event ID.
+        %tr
+          %th{:scope => "row"} 4
+          %td play_status
+          %td Sting
+          %td Play status : [in_play, concluded etc].
+        %tr
+          %th{:scope => "row"} 5
+          %td team1
+          %td String
+          %td Team 1 name.
+        %tr
+          %th{:scope => "row"} 6
+          %td team2
+          %td String
+          %td Team 2 name.
+        %tr
+          %th{:scope => "row"} 7
+          %td sequence_string
+          %td String
+          %td Sequence String.
+        %tr
+          %th{:scope => "row"} 8
+          %td venue
+          %td String
+          %td Venue of the match.
+        %tr
+          %th{:scope => "row"} 9
+          %td event_type
+          %td String
+          %td Event type [cricket, football].
+        %tr
+          %th{:scope => "row"} 10
+          %td tournament
+          %td Boolean
+          %td Is tournament.
+        %tr
+          %th{:scope => "row"} 11
+          %td status
+          %td String
+          %td Match Bet Status.
+        %tr
+          %th{:scope => "row"} 12
+          %td event_sub_type
+          %td String
+          %td Match Subtype.
+        %tr
+          %th{:scope => "row"} 13
+          %td start_time
+          %td String
+          %td Start Time of the match.
+        %tr
+          %th{:scope => "row"} 14
+          %td photo
+          %td String
+          %td Photo url.
+
+  .column.code
+    %h5.header-box
+      Example Request
+    %p.apply-padding
+      %code.code
+        = "curl --request GET \"#{api_v1_match_url(57)}\" -H \"Api-Token: b03bc008f57b9f465061285cc3c42016bd6f7e1f0de5108fd1\""
+    %h5.header-box
+      Example Response
+    %pre.apply-padding
+      %code.code#match_show_json

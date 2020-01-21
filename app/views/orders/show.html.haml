@@ -1,0 +1,56 @@
+#kt_content.kt-content.kt-grid__item.kt-grid__item--fluid
+  .kt-portlet
+    .kt-portlet__body.kt-portlet__body--fit
+      .kt-invoice-1
+        .kt-invoice__wrapper
+          .kt-invoice__head{:style => "background-image: url(/assets/user/media/bg/bg-6.jpg);"}
+            .kt-invoice__container.kt-invoice__container--centered
+              .kt-invoice__logo
+                %a{:href => "#"}
+                  %h1 INVOICE
+                %a{:href => "#"}
+                  %img{:src => "/assets/user/media/logos/gp_2.png",height: "25px"}/
+              %span.kt-invoice__desc
+                %span
+                %span
+              .kt-invoice__items
+                .kt-invoice__item
+                  %span.kt-invoice__subtitle DATE
+                  %span.kt-invoice__text #{sign_in_at_date_formatter(@order.created_at)}
+                .kt-invoice__item
+                  %span.kt-invoice__subtitle INVOICE NO.
+                  %span.kt-invoice__text  #{ @order.response.values[0]}
+                .kt-invoice__item
+                  %span.kt-invoice__subtitle INVOICE TO.
+                  %span.kt-invoice__text #{current_user.full_name}
+                  %br>/
+          .kt-invoice__body.kt-invoice__body--centered
+            .table-responsive
+              %table.table
+                %thead
+                  %tr
+                    %th ID
+                    %th PLAN NAME
+                    %th CURRENCY
+                    %th AMOUNT
+                %tbody
+                  %tr
+                    %td
+                      = 1
+                    %td
+                      = @order.subscription.plan.name
+                    %td
+                      = @order.info.values[2]
+                    %td
+                      = @order.info.values[0]
+          .kt-invoice__footer
+            .kt-invoice__container.kt-invoice__container--centered
+              .kt-invoice__content
+                %span Payment Method
+                %span
+                  %span paypal:
+                  %span #{@order.info.values[1]}
+              .kt-invoice__content
+                %span TOTAL AMOUNT
+                %span.kt-invoice__price #{@order.info.values[0]}
+                %span Taxes Included

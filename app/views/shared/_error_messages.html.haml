@@ -1,0 +1,11 @@
+- if resource.errors.any?
+  .toast.fade.show{"aria-atomic" => "true", "aria-live" => "assertive", role: "alert"}
+    .toast-header
+      %i.zwicon-smile.text-red
+      %strong Error..!
+      %small
+      %i.zwicon-close-circle{"data-dismiss" => "toast"}
+    .toast-body
+      %ul
+        - resource.errors.full_messages.each do |message|
+          %li= message

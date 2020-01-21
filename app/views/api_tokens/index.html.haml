@@ -1,0 +1,30 @@
+#kt_content.kt-content.kt-grid__item.kt-grid__item--fluid.api_token-outer
+  .kt-portlet.kt-portlet--mobile.bx-shadow
+    .kt-portlet__head.kt-portlet__head--lg
+      .kt-portlet__head-label
+        %span.kt-portlet__head-icon
+          %i.kt-font-danger.flaticon2-paper-plane
+        %h3.kt-portlet__head-title
+          Api Token
+      .kt-portlet__head-toolbar
+        .kt-portlet__head-wrapper
+          %a.btn.btn-clean.btn-icon-sm{href: "/dashboard#index"}
+            %i.la.la-long-arrow-left
+            Back
+
+    .kt-portlet__body
+      = form_for @api_token, url: api_tokens_path,id:'create_id', remote: true do |f|
+        .form-group.row
+          %label.col-sm-3.col-form-label.text-md-right{for: "example-text-input"} Token Name
+          .col-sm-5
+            = f.text_field :name, required: true, placeholder: "Enter API Token name", class: "form-control api-input", id: 'api-token-name'
+            = f.hidden_field :user_id, value: current_user.id
+            = f.hidden_field :token, value: @token
+          .col-sm-4
+            = f.submit "Create", id: "api-token-submit", class: "btn btn-primary"
+
+    .api-tokens-table
+      = render partial: 'index'
+
+= render partial: 'copy_to_clipboard'
+= render partial: 'api_token_edit_modal'

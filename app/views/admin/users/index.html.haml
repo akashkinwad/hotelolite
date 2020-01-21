@@ -1,0 +1,73 @@
+/ #kt_content.kt-content.kt-grid__item.kt-grid__item--fluid
+/   .kt-portlet.kt-portlet--mobile
+/     .kt-portlet__head.kt-portlet__head--lg
+/       .kt-portlet__head-label
+/         %span.kt-portlet__head-icon
+/           %i.kt-font-brand.flaticon2-line-chart
+/         %h3.kt-portlet__head-title
+/           Users
+/       .kt-portlet__head-toolbar
+/         .kt-portlet__head-wrapper
+/           = link_to admin_dashboard_index_path, class: 'btn.btn-clean.btn-icon-sm', title: "Show user details" do
+/             %i.la.la-long-arrow-left
+/             Back
+/     - if notice.present?
+/       = render "shared/notice", notice: notice
+/     .kt-portlet__body
+/       .kt-section
+/         .kt-section__content
+/           .table-responsive
+/             %table.table.table-striped.table-head-bg-brand
+/               %thead
+/                 %tr
+/                   %th Id
+/                   %th First Name
+/                   %th Last Name
+/                   %th Email
+/                   %th Actions
+/               %tbody
+/                 - @users.each do |user|
+/                   %tr
+/                     %td
+/                       = user.id
+/                     %td
+/                       = user.first_name
+/                     %td
+/                       = user.last_name
+/                     %td
+/                       = user.email
+/                     %td
+/                       = link_to admin_user_path(user), class: 'btn btn-sm btn-clean btn-icon btn-icon-md', title: "Show details" do
+/                         %i.kt-font-brand.flaticon-eye
+
+/       = paginate @users
+
+%header.content__title
+  %h1 ALL USER'S
+.card
+  .card-body
+    .table-responsive.data-table
+      %table#data-table.table
+        %thead
+          %tr
+            %th First Name
+            %th Last Name
+            %th Email
+            %th Action
+        %tbody
+          - @users.each do |user|
+            %tr
+              %td
+                = user.first_name
+              %td
+                = user.last_name
+              %td
+                = user.email
+              %td
+                %button.btn.btn-theme-dark.btn--icon>
+                  %i.zwicon-edit-square
+
+                %button.btn.btn-theme-dark.btn--icon
+                  %i.zwicon-user-delete
+
+      = paginate @users

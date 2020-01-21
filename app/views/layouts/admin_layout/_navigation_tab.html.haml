@@ -1,0 +1,11 @@
+#kt_subheader.kt-subheader.kt-grid__item
+  .kt-subheader__main
+    %h3.kt-subheader__title
+      = link_to 'Dashboard', admin_dashboard_index_path
+    %span.kt-subheader__separator.kt-subheader__separator--v
+    %span.kt-subheader__desc
+      = link_to controller_name.capitalize, controller: controller_path
+    - unless action_name == 'index'
+      %span.kt-subheader__separator.kt-subheader__separator--v
+      %span.kt-subheader__desc
+        = action_name.capitalize

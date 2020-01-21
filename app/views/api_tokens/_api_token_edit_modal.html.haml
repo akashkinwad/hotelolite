@@ -1,0 +1,10 @@
+#api-token-modal.modal{role: "dialog"}
+  .modal-dialog{role: "document"}
+    .modal-content
+      .modal-header
+        %h5#api-token-title.modal-title
+          Edit Token("#{@api_token.name})"
+      .modal-body#api-token-edit
+      .modal-footer#api-token-update
+        %button.btn.btn-secondary{"data-dismiss" => "modal", type: "button"} Close
+

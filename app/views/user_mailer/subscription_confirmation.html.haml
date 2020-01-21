@@ -1,0 +1,8 @@
+%h5.head
+  Hi
+  %span.user_name
+    = @subscription.user.full_name.try(:capitalize)
+  %br/
+  You have been successfully subscribe for plan
+%h4.title
+  = @subscription.plan.name

@@ -1,0 +1,12 @@
+- if resource.errors.any?
+  .alert.alert-outline-danger.fade.show{role: "alert"}
+    .alert-icon
+      %i.flaticon-questions-circular-button
+    .alert-text
+      %ul
+        - resource.errors.full_messages.each do |message|
+          %li= message
+    .alert-close
+      %button.close{"aria-label" => "Close", "data-dismiss" => "alert", type: "button"}
+        %span{"aria-hidden" => "true"}
+          %i.la.la-close

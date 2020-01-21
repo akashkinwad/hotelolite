@@ -1,0 +1,32 @@
+test: &default
+
+  # Credentials for REST APIs
+  mode: sandbox
+  client_id: AZG_tq-IRQjY2TGXCO-qM28u2xvvitRYkY8nsEfEzNeV9m1zbXoBwcTKDvY-d0G5nhS8mcDCmTJmDEM6
+  client_secret: EPbCLzEuaewxA9R_KhVxEF0CVLck57YSnBsw8Kn45tJsT3T_H0kRtsoXDiYlERZQ74AzrnwCP2egM19t
+
+  # Mode can be 'live' or 'sandbox'
+
+  # Credentials for Classic APIs
+  # app_id: APP-80W284485P519543T
+  # username: soham.jiratest-facilitator@gmail.com
+  # password: UDFXXZXT9ZBNSL4U
+  # signature: AHJGgoogylgSXthma812sdXYTV0sARxaasFT6eEqjNsNUnE45u8Cqy8M
+  # # With Certificate
+  # cert_path: "config/cert_key.pem"
+  # sandbox_email_address: soham.jiratest-facilitator@gmail.com
+
+  # # IP Address
+  # ip_address: 127.0.0.1
+  # # HTTP Proxy
+  # http_proxy: http://proxy-ipaddress:3129/
+
+development:
+  <<: *default
+
+production:
+  <<: *default
+  mode: live
+
+demo:
+  <<: *default

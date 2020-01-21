@@ -1,0 +1,15 @@
+.row{:id => "authentication"}
+  .column.padding-left-column
+    %h2
+      Authentication
+    %p.mt-10.description
+      Hoteloite uses API keys to allow access to the API. You can register a new Hoteloite API key
+      = link_to('here.', api_tokens_path, html_options = {target: '_blank', style: 'color: #0099e5;'})
+    %p.mt-10.description
+      Hoteloite expects the API key that can be included in all API requests to the server as part of the request.
+  .column.code
+    %p.mt-10.apply-padding
+      %code.code
+        Go to
+        = link_to(api_tokens_url, api_tokens_path, html_options = {target: '_blank', style:'color: #0099e5;;'})
+        &nbsp;to create an API token.

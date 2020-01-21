@@ -1,0 +1,52 @@
+%html{lang: "en"}
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %meta{charset: "utf-8"}
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}
+    %meta{content: "width=device-width, initial-scale=1, shrink-to-fit=no", name: "viewport"}
+    %title Hoteloite | Admin Login
+    %link{href: "favicon.png", rel: "shortcut icon", type: "image/png"}
+    / Vendor styles
+    %link{href: "/assets/new_admin/vendors/zwicon/zwicon.min.css", rel: "stylesheet"}
+    %link{href: "/assets/new_admin/vendors/animate.css/animate.min.css", rel: "stylesheet"}
+    / App styles
+    %link{href: "/assets/new_admin/css/app.min.css", rel: "stylesheet"}
+  %body
+    .login
+      / Login
+      #login-main.login__block.active
+        .login__header
+          %i.zwicon-user-circle
+          Hi there! Please Sign in
+        .login__body
+          .login__inputs
+            = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "kt-form" }) do |f|
+              .form-group
+                = f.text_field :email, class: "form-control text-center", placeholder: "Email"
+              .form-group
+                = f.password_field :password, class: "form-control text-center", placeholder: "Password"
+
+              %button.login__btn{type: "submit"} Login
+              .login__helper
+                %a{"data-login-switch" => "#login-forgot", href: "#"} Forgot password?
+
+      / Forgot Password
+      #login-forgot.login__block
+        .login__header
+          %i.zwicon-user-circle
+          Forgot Password?
+        .login__body
+          %p.mb-4 Please enter your email address to receive password reset email.
+          .login__inputs
+            .form-group
+              %input.form-control.text-center{placeholder: "Email Address", type: "text"}
+          %a.login__btn{href: "index.html"} Reset password
+          .login__helper
+            %a{"data-login-switch" => "#login-main", href: "#"} Back to login
+    / Vendors
+    %script{src: "/assets/new_admin/vendors/jquery/jquery.min.js"}
+    %script{src: "/assets/new_admin/vendors/popper.js/popper.min.js"}
+    %script{src: "/assets/new_admin/vendors/bootstrap/js/bootstrap.min.js"}
+    / App functions
+    %script{src: "/assets/new_admin/js/app.min.js"}
+  / Mirrored from byrushan.com/projects/maed/app/2.0/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Jan 2020 17:30:04 GMT

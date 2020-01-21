@@ -1,0 +1,78 @@
+// Place all the styles related to the Docs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.code {
+  background: #2d3134 !important;
+  color: #d0d4d7;
+  font-size: 12px;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  background: #fff;
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.http-request {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.table-params {
+  font-size: 12px;
+}
+
+.description {
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+.json-key {
+ color: #f4bf75;
+}
+.json-value {
+ color: #0099e5;
+}
+.json-string {
+  color: #a6e22e;
+}
+
+.header-box {
+  margin-bottom: 20px;
+  background-color: black;
+  padding: 15px 15px;
+}
+
+.apply-padding {
+  padding: 10px;
+}
+
+.padding-left-column{
+  padding: 10px;
+}

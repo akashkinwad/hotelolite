@@ -1,0 +1,94 @@
+.kt-content.kt-grid__item.kt-grid__item--fluid
+  .row
+    .col-xl-12
+      .kt-portlet.bx-shadow
+        .kt-portlet__head
+          .kt-portlet__head-label
+            %span.kt-portlet__head-icon
+              %i.kt-font-danger.flaticon2-paper-plane
+            %h3.kt-portlet__head-title
+              Api Calls Statistics
+
+        - if notice.present?
+          .col-xl-12
+            .kt-portlet__head
+              .kt-portlet__head-label
+                .kt-portlet__head-title.alert.alert-solid-success.fade.show{role: "alert"}
+                  .alert-icon
+                    %i.flaticon-like
+                  .alert-text
+                    = notice
+                  .alert-close
+                    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", type: "button"}
+                      %span{"aria-hidden" => "true"}
+                        %i.la.la-close
+
+        .kt-portlet__body
+          .kt-widget12.w-inherit
+            .kt-widget12__content{style: "flex-grow: 0;"}
+              .kt-widget12__item
+                .kt-widget12__info
+                  %span.kt-widget12__desc Total Calls Today
+                  %span.kt-widget12__value
+                    / = current_user.call_per_day
+                .kt-widget12__info
+                  %span.kt-widget12__desc Today
+                  %span.kt-widget12__value
+                    = Date.today.strftime("%B %d, %Y")
+              .kt-widget12__item{style: "margin-bottom: 0;"}
+                .kt-widget12__info
+                  %span.kt-widget12__desc Total Calls This Hour
+                  %span.kt-widget12__value
+                    / = "#{current_user.total_requests_in_hour} / H"
+                .kt-widget12__info
+                  %span.kt-widget12__desc Requests for this Hour
+                  .kt-widget12__progress
+                    .progress.kt-progress--sm
+                      .progress-bar.kt-bg-brand{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "100", role: "progressbar", style: "width: #{current_user.requests_progress_bar}%;"}
+                    %span.kt-widget12__stat
+                      / = "#{current_user.requests_progress_bar}%"
+
+.kt-content.kt-grid__item.kt-grid__item--fluid
+  .row
+    .col-xl-12
+      .kt-portlet.bx-shadow
+        .kt-portlet__head
+          .kt-portlet__head-label
+            %span.kt-portlet__head-icon
+              %i.kt-font-danger.flaticon2-chart
+            %h3.kt-portlet__head-title
+              API Usage This Hour
+        .kt-portlet__body
+          .kt-widget12.w-inherit
+            .kt-widget12__chart{style: "height:300px;"}
+              / # = area_chart current_user.api_calls_this_hour
+
+.kt-content.kt-grid__item.kt-grid__item--fluid
+  .row
+    .col-xl-12
+      .kt-portlet.bx-shadow
+        .kt-portlet__head
+          .kt-portlet__head-label
+            %span.kt-portlet__head-icon
+              %i.kt-font-danger.flaticon2-chart
+            %h3.kt-portlet__head-title
+              API Usage Today
+        .kt-portlet__body
+          .kt-widget12.w-inherit
+            .kt-widget12__chart{style: "height:300px;"}
+              / # = area_chart current_user.call_per_day_per_hour
+
+.kt-content.kt-grid__item.kt-grid__item--fluid
+  .row
+    .col-xl-12
+      .kt-portlet.bx-shadow
+        .kt-portlet__head
+          .kt-portlet__head-label
+            %span.kt-portlet__head-icon
+              %i.kt-font-danger.flaticon2-chart
+            %h3.kt-portlet__head-title
+              API Usage Last 30 Days
+        .kt-portlet__body
+          .kt-widget12.w-inherit
+            .kt-widget12__chart{style: "height:300px;"}
+              / = line_chart current_user.last_thirty_days_calls

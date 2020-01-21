@@ -1,0 +1,61 @@
+= form_with(model: [@plan, @subscription], local: true, class: 'subscription-form') do |form|
+  .modal-dialog.modal-dialog-centered{role: "document"}
+    .modal-content
+      .modal-header
+        %h5#exampleModalLongTitle.modal-title Purchase Review
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
+      .modal-body
+        = form.hidden_field :plan_id, value: @subscription.plan_id
+        = form.hidden_field :user_id, value: @subscription.user_id
+        = form.hidden_field :s_type, value: @subscription.s_type
+        .kt-widget12
+          .kt-portlet__body.kt-portlet__body--fi
+            .kt-widget12__content
+              .kt-widget12__item
+                .kt-widget12__info
+                  %span.kt-widget12__desc Plan:
+                  .kt-widget12__value
+                    = @plan.name
+                .kt-widget12__info
+                  %span.kt-widget12__desc Subscription Type :
+                  .kt-widget12__value
+                    = @subscription.s_type
+              .kt-widget12__item
+                .kt-widget12__info
+                  %span.kt-widget12__desc Price :
+                  .kt-widget12__value
+                    = (@subscription.s_type == 'monthly' ? @plan.price_per_month : @plan.price_per_year)
+                    %span.kt-pricing-1__label &#8377
+                .kt-widget12__info
+                  %span.kt-widget12__desc Auto Renewal :
+                  .kt-widget12__value
+                    %span.kt-switch.kt-switch--outline.kt-switch--icon.kt-switch--success
+                      %label
+                        = form.check_box :auto_renewal, class: 'form-control'
+                        %span
+
+              - if USE_STRIPE_PAYMENT_GATEWAY
+                .kt-widget12__item
+                  .kt-widget12__info
+                    %span.kt-widget12__desc Payment Method :
+                    .kt-widget12__value
+                      .kt-radio-inline#payment-method
+                        %label
+                          = radio_button_tag :payment_method, "paypal"
+                          = image_tag "ppcom.svg"
+                        %label
+                          = radio_button_tag :payment_method, "stripe", checked: true
+                          = image_tag "credit-card.jpg", style: "max-width: 100px;"
+              - else
+                = hidden_field_tag :payment_method, "paypal"
+
+      .modal-footer
+        - if USE_STRIPE_PAYMENT_GATEWAY
+          %button.cancel-button.btn.btn-secondary{"data-dismiss" => "modal", type: "button"} Cancel
+          = link_to 'Pay with Paypal', 'JavaScript:Void(0)', class: 'btn btn-primary pay-with-paypal', id: 'pay-with-paypal', style: 'display: none;'
+          .actions
+            %script.stripe-button.pay-with-stripe{ src: "https://checkout.stripe.com/checkout.js",
+              data: { currency: 'inr', amount: @subscription.price*100, description: @plan.name, key: Rails.application.secrets.stripe_publishable_key }}
+        - else
+          %button.cancel-button.btn.btn-secondary{"data-dismiss" => "modal", type: "button"} Cancel
+          %button.btn.btn-primary.pay-with-paypal{id: 'kt_blockui_4_4', type: "submit"} Pay with Paypal

@@ -1,0 +1,12 @@
+#apiTokenModal.modal{"aria-labelledby" => "exampleModalLabel"}
+  .modal-dialog.modal-lg{role: "document"}
+    .modal-content
+      .modal-header
+        %h5#exampleModalLabel.modal-title API Token
+      .modal-body
+        .alert.alert-solid-warning
+          Here is your new API token. This is the only time the token will ever be displayed, so be sure not to lose it! You may revoke the token at any time from your API settings.
+        %textarea#api-token.form-control{rows: "5", style: "margin-top: 0px; margin-bottom: 0px; height: 63px;"}
+      .modal-footer
+        %button{class: "btn btn-brand", onclick: "copy_token()"}Copy To Clipboard
+        %button{class: "btn btn-secondary", "data-dismiss":"modal", id: "close-token-modal"}Close

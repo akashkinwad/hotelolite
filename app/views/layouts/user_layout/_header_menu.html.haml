@@ -1,0 +1,37 @@
+%button#kt_header_menu_mobile_close_btn.kt-header-menu-wrapper-close
+  %i.la.la-close
+#kt_header_menu_wrapper.kt-header-menu-wrapper.kt-grid__item.kt-grid__item--fluid
+  #kt_header_menu.kt-header-menu.kt-header-menu-mobile
+    %ul.kt-menu__nav
+      %li.kt-menu__item{class: @breadcrumb[:dashboard]}
+        = link_to root_path, class: 'kt-menu__link' do
+          %span.kt-menu__link-text Dashboard
+          %i.kt-menu__ver-arrow.la.la-angle-right
+
+      %li.kt-menu__item{class: @breadcrumb[:api_tokens]}
+        = link_to api_tokens_path, class: "kt-menu__link" do
+          %span.kt-menu__link-text Api Token
+          %i.kt-menu__ver-arrow.la.la-angle-right
+
+      %li.kt-menu__item.kt-menu__item--submenu.kt-menu__item--rel{class: @breadcrumb[:plans],"aria-haspopup" => "true", "data-ktmenu-submenu-toggle" => "click"}
+        %a.kt-menu__link.kt-menu__toggle
+          %span.kt-menu__link-text Plans
+          %i.kt-menu__ver-arrow.la.la-angle-right
+        .kt-menu__submenu.kt-menu__submenu--classic.kt-menu__submenu--left
+          %ul.kt-menu__subnav
+            %li.kt-menu__item{class: (@sub_menu[:plans] if @sub_menu)}
+              = link_to plans_path, class: "kt-menu__link" do
+                %span.kt-menu__link-text Available Plans
+                %i.kt-menu__ver-arrow.la.la-angle-right
+            %li.kt-menu__item{class: (@sub_menu[:subscriptions] if @sub_menu)}
+              = link_to user_path(current_user), class: "kt-menu__link" do
+                %span.kt-menu__link-text My Subscriptions
+                %i.kt-menu__ver-arrow.la.la-angle-right
+            %li.kt-menu__item{class: (@sub_menu[:orders] if @sub_menu)}
+              = link_to user_orders_path(current_user), class: "kt-menu__link" do
+                %span.kt-menu__link-text Invoices
+                %i.kt-menu__ver-arrow.la.la-angle-right
+      %li.kt-menu__item
+        = link_to docs_v1_path, class: "kt-menu__link", target: "_blank" do
+          %span.kt-menu__link-text Docs
+          %i.kt-menu__ver-arrow.la.la-angle-right

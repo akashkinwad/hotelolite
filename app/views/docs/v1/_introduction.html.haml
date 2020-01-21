@@ -1,0 +1,12 @@
+.row{:id => "introduction"}
+  .column.padding-left-column
+    %h2
+      Introduction
+    %p.mt-10.description
+      Welcome to the Hoteloite API v1.0 documentation. In this section of our website we hope to give you more insights in how our cricket API works so you can start implementing it in no time into your application.
+  .column.code
+    %h5.header-box
+      Base URL
+    %p.apply-padding
+      %code.code
+        = api_v1_matches_url.slice(0..(api_v1_matches_url.index('/matches')-1))

@@ -1,0 +1,67 @@
+= form_with(model: [@plan, @subscription], local: true) do |form|
+
+  #kt_content.kt-content.kt-grid__item.kt-grid__item--fluid
+    .kt-portlet
+      .kt-portlet__head
+        .kt-portlet__head-label
+          %h3.kt-portlet__head-title
+            Billing Information
+        .kt-portlet__head-toolbar
+          .kt-portlet__head-wrapper
+            = link_to plans_path, class: 'btn btn-clean btn-icon-sm' do
+              %i.la.la-long-arrow-left
+              Back
+      / begin::Form
+
+      %form.kt-form
+        .kt-portlet__body
+          - if subscription.errors.any?
+            .form-group
+              = render "shared/error_messages", resource: subscription
+
+          = form.hidden_field :plan_id, value: @subscription.plan_id
+          = form.hidden_field :user_id, value: @subscription.user_id
+
+          .form-group.row
+            %label.col-3.col-form-label Plan Name :
+            .col-3
+              %span.kt-switch.kt-switch--outline.kt-switch--icon.kt-switch--success
+                %label
+                  = @plan.name
+
+          .form-group.row
+            %label.col-3.col-form-label Subscription Type :
+            .col-3
+              %span.kt-switch.kt-switch--outline.kt-switch--icon.kt-switch--success
+                %label
+                  = @subscription.s_type
+                  = form.hidden_field :s_type, value: @subscription.s_type
+
+          .form-group.row
+            %label.col-3.col-form-label Price :
+            .col-3
+              %span.kt-switch.kt-switch--outline.kt-switch--icon.kt-switch--success
+                %label
+                  = (@subscription.s_type == 'monthly' ? @plan.price_per_month : @plan.price_per_year)
+          .form-group.row
+            %label.col-3.col-form-label Sport Type :
+            .col-3
+              %span.kt-switch.kt-switch--outline.kt-switch--icon.kt-switch--success
+                %label
+                  = @plan.sports_type
+
+          .form-group.row
+            %label.col-3.col-form-label Auto Renewal :
+            .col-3
+              %span.kt-switch.kt-switch--outline.kt-switch--icon.kt-switch--success
+                %label
+                  = form.check_box :auto_renewal, class: 'form-control'
+                  %span
+              %span.form-text.text-muted Please select Auto Renewal
+
+        .kt-portlet__foot
+          .kt-form__actions.kt-form__actions--right
+            %button.btn.btn-primary{type: "submit"} Purchase
+            %span.kt-margin-l-10
+              or
+              = link_to 'Cancel & Back', plans_path, class: 'kt-link kt-font-bold'

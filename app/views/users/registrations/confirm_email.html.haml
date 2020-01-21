@@ -1,0 +1,32 @@
+.kt-grid.kt-grid--ver.kt-grid--root
+  #kt_login.kt-grid.kt-grid--hor.kt-grid--root.kt-login.kt-login--v1
+    .kt-grid__item.kt-grid__item--fluid.kt-grid.kt-grid--desktop.kt-grid--ver-desktop.kt-grid--hor-tablet-and-mobile
+      .kt-grid__item.kt-grid__item--order-tablet-and-mobile-2.kt-grid.kt-grid--hor.kt-login__aside{style: "background-image: url(/assets/admin/media/bg/bg-4.jpg);"}
+        .kt-grid__item
+          %a.kt-login__logo{href: "/users/sign_in"}
+            %img{src: "/assets/user/media/logos/gp_2.png", height: '25px'}
+        .kt-grid__item.kt-grid__item--fluid.kt-grid.kt-grid--ver
+          .kt-grid__item.kt-grid__item--middle
+            %h3.kt-login__title Welcome to Hoteloite!
+            %h4.kt-login__subtitle The ultimate Bootstrap  Angular 6 admin theme framework for next generation web apps.
+        .kt-grid__item
+          .kt-login__info
+            .kt-login__copyright
+              2019 Hoteloite
+            .kt-login__menu
+              %a.kt-link{href: "#"} Privacy
+              %a.kt-link{href: "#"} Legal
+              %a.kt-link{href: "#"} Contact
+      .kt-grid__item.kt-grid__item--fluid.kt-grid__item--order-tablet-and-mobile-1.kt-login__wrapper
+        .kt-login__head
+          %span.kt-login__signup-label Don't have an account yet?
+          %a.kt-link.kt-login__signup-link{href: "/users/sign_up"} Sign Up!
+        .kt-login__body
+          .kt-login__form
+            .kt-login__title
+              %h5 A message with a confirmation link has been sent to your email address. Please follow the link in email to activate your account.
+              %br
+              %br
+              %br
+              %br
+              = link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class: 'actions btn btn-primary btn-elevate kt-login__btn-primary btn-block'

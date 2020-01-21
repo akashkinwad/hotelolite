@@ -1,0 +1,21 @@
+.modal.fade{id: "features_modal-#{plan.id}", "aria-hidden" => "true", "aria-labelledby" => "featuresModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog{role: "document"}
+    .modal-content
+      .modal-header
+        %h5#featuresModalLabel.modal-title
+          = plan.name
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
+      .modal-body
+        %p
+          Features :
+        %p
+          = raw(plan.features)
+        %p
+          Have access to below Tournaments :
+          %ul{style: 'padding-left: 42px'}
+            - plan.tournaments.each do |tour|
+              %li.kt-nav__section
+                = tour.name.capitalize
+
+      .modal-footer
+        %button.btn.btn-secondary{"data-dismiss" => "modal", type: "button"} Close

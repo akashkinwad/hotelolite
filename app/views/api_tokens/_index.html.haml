@@ -1,0 +1,26 @@
+.kt-portlet__body
+  .kt-section
+    .kt-section__content
+      .table-responsive
+        %table.table.table-striped.table-head-bg-brand
+          %thead
+            %tr
+              %th Number
+              %th Token Name
+              %th Created Time
+              %th Actions
+
+          %tbody
+            - @api_tokens.each_with_index do |api_token, index|
+              %tr
+                %td
+                  = (index + 1)
+                %td
+                  = api_token.name
+                %td
+                  = sign_in_at_date_formatter(api_token.created_at)
+                %td
+                  = link_to edit_api_token_path(api_token),remote: true, class: 'btn btn-sm btn-clean btn-icon btn-icon-md', title: "Edit details" do
+                    %i.kt-font-brand.flaticon-edit
+                  = link_to api_token,remote: true, method: :delete,  data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-clean btn-icon btn-icon-md' do
+                    %i.kt-font-brand.flaticon-delete

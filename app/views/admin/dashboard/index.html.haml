@@ -1,0 +1,313 @@
+/ :javascript
+/   // page specific javascript
+/   $(function() {
+/     $(".recently-joined").click(function(){
+/       var val = $(this).val();
+/       usersList(val);
+/     });
+
+/     usersList('today');
+/   } );
+
+%header.content__title
+  %h1
+    Dashboard
+    %small Welcome Prashant Shinde..!
+.row
+  .col-md-4
+    .card.stats
+      .card-body
+        %h4.card-title Total Users
+        %h6.card-subtitle Check user details in user list.
+        .stats__info.text-blue 120
+      .stats__2.stats__chart
+  .col-md-4
+    .card.stats
+      .card-body
+        %h4.card-title Website Visited
+        %h6.card-subtitle Number of visitors of website.
+        .stats__info.text-amber 1000
+      .stats__1.stats__chart
+  .col-md-4
+    .card.stats
+      .card-body
+        %h4.card-title Active
+        %h6.card-subtitle Todays Active users.
+        .stats__info.text-purple 5
+      .stats__3.stats__chart
+.card-columns.widget-lists
+  .card.signups
+    .card-body
+      %h4.card-title Most Recent Signups
+      %h6.card-subtitle Magna cursus malesuada lacinia
+      .signups__list
+        %a{"data-toggle" => "tooltip", href: "#", title: "Jani Popovich"}
+          .avatar-char A
+        %a{"data-toggle" => "tooltip", href: "#", title: "Rosina Lamont"}
+          .avatar-char R
+        %a{"data-toggle" => "tooltip", href: "#", title: "Wava Vermeulen"}
+          .avatar-char W
+        %a{"data-toggle" => "tooltip", href: "#", title: "Delisa Sheilds"}
+          .avatar-char B
+        %a{"data-toggle" => "tooltip", href: "#", title: "Elsy Wilhoit"}
+          .avatar-char C
+        %a{"data-toggle" => "tooltip", href: "#", title: "Deanne Jeffreys"}
+          .avatar-char D
+        %a{"data-toggle" => "tooltip", href: "#", title: "ddsds"}
+          .avatar-char F
+        %a{"data-toggle" => "tooltip", href: "#", title: "Shery Heredia"}
+          .avatar-char S
+        %a{"data-toggle" => "tooltip", href: "#", title: "Gaylord Coolbaugh"}
+          .avatar-char G
+        %a{"data-toggle" => "tooltip", href: "#", title: "Lyda Wortman"}
+          .avatar-char L
+        %a{"data-toggle" => "tooltip", href: "#", title: "Corene Langstaff"}
+          .avatar-char H
+        %a{"data-toggle" => "tooltip", href: "#", title: "Aracely Goudeau"}
+          .avatar-char D
+        %a{"data-toggle" => "tooltip", href: "#", title: "Matilde Weibel"}
+          .avatar-char M
+        %a{"data-toggle" => "tooltip", href: "#", title: "Clement Mayor"}
+          .avatar-char C
+        %a{"data-toggle" => "tooltip", href: "#", title: "Phil Wyatt"}
+          .avatar-char P
+        %a{"data-toggle" => "tooltip", href: "#", title: "Altagracia Manke"}
+          .avatar-char A
+        %a{"data-toggle" => "tooltip", href: "#", title: "Siu Derosier"}
+          .avatar-char S
+        %a{"data-toggle" => "tooltip", href: "#", title: "Nigel Shipe"}
+          .avatar-char D
+        %a{"data-toggle" => "tooltip", href: "#", title: "Bossman"}
+          .avatar-char B
+        %a{"data-toggle" => "tooltip", href: "#", title: "Crystal Markel"}
+          .avatar-char C
+        %a{"data-toggle" => "tooltip", href: "#", title: "Noman Nottage"}
+          .avatar-char N
+        %a{"data-toggle" => "tooltip", href: "#", title: "Melonie Carreira"}
+          .avatar-char D
+        %a{"data-toggle" => "tooltip", href: "#", title: "Shaneka Hoyle"}
+          .avatar-char S
+        %a{"data-toggle" => "tooltip", href: "#", title: "Milagro Evans"}
+          .avatar-char M
+  .card
+    .card-body
+      %h4.card-title Tickets
+      %h6.card-subtitle Nullam dolorenibh ultricies vehicula
+    .listview.listview--hover.listview--truncate.listview--plain.tickets
+      %a.listview__item{href: "#"}
+        .tickets__label #114
+        .tickets__label.tickets__label--severity.bg-red Severe
+        .listview__content
+          %h4 Lorem ipsum dolor sit amet imperdiet dictum
+      %a.listview__item{href: "#"}
+        .tickets__label #12
+        .tickets__label.tickets__label--severity.bg-blue High
+        .listview__content
+          %h4 Donec lacus ipsum laoreet non eleifend ulvinar aeo
+      %a.listview__item{href: "#"}
+        .tickets__label #99
+        .tickets__label.tickets__label--severity.bg-green Normal
+        .listview__content
+          %h4 Phasellus ultricies porta ipsum ut lacinia
+      %a.listview__item{href: "#"}
+        .tickets__label #115
+        .tickets__label.tickets__label--severity.bg-amber 2.0
+        .listview__content
+          %h4 Phasellus a ullamcorper lectus sit amet viverra quam luctus tortor vel nulla pharetra bibendum
+      %a.listview__item{href: "#"}
+        .tickets__label #115
+        .tickets__label.tickets__label--severity.bg-purple Regression
+        .listview__content
+          %h4 Cras bibendum nibh vitae condimentum dignissim
+      %a.view-more{href: "#"} View All Tickets
+  .card.todo
+    .card-body
+      %h4.card-title Todo lists
+      %h6.card-subtitle Venenatis portauam Inceptos ameteiam
+    .listview.listview--plain
+      .listview__item
+        .checkbox-char.todo__item
+          %input#char-1{type: "checkbox"}
+          %label.bg-red{for: "char-1"} F
+          .listview__content
+            %h4 Fivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
+            %p Today at 8.30 AM
+            .listview__attrs
+              %span #Messages
+              %span !!!
+        .actions
+          .dropdown.actions__item
+            %i.zwicon-more-h{"data-toggle" => "dropdown"}
+            .dropdown-menu.dropdown-menu-right
+              %a.dropdown-item{href: "#"} Mark as completed
+              %a.dropdown-item{href: "#"} Delete
+      .listview__item
+        .checkbox-char.todo__item
+          %input#char-2{type: "checkbox"}
+          %label.bg-blue{for: "char-2"} N
+          .listview__content
+            %h4 Nullam id dolor id nibh ultricies vehicula ut id elit
+            %p Today at 12.30 PM
+            .listview__attrs
+              %span #Clients
+              %span !!
+        .actions
+          .dropdown.actions__item
+            %i.zwicon-more-h{"data-toggle" => "dropdown"}
+            .dropdown-menu.dropdown-menu-right
+              %a.dropdown-item{href: "#"} Mark as completed
+              %a.dropdown-item{href: "#"} Delete
+      .listview__item
+        .checkbox-char.todo__item
+          %input#char-3{type: "checkbox"}
+          %label.bg-orange{for: "char-3"} C
+          .listview__content
+            %h4 Cras mattis consectetur purus sit amet fermentum
+            %p Tomorrow at 10.30 AM
+            .listview__attrs
+              %span #Clients
+              %span !!
+        .actions
+          .dropdown.actions__item
+            %i.zwicon-more-h{"data-toggle" => "dropdown"}
+            .dropdown-menu.dropdown-menu-right
+              %a.dropdown-item{href: "#"} Mark as completed
+              %a.dropdown-item{href: "#"} Delete
+      .listview__item
+        .checkbox-char.todo__item
+          %input#char-4{type: "checkbox"}
+          %label.bg-purple{for: "char-4"} I
+          .listview__content
+            %h4 Integer posuere erat a ante venenatis dapibus posuere velit aliquet
+            %p 05/08/2017 at 08.00 AM
+            .listview__attrs
+              %span #Server
+              %span !
+        .actions
+          .dropdown.actions__item
+            %i.zwicon-more-h{"data-toggle" => "dropdown"}
+            .dropdown-menu.dropdown-menu-right
+              %a.dropdown-item{href: "#"} Mark as completed
+              %a.dropdown-item{href: "#"} Delete
+      .listview__item
+        .checkbox-char.todo__item
+          %input#char-5{type: "checkbox"}
+          %label.bg-lime{for: "char-5"} P
+          .listview__content
+            %h4 Praesent commodo cursus magnavel scelerisque nisl consectetur
+            %p 10/08/2016 at 04.00 AM
+            .listview__attrs
+              %span #Server
+              %span !!!
+        .actions
+          .dropdown.actions__item
+            %i.zwicon-more-h{"data-toggle" => "dropdown"}
+            .dropdown-menu.dropdown-menu-right
+              %a.dropdown-item{href: "#"} Mark as completed
+              %a.dropdown-item{href: "#"} Delete
+      %a.view-more{href: "todos.html"} View All Todos
+  .card.visitors
+    .card-body
+      %h4.card-title Realtime Visitors
+      %h6.card-subtitle Nullam dolor isnibh ultricies vehicula adipiscing
+      .visitors__stats
+        %div
+          %strong 23528
+          %small Visitor for last 24 hours
+        %div
+          %strong 746
+          %small Visitors last 30 minutes
+      .visitors__map.map-visitors
+    .listview.listview--hover.listview--plain
+      .listview__item
+        .listview__content
+          %h4 Sunday, September 4, 21:44:02 (2 Mins 56 Seconds)
+          .listview__attrs
+            %span United States
+            %span Firefox
+            %span Mac OSX
+      .listview__item
+        .listview__content
+          %h4 Sunday, September 4, 20:21:01 (5 Mins 12 Seconds)
+          .listview__attrs
+            %span Australia
+            %span Chrome
+            %span Android
+      .listview__item
+        .listview__content
+          %h4 Sunday, September 4, 20:21:10 (10 Mins 43 Seconds)
+          .listview__attrs
+            %span Brazil
+            %span Edge
+            %span Windows
+      .listview__item
+        .listview__content
+          %h4 Sunday, September 4, 20:59:04 (1 Min 02 Seconds)
+          .listview__attrs
+            %span South Korea
+            %span Chrome
+            %span Android
+      .listview__item
+        .listview__content
+          %h4 Sunday, September 4, 20:58:12 (3 Min 44 Seconds)
+          .listview__attrs
+            %span Japan
+            %span Chrome
+            %span Windows
+      .p-3
+  .card
+    .card-body
+      %h4.card-title Recent Posts
+      %h6.card-subtitle Venenatis portauam Inceptos ameteiam
+    .listview.listview--hover.listview--truncate
+      %a.listview__item
+        %img.avatar-img{alt: "", src: "demo/img/profile-pics/1.jpg"}
+        .listview__content
+          %h4 Donec congue tempus ligula, varius hendrerit mi hendrerit sit amet. Duis ac quam sit amet leo feugiat iaculis
+          %p By Jannette Jackson an Hour ago
+      %a.listview__item
+        %img.avatar-img{alt: "", src: "demo/img/profile-pics/2.jpg"}
+        .listview__content
+          %h4 David Villa Jacobs
+          %p Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis lobortis sapien non posuere
+      %a.listview__item
+        %img.avatar-img{alt: "", src: "demo/img/profile-pics/3.jpg"}
+        .listview__content
+          %h4 Candice Barnes
+          %p Quisque non tortor ultricies, posuere elit id, lacinia purus curabitur
+      %a.listview__item
+        %img.avatar-img{alt: "", src: "demo/img/profile-pics/4.jpg"}
+        .listview__content
+          %h4 Darla Mckinney
+          %p Duis tincidunt augue nec sem dignissim scelerisque. Vestibulum rhoncus sapien sed nulla aliquam lacinia
+      %a.listview__item
+        %img.avatar-img{alt: "", src: "demo/img/profile-pics/5.jpg"}
+        .listview__content
+          %h4 Rudolph Perez
+          %p Phasellus a ullamcorper lectus, sit amet viverra quam. In luctus tortor vel nulla pharetra bibendum
+      %a.view-more{href: "#"} View All Posts
+  .card
+    %img.card-img-top{alt: "", src: "demo/img/widgets/featured-post.jpg"}
+    .card-body
+      %h4.card-title Pellentesque Ligula Fringilla
+      %h6.card-subtitle by Malinda Hollaway on 19th June 2015 at 09:10 AM
+      %p Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper. Nulla vitae elit libero, a pharetra.
+      %a.view-more.justify-content-start{href: "#"} View Article...
+  .card.w-calendar
+    .actions
+      %a.actions__item.zwicon-plus{href: "calendar.html"}
+      .dropdown.actions__item
+        %i.zwicon-more-h{"data-toggle" => "dropdown"}
+        .dropdown-menu.dropdown-menu-right
+          %a.dropdown-item{href: "#"} Refresh
+          %a.dropdown-item{href: "#"} Calendar Settings
+    .w-calendar__header
+      .w-calendar__year
+      .w-calendar__day
+    #w-calendar-body
+  .card
+    .card-body
+      %h4.card-title Growth Rate
+      %h6.card-subtitle Commodo luctus nisi erat porttitor ligula eget lacinia odio semnec
+      .flot-chart.flot-line
+      .flot-chart-legends.flot-chart-legends--line

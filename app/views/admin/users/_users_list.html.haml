@@ -1,0 +1,22 @@
+.kt-portlet__body
+  .tab-content
+    #kt_widget4_tab1_content.tab-pane.active
+      .kt-widget4
+        - if @users.present?
+          - @users.each do |user|
+            .kt-widget4__item
+              .kt-widget4__pic.kt-widget4__pic--pic
+                %img{alt: "", src: "/assets/admin_theme/media/users/100_5.jpg"}/
+              .kt-widget4__info
+                %a.kt-widget4__username
+                  = user.full_name
+                %p.kt-widget4__text
+                  = user.email
+              = link_to "Show", admin_user_path(user), class: 'btn btn-sm btn-label-danger btn-bold'
+        - else
+          .alert.alert-solid-warning.alert-bold{role: "alert"}
+            .alert-text
+              .kt-grid__item.kt-grid__item--middle.kt-align-center
+                No User joined today!
+                %br
+                  Check users joined in this month!
