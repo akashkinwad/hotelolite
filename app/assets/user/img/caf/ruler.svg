@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512px" height="512px" class=""><g><circle style="fill:#095400" cx="256" cy="256" r="256" data-original="#65BA70" class="" data-old_color="#65BA70"/><path style="fill:#013D0A" d="M357.823,89.437c-4.187,4.187-95.241,95.241-99.443,99.443c-2.206-2.206-25.018-25.018-29.696-29.696  l0,0c-2.24-2.24-25.277-25.277-29.966-29.967l0,0c-11.935-11.935-8.732-8.732-14.982-14.983l-0.001,0.001l-25.104-25.104  l-69.193,69.193l99.748,99.748l-50.824,50.824l-13.019,56.014l-0.03,0.13l-6.986,30.057l115.98,115.98  c7.153,0.6,14.385,0.923,21.694,0.923c141.385,0,256-114.615,256-256c0-4.259-0.11-8.492-0.315-12.7  C448.675,180.289,363.704,95.319,357.823,89.437z" data-original="#488E53" class="active-path" data-old_color="#488E53"/><path style="fill:#EA971E;" d="M158.631,89.131l-69.193,69.193l264.89,264.89l69.193-69.193L158.631,89.131z M361.443,375.853  c-4.064-4.064-4.064-10.653,0-14.718c4.064-4.064,10.653-4.064,14.718,0c4.064,4.064,4.064,10.653,0,14.718  C372.097,379.918,365.508,379.918,361.443,375.853z" data-original="#EA971E"/><path style="fill:#C27526;" d="M290.945,221.445l-69.193,69.193l132.575,132.575l69.193-69.193L290.945,221.445z M361.443,375.853  c-4.064-4.064-4.064-10.653,0-14.718c4.064-4.064,10.653-4.064,14.718,0c4.064,4.064,4.064,10.653,0,14.718  C372.097,379.918,365.508,379.918,361.443,375.853z" data-original="#C27526" class=""/><g>
+	
+		<rect x="157.663" y="97.528" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 196.0145 304.747)" style="fill:#F4C479;" width="6.918" height="28.499" data-original="#F4C479" class=""/>
+	
+		<rect x="177.679" y="114.603" transform="matrix(-0.707 -0.7072 0.7072 -0.707 223.1179 335.893)" style="fill:#F4C479;" width="6.919" height="14.25" data-original="#F4C479" class=""/>
+	
+		<rect x="192.661" y="129.573" transform="matrix(-0.707 -0.7072 0.7072 -0.707 238.1046 372.0413)" style="fill:#F4C479;" width="6.919" height="14.25" data-original="#F4C479" class=""/>
+	
+		<rect x="207.649" y="144.55" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 253.1336 408.2009)" style="fill:#F4C479;" width="6.918" height="14.249" data-original="#F4C479" class=""/>
+	
+		<rect x="217.588" y="157.461" transform="matrix(-0.707 -0.7072 0.7072 -0.707 255.8944 449.438)" style="fill:#F4C479;" width="6.919" height="28.5" data-original="#F4C479" class=""/>
+	
+		<rect x="237.618" y="174.518" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 283.1034 480.5495)" style="fill:#F4C479;" width="6.918" height="14.249" data-original="#F4C479" class=""/>
+	
+		<rect x="252.586" y="189.508" transform="matrix(-0.707 -0.7072 0.7072 -0.707 298.0117 516.7301)" style="fill:#F4C479;" width="6.919" height="14.25" data-original="#F4C479" class=""/>
+	
+		<rect x="267.568" y="204.491" transform="matrix(-0.707 -0.7072 0.7072 -0.707 312.9885 552.9023)" style="fill:#F4C479;" width="6.919" height="14.25" data-original="#F4C479" class=""/>
+	
+		<rect x="277.507" y="217.389" transform="matrix(-0.707 -0.7072 0.7072 -0.707 315.7946 594.1099)" style="fill:#F4C479;" width="6.919" height="28.5" data-original="#F4C479" class=""/>
+	
+		<rect x="297.53" y="234.459" transform="matrix(-0.707 -0.7072 0.7072 -0.707 342.9421 625.2467)" style="fill:#F4C479;" width="6.919" height="14.25" data-original="#F4C479" class=""/>
+	
+		<rect x="312.523" y="249.439" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 357.9971 661.4141)" style="fill:#F4C479;" width="6.918" height="14.249" data-original="#F4C479" class=""/>
+	
+		<rect x="327.493" y="264.422" transform="matrix(-0.707 -0.7072 0.7072 -0.707 372.8987 697.5841)" style="fill:#F4C479;" width="6.919" height="14.25" data-original="#F4C479" class=""/>
+	
+		<rect x="337.456" y="277.314" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 375.8124 738.7939)" style="fill:#F4C479;" width="6.918" height="28.499" data-original="#F4C479" class=""/>
+	
+		<rect x="357.456" y="294.389" transform="matrix(-0.707 -0.7072 0.7072 -0.707 402.8523 769.9285)" style="fill:#F4C479;" width="6.919" height="14.25" data-original="#F4C479" class=""/>
+	
+		<rect x="372.437" y="309.373" transform="matrix(-0.707 -0.7072 0.7072 -0.707 417.829 806.1007)" style="fill:#F4C479;" width="6.919" height="14.25" data-original="#F4C479" class=""/>
+	
+		<rect x="387.442" y="324.36" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 432.9147 842.2886)" style="fill:#F4C479;" width="6.918" height="14.249" data-original="#F4C479" class=""/>
+	
+		<rect x="397.375" y="337.247" transform="matrix(-0.707 -0.7072 0.7072 -0.707 435.6456 883.4805)" style="fill:#F4C479;" width="6.919" height="28.5" data-original="#F4C479" class=""/>
+</g><rect x="209.696" y="136.69" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 256.1547 619.9926)" style="fill:#F6D433;" width="93.573" height="240.509" data-original="#F6D433"/><rect x="249.628" y="153.216" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 272.6982 659.897)" style="fill:#E5BF2B;" width="46.781" height="240.509" data-original="#E5BF2B"/><rect x="302.186" y="147.984" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 479.4445 527.5042)" style="fill:#C6C5CA;" width="93.573" height="32.944" data-original="#C6C5CA"/><rect x="342.117" y="164.52" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 495.981 567.4254)" style="fill:#ACACB2;" width="46.781" height="32.944" data-original="#ACACB2"/><rect x="328.974" y="116.249" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 544.1199 500.7074)" style="fill:#E57654;" width="93.573" height="42.828" data-original="#E57654"/><rect x="368.915" y="132.775" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 560.6804 540.6187)" style="fill:#BF2717;" width="46.781" height="42.828" data-original="#BF2717"/><polygon style="fill:#E3E3F2;" points="204.527,375.061 138.363,308.897 118.327,395.097 " data-original="#E3E3F2" class=""/><polygon style="fill:#D7CCBD;" points="118.327,395.097 204.527,375.061 171.445,341.978 " data-original="#D7CCBD" class=""/><polygon style="fill:#57565C" points="125.343,364.91 118.327,395.097 148.514,388.08 " data-original="#57565C" class="" data-old_color="#57565C"/></g> </svg>

@@ -1,0 +1,549 @@
+.material{
+  box-shadow: 0 0 20px 3px #c3c3c3;
+  padding: 10px;
+}
+.m-10{margin: 10px;}
+.mb-20{margin-bottom: 20px;}
+.mt--50{margin-top: -50px;}
+.d-flex{display: flex;}
+.mb-60{margin-bottom: 60px;}
+.mb-40{margin-bottom: 40px;}
+.no-padding{padding: 0 !important;}
+.no-dropdown .fa-angle-down:before{display: none;}
+/* ===============================HomePage=============================== */
+/* Slider Overlay */
+.bg.bg-bg-chrome.act:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+}
+
+.logo img{ height: 70px; transition: height .3s; }
+.scrol .logo img{ height: 55px; }
+
+.input-style-1 input,
+.drop-wrap-s-3, .c-button{ border-radius: 15px;}
+
+.tabs-block h5 { padding-bottom: 20px; }
+
+/* On Scroll Navbar */
+header.menu-3.hovered.scrol .logo {
+    padding: 2px 15px;
+    background: #fff;
+    border-radius: 5px 5px;
+}
+
+header.menu-3.scrol {
+    background: rgb(9, 84, 0);
+}
+body[data-color="theme-4"] header.color-1.scrol nav > ul > li:hover > a,
+body[data-color="theme-4"] .menu-3.scrol nav > ul > li.active > a {
+    color: #85ff66;
+}
+body[data-color="theme-4"] .menu-3.scrol nav > ul > li.active,
+body[data-color="theme-4"] .menu-3.scrol nav > ul > li:hover {
+    border-top: 3px solid #85ff66;
+}
+.menu-3.scrol nav > ul > li > a {
+    color: #fff;
+}
+
+.baner-tabs.style-2 .tabs-style-1.nav-tabs > li.active > a,
+.baner-tabs.style-2 .tabs-style-1.nav-tabs > li.active > a:focus,
+.baner-tabs.style-2 .tabs-style-1.nav-tabs > li.active > a:hover {
+    background: #2b831c;
+}
+
+.baner-tabs.style-2 .tab-pane .c-button {
+    margin-top: 38px;
+}
+
+.tpl-tabs-cont {
+    min-height: inherit;
+    padding: 50px 0px 45px;
+}
+.color-grey-3 {
+    color: #195400;
+}
+.caf-top-preview .tp_content{
+  top: 150px;
+}
+.caf-top-preview .tp_image{
+  height: 250px;
+}
+@media screen and (max-width: 767px){
+  .nav-tabs {
+    display: inherit;
+  }
+  .tp_entry:hover .tp_image {
+    top: -80px;
+  }
+  .caf-top-preview .tp_content {
+    top: 165px;
+  }
+}
+@media all and (min-width: 768px){
+  .caf-top-preview .material.col-sm-4{width: calc(33.33% - 20px);}
+}
+@media all and (min-width: 992px){
+  .caf-top-preview .material.col-md-4{width: calc(33.33% - 20px);}
+}
+@media all and (max-width: 768px){
+  .caf-top-preview .material.col-xs-6{width: calc(50% - 20px);}
+}
+@media all and (max-width: 480px){
+  .caf-top-preview .material.col-mob-12{width: calc(100% - 20px);margin-bottom: 5px;}
+}
+
+@media all and (max-width: 768px){
+  .welcome-outer .img-full {
+    margin-bottom: 0px;
+  }
+  .second-title h2 {
+      font-size: 22px;
+      letter-spacing: 2px;
+  }
+}
+
+.caf-booking-outer .material {
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.caf-booking-outer .gal-item-desc{
+  border-radius: 0 0 5px 5px;
+}
+.caf-booking-outer .gal-item.style-3 h4{
+  margin-bottom: 0;
+}
+.caf-booking-outer .gal-item .img-full{
+  border-radius: 5px 5px 0 0;
+}
+.caf-booking-outer .gal-item.style-3 .gal-item-desc {
+    background: #d6d3ab;
+}
+.caf-booking-outer .d-flex{flex-wrap: wrap;}
+@media all and (min-width: 768px) {
+  .caf-booking-outer .material{ flex: 1 0 30%;}
+}
+@media all and (max-width: 767px) {
+  .caf-booking-outer .d-flex{flex-direction: column;}
+  .caf-booking-outer .img-full {margin-bottom: 0px;}
+  .caf-booking-outer .material {
+    border-radius: 5px;
+    margin: 5px 10px;
+    width: calc(100% - 20px);
+  }
+}
+.caf-sec-slider-outer .swiper-slide{height: 500px !important;}
+.caf-sec-slider-outer .slider-tour{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.caf-sec-slider-outer .slider-tour.style-2 h2 {
+    color: #85ff66;
+}
+
+.caf-our-services .hotel-small{
+  display: flex;
+  align-items: center;
+  padding: 20px;
+    border-radius: 80px 80px;
+}
+.caf-our-services .hotel-small.style-2 .hotel-desc{
+  margin-left: 20px;
+}
+@media all and (max-width: 767px) {
+  .caf-our-services .hotel-small.style-2 .hotel-img { width: 50px; }
+  .caf-our-services .hotel-small{padding: 10px;margin-bottom: 10px;}
+}
+.caf-our-services .black-hover:hover .tour-layer {
+    opacity: 0;
+}
+
+.zoom-img{
+  overflow: hidden;
+}
+.zoom-img img{
+  transition: transform .5s ease;
+}
+.zoom-img:hover img{
+  transform: scale(1.2);
+}
+.caf-footer-outer .footer-block{
+  height: 175px;
+}
+.caf-sec-banner .main-slider-5{
+  margin-top: 0;
+}
+.caf-home-testimonial h4{
+  color: #fff;
+}
+.main-slider-5 .sb-title {
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #222;
+    letter-spacing: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.caf-top-preview .material.col-md-4,
+.caf-top-preview .tp_image{
+  border-radius: 5px;
+}
+/* .caf-footer-outer.type-2.bg-dark-2 {
+    background: #095400;
+}
+.caf-footer-outer .color-grey-7 {
+    color: #8bbb7f;
+}
+body[data-color="theme-4"] .caf-footer-outer .link-sea:hover {
+    color: #85ff66;
+}
+.caf-footer-outer .footer-block:before {
+    background: #052b00;
+} */
+/* ===============================HomePage=============================== */
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===============================Farm List=============================== */
+.box-shadow{ box-shadow: 0 0 20px 3px #c3c3c3; }
+.sidebar-title {
+    font-size: 16px;
+    line-height: 16px;
+}
+.sidebar .drop-wrap{float: inherit; margin-bottom: 30px;}
+.hotel-item.style-3 .title h4 {
+    letter-spacing: 1px;
+}
+.caf-inner-banner{
+  align-items: center;
+  justify-content: center;
+}
+.caf-inner-banner.inner-banner h2 {
+    margin-bottom: 0;
+    margin-top: 60px;
+}
+h4 {
+    color: #222;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    margin-bottom: 28px;
+}
+/* ===============================Farm List=============================== */
+
+
+
+
+
+
+/* ===============================Farm Details=============================== */
+.caf-filter-content .material{
+  width: calc(33.33% - 20px);
+  margin: 10px;
+  border-radius: 5px;
+}
+@media all and (max-width: 768px) {
+  .inner-banner{
+    min-height: 180px;
+  }
+  .inner-banner h2 {
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 1.5px;
+  }
+}
+.contact-info .contact-line {
+    margin-bottom: 20px;
+}
+.gallery-detail {
+    margin-bottom: 0px;
+}
+.our-service .icon-block.style-5 .icon-img{
+  height: 57px;
+  width: auto;
+}
+.farm-map h4 {
+    color: #222;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    margin-bottom: 28px;
+}
+/* ===============================Farm Details=============================== */
+
+
+
+
+/* ===============================Farm Details=============================== */
+.gal-item.style-2{
+  /* padding: 10px; */
+  /* width: calc(33.33% - 20px); */
+}
+.tour-layer {
+    background: rgba(2, 113, 0, 0.6);
+}
+@media all and (max-width: 767px){
+  .farm-gallery-outer .gal-item {
+    margin-bottom: 0px;
+  }
+}
+.farm-gallery-outer .gal-item .img-full{
+  box-shadow: 0 0 20px 3px #c3c3c3;
+}
+.farm-gallery-outer .gal-item a,
+.tour-layer {
+    border-radius: 8px;
+}
+  /* ===============================Farm Details=============================== */
+
+
+/* ===============================Booking Login=============================== */
+.caf-form-outer{
+  height: 350px;
+}
+.caf-form-outer .baner-bar {
+    box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.7);
+}
+body[data-color="theme-1"] .c-button.bg-dr-blue-2 {
+    background-color: rgb(9, 84, 0);
+    border: 2px solid #063400;
+}
+.input-style-1.color-5 input{
+  color: #095400;
+}
+.home-icon{
+  display: none;
+  width: 70px;
+  height: 70px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.7);
+}
+@media screen and (max-width: 767px){
+.home-icon{
+  display: block;
+}
+.caf-login .login-logo {
+  position: absolute;
+top: -35px;
+left: calc(50% - 35px);
+margin: 0;
+    background-image: none !important;
+}
+.f-login-title {
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+.f-login-content{
+  padding: 49px 40px 39px 40px;
+}
+.login-fullpage{
+  border-radius: 15px;
+}
+.login-fullpage .checkbox-group {
+    margin-top: 20px;
+}
+.caf-login-container{
+  display: flex;
+align-items: center;
+height: 100vh;
+}
+}
+/* ===============================Booking=============================== */
+
+
+
+
+/* ===============================Mobile View=============================== */
+@media all and (max-width: 768px){
+
+.logo{display: none;}
+header.menu-3 {background: transparent;}
+.nav-menu-icon {float: left;}
+header .container{padding: 0;}
+header.menu-3 .nav-menu-icon a i{width: 17px;}
+header.menu-3 .nav-menu-icon a i,
+header.menu-3 .nav-menu-icon a i:before,
+header.menu-3 .nav-menu-icon a i:after{background: #095400;}
+header .nav-menu-icon a.active i {
+    background: none;
+}
+header.menu-3 .nav-menu-icon{
+  background: #fff;
+  /* background: linear-gradient(to bottom right, #095400 , #18c004); */
+  margin: 0;
+  display: flex;
+  padding: 30px 0 38px 0;
+  border-bottom-right-radius: 64px;
+  box-shadow: 0 0 20px 0px #252525;
+  width: 68px;
+  height: 68px;
+}
+
+.nav-menu-icon a:hover i:before {top: -7px;}
+.nav-menu-icon a:hover i:after {bottom: -7px;}
+.nav-menu-icon a.active i:after{bottom: 0;}
+.nav-menu-icon a.active i:before{top: 0;}
+.nav-menu-icon a {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    left: 18px;
+    bottom: 18px;
+}
+body.menu_opened .menu-3 .nav-menu-icon {
+    top: 0;
+    right: inherit;
+    left: 0;
+}
+header.menu-3.scrol {
+    background: transparent;
+}
+nav {
+    -webkit-transform: inherit;
+    -moz-transform: inherit;
+    -ms-transform: inherit;
+    -o-transform: inherit;
+    transform: inherit;
+    overflow: hidden;
+}
+nav.menu{
+  position: fixed;
+  width: 70%;
+  left: -100%;
+}
+.menu.slide-menu{
+  left: 0;
+}
+.menu-3 .menu > ul{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+.menu-3 nav > ul > li{
+  margin-top: 0px;
+  text-align: left;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-top: none;
+}
+.menu-3 nav > ul > li.active{
+  background: linear-gradient(to left, #cdd9e4 , #fcecf4);
+}
+.menu-3.scrol nav > ul > li > a{
+  font-weight: 600;
+}
+.menu-3.scrol nav > ul > li > a {
+    color: #222;
+}
+body[data-color="theme-4"] header.color-1.scrol nav > ul > li:hover > a,
+body[data-color="theme-4"] .menu-3.scrol nav > ul > li.active > a {
+    color: #095400;
+}
+
+
+.caf-home-slider .bg-bg-chrome.act{
+  height: 100vh;
+}
+.caf-home-slider .vertical-align{
+  top: 35%;
+}
+.caf-home-slider .main-title h1 {
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 3px;
+}
+.caf-home-slider .main-title.style-1 h3 {
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+.caf-home-slider .c-button.b-60 {
+    height: 45px;
+    line-height: 42px;
+    padding: 0 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width: 70%;
+}
+.main-slider .swiper-slide {
+    min-height: 120vh;
+}
+.vert-title {
+    margin-top: 0px;
+}
+.caf-home-slider .tabs-block h5,
+.hide-mob{
+  display: none;
+}
+.baner-tabs.style-2 .tabs-block input {
+    height: 40px;
+}
+.caf-search-row .caf-search-1 .tabs-block{
+  padding-bottom: 0;
+}
+.caf-search-1, .caf-search-2, .caf-search-3{
+  padding: 0;
+}
+.caf-search-1{
+  padding-right: 10px;
+}
+.caf-search-row{
+  padding: 0 10px;
+}
+.caf-search-row .drop-wrap-s-3 .drop span {
+    top: 40px;
+}
+.caf-search-row input{
+  padding: 0 20px 0 40px;
+}
+.caf-search-row .input-style-1 img{
+  left: 15px;
+}
+.caf-search-row .drop-wrap-s-3 .drop{
+  padding: 0 15px;
+}
+.caf-search-row .drop-wrap-s-3 .drop .drop-list {
+    right: 15px;
+}
+.caf-search-row .caf-search-3 .bg-white{
+  width: 100%;
+  margin-top: 0 !important;
+  padding: 0;
+  height: 40px;
+  line-height: 37px;
+}
+.caf-home-slider .tpl-tabs-cont {
+    padding: 50px 0px 15px;
+    border-radius: 0;
+}
+.main-slider .pagination-hidden.pagination {
+    bottom: 220px;
+}
+
+}
+/* ===============================Mobile View=============================== */

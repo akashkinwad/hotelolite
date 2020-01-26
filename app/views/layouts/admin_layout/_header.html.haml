@@ -75,9 +75,7 @@
         %a.dropdown-item{href: "#"}
           %i.zmdi.zmdi-settings
           Settings
-        %a.dropdown-item{href: "#"}
-          %i.zmdi.zmdi-time-restore
-          Logout
+        = link_to 'Logout', destroy_admin_session_path, method: :delete, class: 'dropdown-item'
   .toggles.d-none.d-xl-block
     %a.toggles__notify{"data-notification" => "#notifications-messages", href: "#"}
       %i.zwicon-mail

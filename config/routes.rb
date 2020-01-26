@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'dashboard#index'
+  root to: 'welcome#index'
 
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
@@ -16,9 +16,10 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    get 'confirm_email', :action => 'confirm_email', :controller => 'users/registrations', :as => 'confirm_registration'
+    get 'confirm_email', action: 'confirm_email', controller: 'users/registrations', as: 'confirm_registration'
   end
 
+  resources :welcome
   resources :dashboard
   resources :api_tokens
 

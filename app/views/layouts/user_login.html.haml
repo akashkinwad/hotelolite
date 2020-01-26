@@ -1,54 +1,37 @@
-%html{lang: "en"}
-  / begin::Head
-  / Added by HTTrack
+%html
   %head
-    %meta{content: "text/html;charset=UTF-8", "http-equiv" => "content-type"}
-    / /Added by HTTrack
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
     %meta{charset: "utf-8"}
-    %title Hoteloite | Login
-    = csrf_meta_tags
-    = csp_meta_tag
-    %meta{content: "Login page example", name: "description"}
-    %meta{content: "width=device-width, initial-scale=1, shrink-to-fit=no", name: "viewport"}
-    / begin::Fonts
-    %script{src: "/assets/admin/fonts/webfont.js"}
-    :javascript
-      WebFont.load({
-          google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
-          active: function() {
-              sessionStorage.fonts = true;
-          }
-      });
-    / end::Fonts
-    / begin::Page Custom Styles(used by this page)
-    %link{href: "/assets/admin/css/demo1/pages/general/login/login-1.css", rel: "stylesheet", type: "text/css"}
-    / end::Page Custom Styles
-    / begin::Global Theme Styles(used by all pages)
-    %link{href: "/assets/admin/vendors/global/vendors.bundle.css", rel: "stylesheet", type: "text/css"}
-    %link{href: "/assets/admin/css/demo1/style.bundle.css", rel: "stylesheet", type: "text/css"}
-    / end::Global Theme Styles
-    / begin::Layout Skins(used by all pages)
-    %link{href: "/assets/admin/css/demo1/skins/header/base/light.css", rel: "stylesheet", type: "text/css"}
-    %link{href: "/assets/admin/css/demo1/skins/header/menu/light.css", rel: "stylesheet", type: "text/css"}
-    %link{href: "/assets/admin/css/demo1/skins/brand/dark.css", rel: "stylesheet", type: "text/css"}
-    %link{href: "/assets/admin/css/demo1/skins/aside/dark.css", rel: "stylesheet", type: "text/css"}
-    / end::Layout Skins
-    %link{href: "/assets/user/media/logos/favicon.ico", rel: "shortcut icon"}
-    / end::Head
-    / begin::Body
-  %body.kt-quick-panel--right.kt-demo-panel--right.kt-offcanvas-panel--right.kt-header--fixed.kt-header-mobile--fixed.kt-subheader--fixed.kt-subheader--enabled.kt-subheader--solid.kt-aside--enabled.kt-aside--fixed.kt-page--loading
-    / begin:: Page
+    %meta{content: "yes", name: "apple-mobile-web-app-capable"}
+    %meta{content: "width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no", name: "viewport"}
+    %meta{content: "telephone=no", name: "format-detection"}
+    %link{href: "favicon.ico", rel: "shortcut icon"}
+    %link{href: "/assets/user/css/bootstrap.min.css", rel: "stylesheet", type: "text/css"}
+    %link{href: "/assets/user/css/jquery-ui.structure.min.css", rel: "stylesheet", type: "text/css"}
+    %link{href: "/assets/user/css/jquery-ui.min.css", rel: "stylesheet", type: "text/css"}
+    %link{href: "/assets/user/fonts/4.3.0/css/font-awesome.min.css", rel: "stylesheet"}
+    %link{href: "/assets/user/css/style.css", rel: "stylesheet", type: "text/css"}
+    %link{href: "/assets/user/css/custom.css", rel: "stylesheet", type: "text/css"}
+    %title Let's Travel
+  %body{"data-color" => "theme-4"}
+    / LOADER
+    .loading.dr-blue-2
+      .loading-center
+        .loading-center-absolute
+          .object.object_four
+          .object.object_three
+          .object.object_two
+          .object.object_one
+    %img.center-image{alt: "", src: "/assets/user/img/caf/farm.jpg"}
+
     = yield
-    / end:: Page
-    / begin::Global Config(global config for global JS sciprts)
-    :javascript
-      var KTAppOptions = {"colors":{"state":{"brand":"#5d78ff","dark":"#282a3c","light":"#ffffff","primary":"#5867dd","success":"#34bfa3","info":"#36a3f7","warning":"#ffb822","danger":"#fd3995"},"base":{"label":["#c5cbe3","#a1a8c3","#3d4465","#3e4466"],"shape":["#f0f3ff","#d9dffa","#afb4d4","#646c9a"]}}};
-    / end::Global Config
-    / begin::Global Theme Bundle(used by all pages)
-    %script{src: "/assets/admin/vendors/global/vendors.bundle.js", type: "text/javascript"}
-    %script{src: "/assets/admin/js/demo1/scripts.bundle.js", type: "text/javascript"}
-    / end::Global Theme Bundle
-    / begin::Page Scripts(used by this page)
-    %script{src: "/assets/admin/js/demo1/pages/login/login-1.js", type: "text/javascript"}
-    / end::Page Scripts
-  / end::Body
+
+    %script{src: "/assets/user/js/jquery-2.1.4.min.js"}
+    %script{src: "/assets/user/js/bootstrap.min.js"}
+    %script{src: "/assets/user/js/jquery-ui.min.js"}
+    %script{src: "/assets/user/js/idangerous.swiper.min.js"}
+    %script{src: "/assets/user/js/jquery.viewportchecker.min.js"}
+    %script{src: "/assets/user/js/isotope.pkgd.min.js"}
+    %script{src: "/assets/user/js/jquery.mousewheel.min.js"}
+    %script{src: "/assets/user/js/jquery.circliful.min.js"}
+    %script{src: "/assets/user/js/all.js"}
