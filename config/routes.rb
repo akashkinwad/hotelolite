@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :welcome
   resources :dashboard
   resources :api_tokens
+  resources :farms
 
   resources :users do
     resources :payment_details
@@ -66,8 +67,4 @@ Rails.application.routes.draw do
       end
     end
   end
-
-  get 'docs/v1'
-  get 'docs/v2'
-
 end
