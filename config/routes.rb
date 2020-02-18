@@ -15,40 +15,14 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
-  devise_scope :user do
-    get 'confirm_email', action: 'confirm_email', controller: 'users/registrations', as: 'confirm_registration'
-  end
-
   resources :welcome
   resources :dashboard
-  resources :api_tokens
   resources :farms
-
-  resources :users do
-    resources :payment_details
-    resources :orders
-  end
-
-  resources :plans, only: :index do
-    collection do
-      get :available_monthly_yearly
-    end
-    resources :subscriptions, only: [:index, :new, :create, :edit, :update], module: 'plans' do
-      collection do
-        get 'monthly_success'
-        get 'yearly_success'
-      end
-    end
-  end
+  resources :bookings, only: [:index, :destroy]
 
   namespace :admin do
-    resources :dashboard
-    resources :plans
-    resources :tournaments
-    resources :admins
-    resources :subscriptions
-    resources :settings
-    resources :orders
+    resources :dashboard, only: :index
+    resources :bookings, only: :index
     resources :users do
       collection do
         get :recently_joined
@@ -58,8 +32,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :matches, only: [:index, :show]
-      resources :tournaments, only: [:index, :show]
       resources :users do
         collection do
           post 'login'

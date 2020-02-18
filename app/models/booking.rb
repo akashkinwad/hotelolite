@@ -10,6 +10,18 @@ class Booking < ApplicationRecord
 
   belongs_to :farm
 
+  def customer_name
+    "#{first_name} #{last_name}"
+  end
+
+  def formatted_check_in
+    check_in.strftime("%Y-%b-%d")
+  end
+
+  def formatted_created_at
+    created_at.strftime("%m/%d/%Y at %I:%M%p")
+  end
+
   private
 
   def check_in_cannot_be_in_the_past

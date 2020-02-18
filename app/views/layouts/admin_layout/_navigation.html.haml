@@ -2,164 +2,21 @@
   .scrollbar
     %ul.navigation__menu
       %li
-        %a.text-active-blue.active{href: "/admin/dashboard"}
+        %a.text-active-blue{href: "/admin/dashboard", class: @breadcrumb[:dashboard]}
           %i.zwicon-home.text-blue>
           Dashboard
       %li
-        %a.text-active-red{href: "/admin/users"}
+        %a.text-active-red{href: "/admin/users", class: @breadcrumb[:users]}
           %i.zwicon-users
           Users List
       %li
-        %a.text-active-green{href: "/admin/users/new"}
+        %a.text-active-green{href: "/admin/users/new", class: @breadcrumb[:users]}
           %i.zwicon-user-plus.text-green>
           Add User
-      %li.navigation__sub
-        %a.text-active-amber{"data-mae-action" => "submenu-toggle", href: "#"}
-          %i.zwicon-layout-2.text-amber
-          Table
-        %ul
-          %li
-            %a{href: "tables.html"} Add User
-          %li
-            %a{href: "data-tables.html"} User's List
       %li
-        %a.text-active-red{href: "typography.html"}
-          %i.zwicon-edit-square-feather.text-red>
-          Typography
+        %a.text-active-green{href: "/admin/bookings", class: @breadcrumb[:bookings]}
+          %i.zwicon-user-plus.text-green>
+          Bookings
       %li
-        %a.text-active-green{href: "widgets.html"}
-          %i.zwicon-layout-4.text-green>
-          Widgets
-      %li.navigation__sub
-        %a{href: "#"}
-          %i.zwicon-note.text-purple>
-          Forms
-        %ul
-          %li
-            %a{href: "form-elements.html"} Basic Form Elements
-          %li
-            %a{href: "form-components.html"} Form Components
-          %li
-            %a{href: "form-layouts.html"} Form Layouts
-          %li
-            %a{href: "form-validation.html"} Form Validation
-      %li.navigation__sub
-        %a{href: "#"}
-          %i.zwicon-cursor-square.text-cyan>
-          User Interface
-        %ul
-          %li
-            %a{href: "colors.html"} Colors
-          %li
-            %a{href: "animations.html"} CSS Animations
-          %li
-            %a{href: "buttons.html"} Buttons
-          %li
-            %a{href: "icons.html"} Icons
-          %li
-            %a{href: "listview.html"} List View
-          %li
-            %a{href: "toolbars.html"} Toolbars
-          %li
-            %a{href: "cards.html"} Cards
-          %li
-            %a{href: "alerts.html"} Alerts
-          %li
-            %a{href: "badges.html"} Badges
-          %li
-            %a{href: "breadcrumbs.html"} Bredcrumbs
-          %li
-            %a{href: "jumbotron.html"} Jumbotron
-          %li
-            %a{href: "navs.html"} Navs
-          %li
-            %a{href: "pagination.html"} Pagination
-          %li
-            %a{href: "progress.html"} Progress
-      %li.navigation__sub
-        %a{href: "#"}
-          %i.zwicon-tray-stack.text-pink>
-          Javascript Components
-        %ul
-          %li
-            %a{href: "carousel.html"} Carousel
-          %li
-            %a{href: "collapse.html"} Collapse
-          %li
-            %a{href: "dropdowns.html"} Dropdowns
-          %li
-            %a{href: "modals.html"} Modals
-          %li
-            %a{href: "popover.html"} Popover
-          %li
-            %a{href: "tabs.html"} Tabs
-          %li
-            %a{href: "tooltips.html"} Tooltips
-          %li
-            %a{href: "toast.html"} Toasts
-          %li
-            %a{href: "treeview.html"} Tree View
-          %li
-            %a{href: "custom-alerts.html"} Custom Alerts
-      %li.navigation__sub
-        %a{href: "#"}
-          %i.zwicon-line-chart.text-lime>
-          Charts and Maps
-        %ul
-          %li
-            %a{href: "flot-charts.html"} Flot
-          %li
-            %a{href: "other-charts.html"} Other Charts
-          %li
-            %a{href: "maps.html"} Maps
-      %li
-        %a{href: "photo-gallery.html"}
-          %i.zwicon-image.text-blue
-          Photo Gallery
-      %li
-        %a{href: "calendar.html"}
-          %i.zwicon-calendar-never.text-green>
-          Calendar
-      %li.navigation__sub
-        %a{href: "#"}
-          %i.zwicon-repository.text-orange
-          Sample Pages
-        %ul
-          %li
-            %a{href: "profile-about.html"} Profile
-          %li
-            %a{href: "contacts.html"} Contacts
-          %li
-            %a{href: "new-contact.html"} New Contact
-          %li
-            %a{href: "groups.html"} Groups
-          %li
-            %a{href: "pricing-tables.html"} Pricing Tables
-          %li
-            %a{href: "invoice.html"} Invoice
-          %li
-            %a{href: "todo-lists.html"} Todo Lists
-          %li
-            %a{href: "notes.html"} Notes
-          %li
-            %a{href: "search-results.html"} Search Results
-          %li
-            %a{href: "issue-tracker.html"} Issue Tracker
-          %li
-            %a{href: "faq.html"} FAQ
-          %li
-            %a{href: "team.html"} Team
-          %li
-            %a{href: "blog.html"} Blog
-          %li
-            %a{href: "blog-detail.html"} Blog Detail
-          %li
-            %a{href: "questions-answers.html"} Questions &amp; Answers
-          %li
-            %a{href: "login.html"} Login &amp; SignUp
-          %li
-            %a{href: "lockscreen.html"} Lockscreen
-          %li
-            %a{href: "404.html"} 404
-          %li
-            %a{href: "empty.html"} Empty Page
+        %a
+          = button_to "Logout", destroy_admin_session_path, method: "delete", class: "btn btn-danger"

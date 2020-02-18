@@ -1,5 +1,5 @@
 %header.content__title
-  %h1 ALL USER'S
+  %h1 ALL BOOKINGS'S
 .card
   .card-body
     .table-responsive.data-table
@@ -11,14 +11,14 @@
             %th Email
             %th Action
         %tbody
-          - @users.each do |user|
+          - @bookings.each do |booking|
             %tr
               %td
-                = user.first_name
+                = booking.first_name
               %td
-                = user.last_name
+                = booking.last_name
               %td
-                = user.email
+                = booking.email
               %td
                 %button.btn.btn-theme-dark.btn--icon>
                   %i.zwicon-edit-square
@@ -26,4 +26,4 @@
                 %button.btn.btn-theme-dark.btn--icon
                   %i.zwicon-user-delete
 
-      = paginate @users
+      = paginate @bookings

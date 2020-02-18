@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  layout 'user'
+  layout 'common_theme'
 
   before_action :authenticate_user!
   before_action :set_breadcrumb_menu

@@ -1,0 +1,49 @@
+%aside.sidebar.navigation
+  .scrollbar
+    %ul.navigation__menu
+      %li
+        = link_to bookings_path, class: "text-active-blue #{@breadcrumb[:bookings]}" do
+          %i.zwicon-mail.text-blue
+          Messeges
+      %li
+        %a.text-active-blue{:href => "farm_details.html"}
+          %i.zwicon-document.text-green>
+          Farm Details
+      %li
+        %a.text-active-blue{:href => "farm_rates.html"}
+          %i.zwicon-rupee-sign.text-red>
+          Farm Rates
+      %li
+        %a.text-active-blue{:href => "farm_categories.html"}
+          %i.zwicon-grid.text-orange>
+          Farm Categories
+      %li
+        %a.text-active-blue{:href => "farm_section.html"}
+          %i.zwicon-list-bullet.text-yellow>
+          Add Sections
+      %li
+        %a.text-active-blue{:href => "farm_social_links.html"}
+          %i.zwicon-earth-alt.text-orange>
+          Social Media
+      %li.navigation__sub
+        %a.text-active-blue{"data-mae-action" => "submenu-toggle", :href => "#"}
+          %i.zwicon-image-wide.text-purple>
+          Farm Slider
+        %ul
+          %li
+            %a.active-active-blue{:href => "farm_slider.html"} Update Slider
+          %li
+            %a{:href => "farm_view_slider.html"} View Slider
+      %li.navigation__sub
+        %a.text-active-blue{"data-mae-action" => "submenu-toggle", :href => "#"}
+          %i.zwicon-image-gallery.text-purple>
+          Farm Slider
+        %ul
+          %li
+            %a.active-active-blue{:href => "farm_slider.html"} Update Gallery
+          %li
+            %a{:href => "farm_view_slider.html"} View Gallery
+      %li
+        %a.text-active-blue{:href => "farm_location.html"}
+          %i.zwicon-my-location.text-orange>
+          Farm Location

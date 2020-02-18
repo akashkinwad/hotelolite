@@ -8,6 +8,9 @@ class User < ApplicationRecord
   # validates :email, presence: true, uniqueness: true
   # validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
+  has_one :farm
+  has_many :bookings, through: :farm
+
   has_many :subscriptions
   has_many :active_subscriptions, ->{ where(active: true) }, class_name: 'Subscription'
   has_many :active_matches, through: :active_subscriptions, class_name: 'Match', source: :matches

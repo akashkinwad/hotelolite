@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :make_action_mailer_use_request_host_and_protocol
 
   def breadcrumb(tab)
-    @breadcrumb = { tab => 'kt-menu__item--open' }
+    @breadcrumb = { tab => 'active' }
   end
 
   def sub_menu(sub_tab)

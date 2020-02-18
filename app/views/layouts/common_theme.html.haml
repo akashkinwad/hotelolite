@@ -18,20 +18,11 @@
     %link{href: "/assets/admin/vendors/fullcalendar/daygrid/main.min.css", rel: "stylesheet"}
     %link{href: "/assets/admin/css/app.min.css", rel: "stylesheet"}
   %body
-    .page-loader
-      .loader
-        %i
-        %i
-        %i
-    = render partial: "/layouts/admin_layout/header"
-    .main
-      = render partial: "/layouts/admin_layout/notifications"
-      = render partial: "/layouts/admin_layout/navigation"
-      %section.content
-        = yield
-        = render partial: "/layouts/admin_layout/footer"
+    - if admin_signed_in?
+      = render partial: "/layouts/admin"
+    - else
+      = render partial: "/layouts/user"
 
-    / Vendors
     %script{src: "/assets/admin/vendors/jquery/jquery.min.js"}
     %script{src: "/assets/admin/vendors/popper.js/popper.min.js"}
     %script{src: "/assets/admin/vendors/bootstrap/js/bootstrap.min.js"}
@@ -46,6 +37,4 @@
     %script{src: "/assets/admin/vendors/jqvmap/maps/jquery.vmap.world.js"}
     %script{src: "/assets/admin/vendors/fullcalendar/core/main.min.js"}
     %script{src: "/assets/admin/vendors/fullcalendar/daygrid/main.min.js"}
-    / Site Functions & Actions
     %script{src: "/assets/admin/js/app.min.js"}
-  / Mirrored from byrushan.com/projects/maed/app/2.0/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Jan 2020 17:28:54 GMT

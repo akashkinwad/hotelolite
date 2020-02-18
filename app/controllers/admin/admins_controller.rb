@@ -1,5 +1,5 @@
 class Admin::AdminsController < ApplicationController
-  layout 'admin'
+  layout 'common_theme'
 
   before_action :authenticate_admin!
   before_action :set_breadcrumb_menu

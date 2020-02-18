@@ -1,0 +1,62 @@
+%section.content
+  %header.content__title
+    %h1 Customers Messeges
+  .card
+    .toolbar.toolbar--alt.toolbar--inner
+      .toolbar__nav
+        = "You have received #{@bookings.count} Messeges"
+      .actions
+        %i.actions__item.zwicon-trash{"data-title" => "Delete All Messeges", "data-toggle" => "tooltip"}
+        .dropdown.actions__item.d-none.d-md-flex{"data-title" => "Sort by", "data-toggle" => "tooltip"}
+          %i.zwicon-filter-alt{"data-toggle" => "dropdown"}
+          .dropdown-menu.dropdown-menu-right.dropdown-menu--active
+            %a.dropdown-item{:href => "#"} Newest
+            %a.dropdown-item{:href => "#"} Oldest
+    .listview.listview--truncate.listview--bordered.issue-tracker
+      - @bookings.each do |booking|
+        .listview__item
+          %img.avatar-img{:alt => "", :src => "demo/img/contacts/user.svg"}/
+          .listview__content
+            %h4
+              %a.text-body{:href => "#"}
+                %span.text-light= booking.customer_name
+                from
+                %span.text-light Pune
+                Wanted to visit your farm on
+                %span.text-warning
+                  = booking.formatted_check_in
+            %p
+              %i.zwicon-clock
+              = booking.formatted_created_at
+          .issue-tracker__item.d-none.d-lg-inline
+            %i.zwicon-phone
+            = booking.contact_no
+          .issue-tracker__item.d-none.d-sm-inline
+            %i.zwicon-mail
+            = booking.email
+          .issue-tracker__item.d-none.d-sm-inline
+            %span.badge.badge-danger.cursor-pointer
+              %i.zwicon-trash
+              Delete
+      .clearfix.m-4
+
+  %nav
+    %ul.pagination.justify-content-center
+      %li.page-item.pagination-prev
+        %a.page-link{:href => "#"}
+          %i.zwicon-arrow-left
+      %li.page-item.active
+        %a.page-link{:href => "#"} 1
+      %li.page-item
+        %a.page-link{:href => "#"} 2
+      %li.page-item
+        %a.page-link{:href => "#"} 3
+      %li.page-item
+        %a.page-link{:href => "#"} 4
+      %li.page-item
+        %a.page-link{:href => "#"} 5
+      %li.page-item
+        %a.page-link{:href => "#"} 6
+      %li.page-item.pagination-next
+        %a.page-link{:href => "#"}
+          %i.zwicon-arrow-right

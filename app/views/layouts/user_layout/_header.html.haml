@@ -1,0 +1,37 @@
+%header.header
+  .header__main
+    %i.navigation-toggle.zwicon-hamburger-menu.d-xl-none
+    .logo.d-none.d-md-block
+      %a{:href => "index.html"}
+        Welcome
+        %small Mr. Prashant
+    .card
+      .card-header
+        %h5.text-warning.mb-0 Chaitanya Agro Farm
+    %ul.top-nav
+      %li.d-xl-none
+        %a.top-nav__search{:href => "#"}
+          %i.zwicon-search
+    .user.dropdown
+      %a.d-block{"data-toggle" => "dropdown", :href => "#"}
+        %img.user__img{:alt => "", :src => "demo/img/profile-pics/2.jpg"}/
+      .dropdown-menu.dropdown-menu-right
+        .dropdown-header Hello Prashant..!
+        %a.dropdown-item{:href => "profile-about.html"}
+          %i.zmdi.zmdi-account
+          View Profile
+        %a.dropdown-item{:href => "#"}
+          %i.zmdi.zmdi-input-antenna
+          Privacy Settings
+        %a.dropdown-item{:href => "farm_password_change.html"}
+          %i.zmdi.zmdi-lock
+          Change Password
+        .dropdown-item
+          = link_to destroy_user_session_path, method: :delete do
+            %i.zmdi.zmdi-time-restore
+            Logout
+
+  .toggles.d-none.d-xl-block
+    %a{href: "index.html", target: "_blank"}
+      %i.zwicon-earth
+    %span Go to Home
