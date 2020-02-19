@@ -48,7 +48,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def layout_by_resource
     if devise_controller? and user_signed_in?
-      'user'
+      'common_theme'
     else
       'user_login'
     end

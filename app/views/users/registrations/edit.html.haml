@@ -1,40 +1,30 @@
-.col-xl-12
-  .kt-portlet.kt-portlet--height-fluid
-    .kt-portlet__head
-      .kt-portlet__head-label
-        %h3.kt-portlet__head-title
-          Update Your Password
+%section.content
+  %header.content__title
+    %h1 Update Password
+  .card
+    .card-body
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = render "shared/error_messages", resource: resource
+        .form-group
+          %label Email address
+          = f.text_field :email, class: "form-control", placeholder: "Email",readonly: true
+        .form-group
+          %label Password
+          %br
+          = f.password_field :password, class: "form-control", placeholder: "Password"
+          - if @minimum_password_length
+            %em
+            %span.form-text.text-muted
+              = @minimum_password_length
+              characters minimum
+        .form-group
+          %label Password Confirmation
+          = f.password_field :password_confirmation,class: "form-control", placeholder: "Confirm Password"
+        .form-group
+          %label Current Password
+          = f.password_field :current_password, class: "form-control", placeholder: "Current Password"
+          %span.form-text.text-muted we need your current password to confirm your changes
 
-    .kt-portlet__body.kt-portlet__body--fluid
-      .kt-widget12
-        .kt-widget12__content
-          = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-            = render "shared/error_messages", resource: resource
-            .form-group.col-md-5
-              %label Email address
-              %br/
-              = f.text_field :email, class: "form-control", placeholder: "Email",readonly: true
-              %span.form-text.text-muted We'll never share your email with anyone else.
-            .form-group.col-md-5
-              %label Password
-              %br
-              = f.password_field :password, class: "form-control", placeholder: "Password"
-              - if @minimum_password_length
-                %br
-                %em
-                %span.form-text.text-muted
-                  = @minimum_password_length
-                  characters minimum
-            .form-group.col-md-5
-              %label Password Confirmation
-              %br
-              = f.password_field :password_confirmation,class: "form-control", placeholder: "Confirm Password"
-            .form-group.col-md-5
-              %label Current Password
-              %br/
-              = f.password_field :current_password, class: "form-control",placeholder: "Current Password"
-              %span.form-text.text-muted we need your current password to confirm your changes
-            .kt-portlet__foot
-              .kt-form__action
-                %button.btn.btn-primary{ type: "submit"} Update
-                = link_to 'Back',root_path, class: "btn btn-secondary ml-1"
+        %button.btn.btn-success{type: "submit"} Update Password
+
+      .clearfix.m-4
