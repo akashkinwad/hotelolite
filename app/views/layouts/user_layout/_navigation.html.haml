@@ -6,8 +6,8 @@
           %i.zwicon-mail.text-blue
           Messeges
       %li
-        %a.text-active-blue{:href => "farm_details.html"}
-          %i.zwicon-document.text-green>
+        = link_to edit_farm_path(current_user.farm), class: "text-active-blue #{@breadcrumb[:farms]}" do
+          %i.zwicon-document.text-blue
           Farm Details
       %li
         %a.text-active-blue{:href => "farm_rates.html"}

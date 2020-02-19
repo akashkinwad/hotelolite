@@ -1,0 +1,69 @@
+%section.content
+  %header.content__title
+    %h1 Farm Details
+  .card
+    .card-body
+      %h4.card-title Farm Name
+      %h6.card-subtitle
+        Enter Farm name with capitalized text. Ex -
+        %code Chaitanya Agro Tourism
+      .form-group
+        %label Enter Name
+        %input.form-control{:placeholder => "e.g: Chaitanya Agro Tourism", :type => "text"}
+      %button.btn.btn-success{:type => "submit"} Update Name
+  .card
+    .card-body
+      %h4.card-title ABOUT FARM
+      %h6.card-subtitle Write about your farm in detail. Write at least 70-80 words.
+      .row
+        .col
+          .form-group
+            %label Write Here
+            %textarea.form-control{:height => "100px", :placeholder => "Start typing..."}
+      %button.btn.btn-success{:type => "submit"} Update Rates
+  .card
+    .card-body
+      %h4.card-title FARM CONATCT INFO
+      %h6.card-subtitle Please fill following info.
+      %form
+        .row
+          .col
+            .form-group.input-group
+              .input-group-prepend
+                %span.input-group-text Owner
+              %input.form-control{:placeholder => "e.g: MR. PRASHANT SHINDE", :type => "text"}/
+            .form-group.input-group
+              .input-group-prepend
+                %span.input-group-text Phone
+              %input.form-control{:placeholder => "e.g: 9876543210", :type => "text"}/
+          .col
+            .form-group.input-group
+              .input-group-prepend
+                %span.input-group-text Email ID
+              %input.form-control{:placeholder => "e.g: agrofarm@gamil.com", :type => "text"}/
+            .form-group.input-group
+              .input-group-prepend
+                %span.input-group-text Address
+              %input.form-control{:placeholder => "e.g: Pune", :type => "text"}/
+        %button.btn.btn-success{:type => "submit"} Update Info
+  .card
+    .card-body
+      %h4.card-title Form Details
+      %h6.card-subtitle Enter below details.
+      %form
+        .row
+          .col
+            .form-group
+              %label{:for => ""} Number of Rooms
+              %input.form-control{:placeholder => "e. g: 25", :type => "text"}/
+            .form-group
+              %label{:for => ""} Food Type
+              %input.form-control{:placeholder => "e. g: Veg & Non Veg", :type => "text"}/
+          .col
+            .form-group
+              %label{:for => ""} Area of Farm
+              %input.form-control{:placeholder => "e. g: 10 Acre", :type => "text"}/
+            .form-group
+              %label{:for => ""} Time to visit Farm
+              %input.form-control{:placeholder => "e. g: 6:00AM - 10:00PM", :type => "text"}/
+        %button.btn.btn-success{:type => "submit"} Update Details
