@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_23_050950) do
+ActiveRecord::Schema.define(version: 2020_02_23_075622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -159,6 +159,15 @@ ActiveRecord::Schema.define(version: 2020_02_23_050950) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rates", force: :cascade do |t|
+    t.string "title"
+    t.decimal "amount"
+    t.bigint "farm_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["farm_id"], name: "index_rates_on_farm_id"
+  end
+
   create_table "recent_activities", force: :cascade do |t|
     t.string "description"
     t.integer "resource_id"
@@ -266,6 +275,7 @@ ActiveRecord::Schema.define(version: 2020_02_23_050950) do
   add_foreign_key "orders", "subscriptions"
   add_foreign_key "orders", "users"
   add_foreign_key "payment_details", "users"
+  add_foreign_key "rates", "farms"
   add_foreign_key "sections", "farms"
   add_foreign_key "sub_sections", "sections"
   add_foreign_key "subscriptions", "plans"

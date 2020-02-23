@@ -1,0 +1,16 @@
+.nested-fields
+  .row.main-select
+    .col-sm-12.col-lg-5
+      .form-group
+        = f.text_field :title, placeholder: 'e.g: One Person', class: 'form-control'
+    .col-sm-12.col-lg-5
+      .input-group.mb-3
+        .input-group-prepend
+          %span.input-group-text ₹
+        = f.text_field :amount, placeholder: 'e.g: 500', class: 'form-control'
+
+    .col-sm-12.col-lg-2
+      .form-group
+        = link_to_remove_association f, class: 'form-control btn btn-danger btn-block' do
+          %i.zwicon-trash
+          Remove Rate

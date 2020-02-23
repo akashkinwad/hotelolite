@@ -11,8 +11,8 @@
           %i.zwicon-document.text-blue
           Farm Details
       %li
-        %a.text-active-blue{:href => "farm_rates.html"}
-          %i.zwicon-rupee-sign.text-red>
+        = link_to edit_farm_rate_path(farm), class: "text-active-blue #{@breadcrumb[:farm_rates]}" do
+          %i.zwicon-rupee-sign.text-red
           Farm Rates
       %li
         %a.text-active-blue{:href => "farm_categories.html"}

@@ -1,10 +1,6 @@
 class FarmSectionsController < UsersController
   before_action :set_farm
 
-  def show;
-    @farm.sections.build.sub_sections.build
-  end
-
   def edit; end
 
   def update
@@ -13,9 +9,6 @@ class FarmSectionsController < UsersController
     else
       redirect_to edit_farm_section_path(@farm), error: 'Error in saving sections'
     end
-    # respond_to do |format|
-    #   format.js { render layout: false, action: 'create' }
-    # end
   end
 
   private

@@ -1,8 +1,6 @@
 class FarmsController < UsersController
   before_action :set_farm
 
-  def show;end
-
   def edit;end
 
   def update
