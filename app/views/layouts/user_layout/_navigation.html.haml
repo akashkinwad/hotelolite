@@ -1,12 +1,13 @@
 %aside.sidebar.navigation
   .scrollbar
     %ul.navigation__menu
+      - farm = current_user.farm
       %li
         = link_to bookings_path, class: "text-active-blue #{@breadcrumb[:bookings]}" do
           %i.zwicon-mail.text-blue
           Messeges
       %li
-        = link_to edit_farm_path(current_user.farm), class: "text-active-blue #{@breadcrumb[:farms]}" do
+        = link_to edit_farm_path(farm), class: "text-active-blue #{@breadcrumb[:farms]}" do
           %i.zwicon-document.text-blue
           Farm Details
       %li
@@ -18,8 +19,8 @@
           %i.zwicon-grid.text-orange>
           Farm Categories
       %li
-        %a.text-active-blue{:href => "farm_section.html"}
-          %i.zwicon-list-bullet.text-yellow>
+        = link_to edit_farm_section_path(farm), class: "text-active-blue #{@breadcrumb[:farm_sections]}" do
+          %i.zwicon-list-bullet.text-yellow
           Add Sections
       %li
         %a.text-active-blue{:href => "farm_social_links.html"}

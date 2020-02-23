@@ -1,0 +1,9 @@
+.col-lg-4.col-sm-6.pr-0
+  .form-group.field
+    = f.text_field :title, placeholder: "e.g: Nearest City", class: 'form-control'
+.col-lg-4.col-sm-6.pr-0
+  .form-group.field
+    = f.text_field :description, placeholder: "e.g: Nearest City", class: 'form-control'
+.col-lg-4.col-sm-12.pr-0
+  .form-group.d-flex
+    = link_to_remove_association 'Remove', f, class: 'form-control btn btn-danger mr-2'

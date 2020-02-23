@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_08_045407) do
+ActiveRecord::Schema.define(version: 2020_02_23_050950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -169,11 +169,28 @@ ActiveRecord::Schema.define(version: 2020_02_08_045407) do
     t.index ["resource_type"], name: "index_recent_activities_on_resource_type"
   end
 
+  create_table "sections", force: :cascade do |t|
+    t.string "name"
+    t.bigint "farm_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["farm_id"], name: "index_sections_on_farm_id"
+  end
+
   create_table "settings", force: :cascade do |t|
     t.string "key"
     t.string "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sub_sections", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.bigint "section_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["section_id"], name: "index_sub_sections_on_section_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -249,6 +266,8 @@ ActiveRecord::Schema.define(version: 2020_02_08_045407) do
   add_foreign_key "orders", "subscriptions"
   add_foreign_key "orders", "users"
   add_foreign_key "payment_details", "users"
+  add_foreign_key "sections", "farms"
+  add_foreign_key "sub_sections", "sections"
   add_foreign_key "subscriptions", "plans"
   add_foreign_key "subscriptions", "users"
   add_foreign_key "tournaments", "providers"

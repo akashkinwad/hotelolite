@@ -1,0 +1,16 @@
+.nested-fields
+  .row.main-select
+    .col-12
+      .form-group.field
+        = f.label :name
+        %br
+        = f.text_field :name, placeholder: "e.g: Details", class: 'form-control'
+
+    = f.fields_for :sub_sections do |sub_section|
+      .nested-fields.col-12.main-select.row.pr-0
+        = render 'sub_section_fields', f: sub_section
+    .col-lg-4.col-sm-6.pr-0.links
+      = link_to_add_association 'Add Sub Section', f, :sub_sections, class: 'btn btn-success'
+    .col-lg-4.col-sm-6.pr-0
+      = link_to_remove_association 'Remove Section', f, class: 'btn btn-danger mr-2'
+  %br

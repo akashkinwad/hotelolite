@@ -1,0 +1,23 @@
+= form_for @farm, url: farm_section_path(@farm), html: { method: :put } do |f|
+  %section.content
+    %header.content__title
+      %h1 Farm Details
+    .card
+      .card-body
+        %h4.card-title FARM SECTIONS
+        %h6.card-subtitle
+          Add main section by clicking
+          = succeed "." do
+            %code Add Section
+          = succeed "." do
+            %code Add Sub Section
+
+        = f.fields_for :sections do |section|
+          = render 'section_fields', f: section
+
+        .links
+          = link_to_add_association f, :sections, class: 'btn btn-primary' do
+            %i.zwicon-plus
+            Add Section
+        %br
+        %button.btn.btn-success{type: "submit"} Update Sections
