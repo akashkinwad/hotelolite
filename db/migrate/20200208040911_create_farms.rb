@@ -5,7 +5,6 @@ class CreateFarms < ActiveRecord::Migration[5.2]
       t.text :description
       t.string :contact_no
       t.string :altr_contact_no
-      t.string :district
       t.references :user, foreign_key: true, type: :bigint
 
       t.timestamps

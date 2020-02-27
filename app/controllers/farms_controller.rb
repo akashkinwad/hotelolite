@@ -3,10 +3,27 @@ class FarmsController < UsersController
 
   def edit;end
 
+  def title
+    update
+  end
+
+  def description
+    update
+  end
+
+  def contact_info
+    update
+  end
+
+  def details
+    update
+  end
+
   def update
-    @farm.update(farm_params)
-    respond_to do |format|
-      format.js { render layout: false, action: 'create' }
+    if @farm.update(farm_params)
+      redirect_to edit_farm_path(@farm), notice: 'farm details were saved successfully.'
+    else
+      redirect_to edit_farm_path(@farm), error: 'Error in saving farm details.'
     end
   end
 
@@ -17,7 +34,13 @@ class FarmsController < UsersController
         :description,
         :contact_no,
         :altr_contact_no,
-        :district,
+        :address,
+        :no_of_rooms,
+        :area,
+        :food_type,
+        :time_to_visit,
+        :email,
+        :owner_name
       )
     end
 

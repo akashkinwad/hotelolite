@@ -17,7 +17,14 @@ Rails.application.routes.draw do
 
   resources :welcome
   resources :dashboard
-  resources :farms, only: [:edit, :update]
+  resources :farms, only: [:edit, :update] do
+    member do
+      patch :title
+      patch :description
+      patch :contact_info
+      patch :details
+    end
+  end
   resources :farm_sections, only: [:edit, :update]
   resources :farm_rates, only: [:edit, :update]
   resources :farm_categories, only: [:edit, :update]

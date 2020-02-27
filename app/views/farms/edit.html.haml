@@ -7,63 +7,72 @@
       %h6.card-subtitle
         Enter Farm name with capitalized text. Ex -
         %code Chaitanya Agro Tourism
-      .form-group
-        %label Enter Name
-        %input.form-control{:placeholder => "e.g: Chaitanya Agro Tourism", :type => "text"}
-      %button.btn.btn-success{:type => "submit"} Update Name
+      = form_for @farm, url: title_farm_path(@farm), html: { method: :patch } do |f|
+        .form-group
+          %label Enter Name
+          = f.text_field :title, placeholder: 'e.g: Chaitanya Agro Tourism', class: 'form-control'
+        %button.btn.btn-success{type: "submit"} Update Name
+
   .card
     .card-body
       %h4.card-title ABOUT FARM
       %h6.card-subtitle Write about your farm in detail. Write at least 70-80 words.
-      .row
-        .col
-          .form-group
-            %label Write Here
-            %textarea.form-control{:height => "100px", :placeholder => "Start typing..."}
-      %button.btn.btn-success{:type => "submit"} Update Rates
+      = form_for @farm, url: description_farm_path(@farm), html: { method: :patch } do |f|
+        .row
+          .col
+            .form-group
+              %label Write Here
+              = f.text_area :title, placeholder: 'Start typing...', class: 'form-control', cols: 10, rows: 2
+        %button.btn.btn-success{type: "submit"} Update Description
+
   .card
     .card-body
       %h4.card-title FARM CONATCT INFO
       %h6.card-subtitle Please fill following info.
-      %form
+      = form_for @farm, url: contact_info_farm_path(@farm), html: { method: :patch } do |f|
         .row
           .col
             .form-group.input-group
               .input-group-prepend
                 %span.input-group-text Owner
-              %input.form-control{:placeholder => "e.g: MR. PRASHANT SHINDE", :type => "text"}/
+              = f.text_field :owner_name, placeholder: 'e.g: MR. PRASHANT SHINDE', class: 'form-control'
             .form-group.input-group
               .input-group-prepend
                 %span.input-group-text Phone
-              %input.form-control{:placeholder => "e.g: 9876543210", :type => "text"}/
+              = f.text_field :contact_no, placeholder: 'e.g: 9876543210', class: 'form-control'
           .col
             .form-group.input-group
               .input-group-prepend
                 %span.input-group-text Email ID
-              %input.form-control{:placeholder => "e.g: agrofarm@gamil.com", :type => "text"}/
+              = f.email_field :email, placeholder: 'e.g: agrofarm@gamil.com', class: 'form-control'
             .form-group.input-group
               .input-group-prepend
-                %span.input-group-text Address
-              %input.form-control{:placeholder => "e.g: Pune", :type => "text"}/
-        %button.btn.btn-success{:type => "submit"} Update Info
+                %span.input-group-text Alternate Phone
+              = f.text_field :altr_contact_no, placeholder: 'e.g: 9876543210', class: 'form-control'
+        .row
+          .col
+            .form-group
+              %label Address
+              = f.text_area :address, placeholder: 'e.g: Pune', class: 'form-control', cols: 10, rows: 2
+        %button.btn.btn-success{type: "submit"} Update Info
   .card
     .card-body
       %h4.card-title Form Details
       %h6.card-subtitle Enter below details.
-      %form
+      = form_for @farm, url: details_farm_path(@farm), html: { method: :patch } do |f|
         .row
           .col
             .form-group
-              %label{:for => ""} Number of Rooms
-              %input.form-control{:placeholder => "e. g: 25", :type => "text"}/
+              %label Number of Rooms
+              = f.text_field :no_of_rooms, placeholder: 'e. g: 25', class: 'form-control'
             .form-group
-              %label{:for => ""} Food Type
-              %input.form-control{:placeholder => "e. g: Veg & Non Veg", :type => "text"}/
+              %label Food Type
+              = f.text_field :food_type, placeholder: 'e. g: Veg & Non Veg', class: 'form-control'
           .col
             .form-group
-              %label{:for => ""} Area of Farm
-              %input.form-control{:placeholder => "e. g: 10 Acre", :type => "text"}/
+              %label Area of Farm
+              = f.text_field :area, placeholder: 'e. g: 10 Acre', class: 'form-control'
             .form-group
-              %label{:for => ""} Time to visit Farm
-              %input.form-control{:placeholder => "e. g: 6:00AM - 10:00PM", :type => "text"}/
-        %button.btn.btn-success{:type => "submit"} Update Details
+              %label Time to visit Farm
+              = f.text_field :time_to_visit, placeholder: 'e. g: 6:00AM - 10:00PM', class: 'form-control'
+        %button.btn.btn-success{type: "submit"} Update Details
