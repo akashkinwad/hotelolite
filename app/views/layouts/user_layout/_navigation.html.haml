@@ -15,15 +15,15 @@
           %i.zwicon-rupee-sign.text-red
           Farm Rates
       %li
-        %a.text-active-blue{:href => "farm_categories.html"}
-          %i.zwicon-grid.text-orange>
+        = link_to edit_farm_category_path(farm), class: "text-active-blue #{@breadcrumb[:farm_categories]}" do
+          %i.zwicon-grid.text-orange
           Farm Categories
       %li
         = link_to edit_farm_section_path(farm), class: "text-active-blue #{@breadcrumb[:farm_sections]}" do
           %i.zwicon-list-bullet.text-yellow
           Add Sections
       %li
-        %a.text-active-blue{:href => "farm_social_links.html"}
+        = link_to edit_farm_media_link_path(farm), class: "text-active-blue #{@breadcrumb[:farm_media_links]}" do
           %i.zwicon-earth-alt.text-orange>
           Social Media
       %li.navigation__sub
@@ -45,6 +45,6 @@
           %li
             %a{:href => "farm_view_slider.html"} View Gallery
       %li
-        %a.text-active-blue{:href => "farm_location.html"}
+        = link_to edit_farm_location_path(farm), class: "text-active-blue #{@breadcrumb[:farm_location]}" do
           %i.zwicon-my-location.text-orange>
           Farm Location

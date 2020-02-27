@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   resources :farms, only: [:edit, :update]
   resources :farm_sections, only: [:edit, :update]
   resources :farm_rates, only: [:edit, :update]
+  resources :farm_categories, only: [:edit, :update]
+  resources :farm_media_links, only: [:edit, :update]
+  resources :farm_location, only: [:edit, :update]
   resources :bookings, only: [:index, :destroy]
 
   namespace :admin do

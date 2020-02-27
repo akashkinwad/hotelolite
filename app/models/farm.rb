@@ -6,6 +6,7 @@ class Farm < ApplicationRecord
   has_many :bookings
   has_many :sections, inverse_of: :farm
   has_many :rates, inverse_of: :farm
+  has_and_belongs_to_many :categories, join_table: :farm_categories
 
   accepts_nested_attributes_for :sections, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :rates, reject_if: :all_blank, allow_destroy: true

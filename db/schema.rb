@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_23_075622) do
+ActiveRecord::Schema.define(version: 2020_02_27_144921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,17 @@ ActiveRecord::Schema.define(version: 2020_02_23_075622) do
     t.index ["farm_id"], name: "index_bookings_on_farm_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+  end
+
+  create_table "farm_categories", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "farm_id", null: false
+    t.index ["category_id"], name: "index_farm_categories_on_category_id"
+    t.index ["farm_id"], name: "index_farm_categories_on_farm_id"
+  end
+
   create_table "farms", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -89,6 +100,11 @@ ActiveRecord::Schema.define(version: 2020_02_23_075622) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.string "facebook_url"
+    t.string "instagram_url"
+    t.string "whatsapp_no"
     t.index ["user_id"], name: "index_farms_on_user_id"
   end
 
@@ -270,6 +286,8 @@ ActiveRecord::Schema.define(version: 2020_02_23_075622) do
   add_foreign_key "api_calls", "users"
   add_foreign_key "api_tokens", "users"
   add_foreign_key "bookings", "farms"
+  add_foreign_key "farm_categories", "categories"
+  add_foreign_key "farm_categories", "farms"
   add_foreign_key "farms", "users"
   add_foreign_key "matches", "tournaments"
   add_foreign_key "orders", "subscriptions"

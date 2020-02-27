@@ -1,0 +1,29 @@
+= form_for @farm, url: farm_media_link_path(@farm), html: { method: :put } do |f|
+  %section.content
+    %header.content__title
+      %h1 Form Social Media Links
+    .card
+      .card-body
+        %h4.card-title FARM SOCIAL MEDIA
+        %h6.card-subtitle Please fill correct social media URL's.
+        .row
+          .col-12
+            .form-group.input-group
+              .input-group-prepend
+                %span.input-group-text Facebook
+              = f.url_field :facebook_url, placeholder: "e.g: https://www.facebook.com/myfarm/",
+                class: 'form-control'
+          .col-12
+            .form-group.input-group
+              .input-group-prepend
+                %span.input-group-text Instagram
+              = f.url_field :instagram_url, placeholder: "e.g: https://www.instagram.com/myfarm/",
+                class: 'form-control'
+          .col-12
+            .form-group.input-group
+              .input-group-prepend
+                %span.input-group-text Whatsapp
+              = f.number_field :whatsapp_no, placeholder: "e.g: 9876543210",
+                class: 'form-control'
+
+        %button.btn.btn-success{:type => "submit"} Update Links

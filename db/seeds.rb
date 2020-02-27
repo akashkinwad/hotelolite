@@ -13,4 +13,12 @@ Admin.create(
   first_name: 'Demo',
   last_name: 'Admin'
 )
-Provider.create(name: 'Arenas')
+User.create(
+  email: 'user@example.com',
+  password: '12345678',
+  password_confirmation: '12345678',
+  first_name: 'Demo',
+  last_name: 'User'
+)
+categories = ['Baby Shower', 'Birthday Party', 'Engagement', 'Wedding', 'School Trip']
+Category.create(categories.map {|c| { title: c }})
