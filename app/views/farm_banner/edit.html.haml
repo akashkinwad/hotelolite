@@ -1,0 +1,34 @@
+= form_for @farm, url: farm_banner_path(@farm), html: { method: :patch }, id: 'dropzone-upload' do |f|
+
+  %section.content
+    %header.content__title
+      %h1 Farm Banner Image
+    .card
+      .card-body
+        %h4.card-title Drag and drop file upload
+        %h6.card-subtitle Upload banner images.
+
+        .row
+          .col
+            .form-group
+              = f.file_field :banner, class: 'form-control'
+
+        %button.btn.btn-success{type: "submit"} Upload Banner Image
+
+    .card
+      .card-body
+        - if @farm.banner.attached?
+          %h4.card-title Banner Image
+          .row
+            .col-sm-12
+              .form-group
+                = image_tag @farm.banner.variant(resize: "920x1020")
+
+            .col-sm-3
+              .form-group
+                = link_to farm_banner_path(@farm.banner.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'form-control btn btn-danger btn-block' do
+                  %i.zwicon-trash
+                  Remove Banner Image
+
+        - else
+          %h4.card-title No Banner Image Uploaded

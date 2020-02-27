@@ -24,17 +24,13 @@
           Add Sections
       %li
         = link_to edit_farm_media_link_path(farm), class: "text-active-blue #{@breadcrumb[:farm_media_links]}" do
-          %i.zwicon-earth-alt.text-orange>
+          %i.zwicon-earth-alt.text-orange
           Social Media
-      %li.navigation__sub
-        %a.text-active-blue{"data-mae-action" => "submenu-toggle", :href => "#"}
-          %i.zwicon-image-wide.text-purple>
-          Farm Slider
-        %ul
-          %li
-            %a.active-active-blue{:href => "farm_slider.html"} Update Slider
-          %li
-            %a{:href => "farm_view_slider.html"} View Slider
+      %li
+        = link_to edit_farm_banner_path(farm), class: "text-active-blue #{@breadcrumb[:farm_banner]}" do
+          %i.zwicon-image-wide.text-purple
+          Farm Banner
+
       %li.navigation__sub
         %a.text-active-blue{"data-mae-action" => "submenu-toggle", :href => "#"}
           %i.zwicon-image-gallery.text-purple>
