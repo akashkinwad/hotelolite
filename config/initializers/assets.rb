@@ -14,7 +14,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 Rails.application.config.assets.precompile += %w(admin/*)
-Rails.application.config.assets.precompile += %w(admin_theme/*)
 Rails.application.config.assets.precompile += %w(admin_login/*)
 Rails.application.config.assets.precompile += %w(user/*)
 Rails.application.config.assets.precompile << /(^[^_\/]|\/[^_])[^\/]*$/
