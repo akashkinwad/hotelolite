@@ -45,11 +45,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :users do
-        collection do
-          post 'login'
-        end
-      end
+      resources :sessions, only: [:create]
+      resources :bookings, only: [:index, :destroy]
+      resource :farms, only: [:edit, :update, :show]
     end
   end
 end

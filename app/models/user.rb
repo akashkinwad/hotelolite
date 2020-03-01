@@ -41,6 +41,24 @@ class User < ApplicationRecord
     user_name.chr.upcase
   end
 
+  def refresh_token!
+    loop do
+      self.authentication_token = SecureRandom.base64(64)
+      break unless User.find_by(authentication_token: authentication_token)
+    end
+
+    self.save!
+  end
+
+  private
+
+    def generate_authentication_token
+      loop do
+        self.authentication_token = SecureRandom.base64(64)
+        break unless User.find_by(authentication_token: authentication_token)
+      end
+    end
+
   private
 
     def create_farm
@@ -51,5 +69,4 @@ class User < ApplicationRecord
       description = " has joined recently"
       self.create_recent_activity(description: description)
     end
-
 end
