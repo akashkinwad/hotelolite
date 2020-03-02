@@ -48,12 +48,6 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'kaminari'
 
-# Payment gateways
-gem 'paypal-sdk-rest', '~> 1.7.3'
-gem 'stripe', '~> 4.21.3'
-
-# api
-gem 'jwt'
 
 # image processing
 gem 'image_processing'

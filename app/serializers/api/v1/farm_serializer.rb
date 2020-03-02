@@ -11,5 +11,8 @@ class Api::V1::FarmSerializer < Api::V1::BaseSerializer
              :time_to_visit,
              :email,
              :owner_name,
-             :user_id
+             :user_id,
+             :facebook_url,
+             :instagram_url,
+             :whatsapp_no
 end

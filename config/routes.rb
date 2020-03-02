@@ -49,6 +49,11 @@ Rails.application.routes.draw do
       resources :bookings, only: [:index, :destroy]
       resource :farms, only: [:edit, :update, :show]
       resource :farm_rates, only: [:edit, :update, :show]
+      resource :farm_category, only: [:edit, :update, :show] do
+        member do
+          get :categories
+        end
+      end
     end
   end
 end

@@ -49,7 +49,10 @@ class Api::V1::FarmsController < Api::V1::BaseController
         :food_type,
         :time_to_visit,
         :email,
-        :owner_name
+        :owner_name,
+        :facebook_url,
+        :instagram_url,
+        :whatsapp_no
       )
     end
 
