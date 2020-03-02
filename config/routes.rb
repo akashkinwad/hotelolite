@@ -48,6 +48,7 @@ Rails.application.routes.draw do
       resources :sessions, only: [:create]
       resources :bookings, only: [:index, :destroy]
       resource :farms, only: [:edit, :update, :show]
+      resource :farm_rates, only: [:edit, :update, :show]
     end
   end
 end

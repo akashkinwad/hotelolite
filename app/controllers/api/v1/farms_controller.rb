@@ -31,7 +31,7 @@ class Api::V1::FarmsController < Api::V1::BaseController
           data: JSON.parse(Api::V1::FarmSerializer.new(@farm, root: false).to_json),
           errors: @farm.errors.full_messages
         },
-        status: 201
+        status: :unprocessable_entity
       )
     end
   end
