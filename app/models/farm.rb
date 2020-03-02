@@ -1,4 +1,7 @@
 class Farm < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   has_one_attached :banner
   has_many_attached :images
 
