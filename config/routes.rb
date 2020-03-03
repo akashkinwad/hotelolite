@@ -31,7 +31,11 @@ Rails.application.routes.draw do
   resources :farm_media_links, only: [:edit, :update]
   resources :farm_banner, only: [:edit, :update, :destroy]
   resources :farm_location, only: [:edit, :update]
-  resources :bookings, only: [:index, :destroy]
+  resources :bookings, only: [:index, :destroy] do
+    collection do
+      delete :destroy_all
+    end
+  end
 
   namespace :admin do
     resources :dashboard, only: :index

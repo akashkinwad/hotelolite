@@ -6,7 +6,9 @@
       .toolbar__nav
         = "You have received #{@bookings.count} Messeges"
       .actions
-        %i.actions__item.zwicon-trash{"data-title" => "Delete All Messeges", "data-toggle" => "tooltip"}
+        - if @bookings
+          = link_to destroy_all_bookings_path, method: :delete, data: { confirm: "Are you sure? This can't be undone" } do
+            %i.actions__item.zwicon-trash{"data-title" => "Delete All Messeges", "data-toggle" => "tooltip"}
         %span.text-warning
           = sortable 'created_at', 'Sort By Date'
 
@@ -33,9 +35,10 @@
             %i.zwicon-mail
             = booking.email
           .issue-tracker__item.d-none.d-sm-inline
-            %span.badge.badge-danger.cursor-pointer
-              %i.zwicon-trash
-              Delete
+            = link_to booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' } do
+              %span.badge.badge-danger.cursor-pointer
+                %i.zwicon-trash
+                Delete
       .clearfix.m-4
 
   %nav

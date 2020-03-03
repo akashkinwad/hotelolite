@@ -12,6 +12,13 @@ class BookingsController < UsersController
 
   def destroy
     @booking = Booking.find_by_id(params[:id])
+    @booking.destroy
+    redirect_to bookings_path, notice: 'Successfully deleted message'
+  end
+
+  def destroy_all
+    current_user.bookings.destroy_all
+    redirect_to bookings_path, notice: 'Successfully deleted all messages'
   end
 
   private
