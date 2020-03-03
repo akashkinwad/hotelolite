@@ -1,7 +1,7 @@
 class Admin::BookingsController < Admin::AdminsController
 
   def index
-    @bookings = Booking.page(params[:page]).per(20)
+    @bookings = Booking.all.page(params[:page]).per(20)
   end
 
   private

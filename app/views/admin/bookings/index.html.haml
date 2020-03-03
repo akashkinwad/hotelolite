@@ -6,24 +6,26 @@
       %table#data-table.table
         %thead
           %tr
-            %th First Name
-            %th Last Name
+            %th Customer
+            %th Phone No
             %th Email
             %th Action
         %tbody
           - @bookings.each do |booking|
             %tr
               %td
-                = booking.first_name
+                = booking.customer_name
               %td
-                = booking.last_name
+                = booking.contact_no
               %td
                 = booking.email
               %td
-                %button.btn.btn-theme-dark.btn--icon>
+                %button.btn.btn-theme-dark.btn--icon
                   %i.zwicon-edit-square
 
                 %button.btn.btn-theme-dark.btn--icon
                   %i.zwicon-user-delete
 
-      = paginate @bookings
+%nav
+  %ul.pagination.justify-content-center
+    = paginate @bookings

@@ -7,11 +7,9 @@
         = "You have received #{@bookings.count} Messeges"
       .actions
         %i.actions__item.zwicon-trash{"data-title" => "Delete All Messeges", "data-toggle" => "tooltip"}
-        .dropdown.actions__item.d-none.d-md-flex{"data-title" => "Sort by", "data-toggle" => "tooltip"}
-          %i.zwicon-filter-alt{"data-toggle" => "dropdown"}
-          .dropdown-menu.dropdown-menu-right.dropdown-menu--active
-            %a.dropdown-item{:href => "#"} Newest
-            %a.dropdown-item{:href => "#"} Oldest
+        %span.text-warning
+          = sortable 'created_at', 'Sort By Date'
+
     .listview.listview--truncate.listview--bordered.issue-tracker
       - @bookings.each do |booking|
         .listview__item
@@ -42,21 +40,4 @@
 
   %nav
     %ul.pagination.justify-content-center
-      %li.page-item.pagination-prev
-        %a.page-link{:href => "#"}
-          %i.zwicon-arrow-left
-      %li.page-item.active
-        %a.page-link{:href => "#"} 1
-      %li.page-item
-        %a.page-link{:href => "#"} 2
-      %li.page-item
-        %a.page-link{:href => "#"} 3
-      %li.page-item
-        %a.page-link{:href => "#"} 4
-      %li.page-item
-        %a.page-link{:href => "#"} 5
-      %li.page-item
-        %a.page-link{:href => "#"} 6
-      %li.page-item.pagination-next
-        %a.page-link{:href => "#"}
-          %i.zwicon-arrow-right
+      = paginate @bookings
