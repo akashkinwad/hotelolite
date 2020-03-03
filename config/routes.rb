@@ -50,7 +50,11 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :sessions, only: [:create]
-      resources :bookings, only: [:index, :destroy]
+      resources :bookings, only: [:index, :destroy] do
+        collection do
+          delete :destroy_all
+        end
+      end
       resource :farms, only: [:edit, :update, :show]
       resource :farm_rates, only: [:edit, :update, :show]
       resource :farm_category, only: [:edit, :update, :show] do

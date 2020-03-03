@@ -12,8 +12,8 @@ class Api::V1::BookingsController < Api::V1::BaseController
   end
 
   def destroy
-    @booking = Booking.find_by_id(params[:id])
-    if @booking.destroy
+    @booking = @current_user.bookings.find_by(id: params[:id])
+    if @booking && @booking.destroy
       render(
         json: {
           success: true,
@@ -23,12 +23,20 @@ class Api::V1::BookingsController < Api::V1::BaseController
       )
     else
       render(
-        json: {
-          success: false,
-          errors: @booking.errors.full_messages
-        },
+        json: { success: false },
         status: :unprocessable_entity
       )
     end
+  end
+
+  def destroy_all
+    @current_user.bookings.destroy_all
+    render(
+      json: {
+        success: true,
+        errors: []
+      },
+      status: 200
+    )
   end
 end
