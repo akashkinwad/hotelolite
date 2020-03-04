@@ -1,7 +1,8 @@
 = form_with(model: [:admin, @user], local: true) do |form|
   .card
     .card-body
-      %h4.card-title Create New user
+      %h4.card-title
+        = "#{action_name} User"
       %form
         - if user.errors.any?
           .row
@@ -22,11 +23,12 @@
           .col-sm-10
             .form-group
               = form.email_field :email, class: 'form-control', placeholder: 'Email Address', required: true
-        .row
-          %label.col-sm-2.col-form-label Password
-          .col-sm-10
-            .form-group
-              = form.password_field :password, class: 'form-control', placeholder: 'Password', required: true
-        %button.btn.btn-theme.mt-4{type: "submit"} Create User
+        - if action_name == 'new'
+          .row
+            %label.col-sm-2.col-form-label Password
+            .col-sm-10
+              .form-group
+                = form.password_field :password, class: 'form-control', placeholder: 'Password', required: true
+        %button.btn.btn-theme.mt-4{type: "submit"} Save User
       %br
       %br

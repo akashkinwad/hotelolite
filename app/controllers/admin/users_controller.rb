@@ -1,7 +1,8 @@
 class Admin::UsersController < Admin::AdminsController
+  before_action :find_user, only: [:edit, :update, :destroy]
 
   def index
-    @users = User.page(params[:page]).per(20)
+    @users = User.page(params[:page]).per(10)
   end
 
   def new
@@ -19,21 +20,19 @@ class Admin::UsersController < Admin::AdminsController
     end
   end
 
-  def show
-    @user = User.find(params[:id])
-    @subscriptions = @user.subscriptions.active.order_by_created_at_desc
+  def edit;end
+
+  def update
+    if @user.update(user_params)
+      redirect_to admin_users_path, notice: 'User was successfully updated'
+    else
+      render :new
+    end
   end
 
-  def recently_joined
-    @users = if params[:joined] == 'today'
-      User.joined(Date.today)
-    elsif params[:joined] == 'month'
-      User.joined(Date.today - 30.days)
-    end
-
-    respond_to do |format|
-      format.js { render layout: false, action: 'recently_joined' }
-    end
+  def destroy
+    @user.destroy
+    redirect_to admin_users_path, notice: 'User was successfully deleted'
   end
 
   private
@@ -44,6 +43,10 @@ class Admin::UsersController < Admin::AdminsController
 
     def user_params
       params.require(:user).permit(:email, :password, :first_name, :last_name)
+    end
+
+    def find_user
+      @user = User.find(params[:id])
     end
 
 end
