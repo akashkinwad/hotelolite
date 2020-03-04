@@ -17,6 +17,12 @@
         %a.text-active-yellow{href: "/admin/bookings", class: @breadcrumb[:bookings]}
           %i.zwicon-task.text-yellow
           Bookings
+
+      %li
+        = link_to admin_farms_path, class: "#{@breadcrumb[:farms]} text-active-green" do
+          %i.zwicon-task.text-green
+          Farms
+
       %li.navigation__sub
         %a.text-active-blue{"data-mae-action" => "submenu-toggle", href: "#", class: @breadcrumb[:testimonials]}
           %i.zwicon-mail.text-purple

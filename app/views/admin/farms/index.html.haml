@@ -1,0 +1,30 @@
+%header.content__title
+  %h1 All Testimonials
+.card
+  .card-body
+    .table-responsive.data-table
+      %table#data-table.table
+        %thead
+          %tr
+            %th No
+            %th Title
+            %th Owner Name
+            %th Status
+            %th Action
+        %tbody
+          - @farms.each_with_index do |farm, index|
+            %tr
+              %td
+                = index + 1
+              %td
+                = farm.title
+              %td
+                = farm.owner_name
+              %td
+                = farm.status.titleize
+              %td
+                = link_to edit_admin_farm_path(farm) do
+                  %button.btn.btn-theme-dark.btn--icon
+                    %i.zwicon-edit-square
+
+      = paginate @farms

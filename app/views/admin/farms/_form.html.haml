@@ -1,0 +1,26 @@
+= form_with(model: [:admin, @farm], local: true) do |form|
+  %header.content__title
+    %h1 All Farms
+  .card
+    .card-body
+      %h4.card-title
+        = "#{action_name} Farm"
+      %form
+        - if farm.errors.any?
+          .row
+            .form-group
+              = render "shared/error_messages", resource: farm
+        .row
+          %label.col-sm-2.col-form-label User Name
+          .col-sm-10
+            .form-group
+              = form.text_field :is_featured, class: 'form-control', placeholder: 'User Name', required: true
+        .row
+          %label.col-sm-2.col-form-label Text
+          .col-sm-10
+            .form-group
+              = form.text_field :status, class: 'form-control', placeholder: 'Add experience here..', required: true
+
+        %button.btn.btn-success.mt-4{type: "submit"} Update Farm
+      %br
+      %br
