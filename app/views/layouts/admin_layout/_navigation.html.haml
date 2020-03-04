@@ -17,6 +17,15 @@
         %a.text-active-green{href: "/admin/bookings", class: @breadcrumb[:bookings]}
           %i.zwicon-user-plus.text-green>
           Bookings
+      %li.navigation__sub
+        %a.text-active-blue{"data-mae-action" => "submenu-toggle", href: "#", class: @breadcrumb[:testimonials]}
+          %i.zwicon-mail.text-purple
+          Testimonials
+        %ul
+          %li
+            = link_to 'List', admin_testimonials_path
+          %li
+            = link_to 'Add New', new_admin_testimonial_path
       %li
         %a
           = button_to "Logout", destroy_admin_session_path, method: "delete", class: "btn btn-danger"

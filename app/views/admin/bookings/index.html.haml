@@ -9,6 +9,7 @@
             %th Customer
             %th Phone No
             %th Email
+            %th Farm Name
             %th Action
         %tbody
           - @bookings.each do |booking|
@@ -19,6 +20,8 @@
                 = booking.contact_no
               %td
                 = booking.email
+              %td
+                = booking.farm.title
               %td
                 %button.btn.btn-theme-dark.btn--icon
                   %i.zwicon-edit-square

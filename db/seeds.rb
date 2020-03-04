@@ -22,3 +22,4 @@ User.create(
 )
 categories = ['Baby Shower', 'Birthday Party', 'Engagement', 'Wedding', 'School Trip']
 Category.create(categories.map {|c| { title: c }})
+Testimonial.create(name: 'Rahun Kanchan', text: 'Very nice place to Party, Birthday and other functions')

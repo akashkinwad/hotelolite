@@ -60,6 +60,7 @@ gem 'cocoon'
 
 gem 'active_model_serializers', '0.9.2'
 gem 'friendly_id', '~> 5.2.4'
+gem 'geocoder'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

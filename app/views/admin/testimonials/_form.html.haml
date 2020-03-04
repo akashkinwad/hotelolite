@@ -1,0 +1,26 @@
+= form_with(model: [:admin, @testimonial], local: true) do |form|
+  %header.content__title
+    %h1 All Testimonials
+  .card
+    .card-body
+      %h4.card-title
+        = "#{action_name} Testimonial"
+      %form
+        - if testimonial.errors.any?
+          .row
+            .form-group
+              = render "shared/error_messages", resource: testimonial
+        .row
+          %label.col-sm-2.col-form-label User Name
+          .col-sm-10
+            .form-group
+              = form.text_field :name, class: 'form-control', placeholder: 'User Name', required: true
+        .row
+          %label.col-sm-2.col-form-label Text
+          .col-sm-10
+            .form-group
+              = form.text_field :text, class: 'form-control', placeholder: 'Add experience here..', required: true
+
+        %button.btn.btn-success.mt-4{type: "submit"} Add Testimonial
+      %br
+      %br

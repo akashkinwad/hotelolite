@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :dashboard, only: :index
     resources :bookings, only: :index
+    resources :testimonials
     resources :users do
       collection do
         get :recently_joined

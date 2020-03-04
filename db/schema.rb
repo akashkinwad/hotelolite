@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_182509) do
+ActiveRecord::Schema.define(version: 2020_03_04_162731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,9 @@ ActiveRecord::Schema.define(version: 2020_03_02_182509) do
     t.string "email"
     t.string "owner_name"
     t.string "slug"
+    t.string "map_iframe"
+    t.boolean "is_featured", default: false
+    t.boolean "status"
     t.index ["slug"], name: "index_farms_on_slug", unique: true
     t.index ["user_id"], name: "index_farms_on_user_id"
   end
@@ -262,6 +265,11 @@ ActiveRecord::Schema.define(version: 2020_03_02_182509) do
     t.index ["resource_id"], name: "index_subscriptions_on_resource_id"
     t.index ["resource_type"], name: "index_subscriptions_on_resource_type"
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
+  create_table "testimonials", force: :cascade do |t|
+    t.string "name"
+    t.string "text"
   end
 
   create_table "tournaments", force: :cascade do |t|

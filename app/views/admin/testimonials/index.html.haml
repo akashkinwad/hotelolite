@@ -1,0 +1,30 @@
+%header.content__title
+  %h1 All Testimonials
+.card
+  .card-body
+    .table-responsive.data-table
+      %table#data-table.table
+        %thead
+          %tr
+            %th No
+            %th User
+            %th Text
+            %th Action
+        %tbody
+          - @testimonials.each_with_index do |test, index|
+            %tr
+              %td
+                = index + 1
+              %td
+                = test.name
+              %td
+                = test.text
+              %td
+                = link_to edit_admin_testimonial_path(test) do
+                  %button.btn.btn-theme-dark.btn--icon
+                    %i.zwicon-edit-square
+                = link_to admin_testimonial_path(test), method: :delete, data: { confirm: 'Are you sure?' } do
+                  %button.btn.btn-theme-dark.btn--icon
+                    %i.zwicon-trash
+
+      = paginate @testimonials

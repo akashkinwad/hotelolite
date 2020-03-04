@@ -3,14 +3,25 @@
     %h1 Form Location
   .card
     .card-body
-      %h4.card-title Add Location
+      %h4.card-title Add/Update Farm Location
+      %h6.card-subtitle
+        Copy and paste URL here from
+        %code Google Maps
+      = form_for @farm, url: farm_location_path(@farm), html: { method: :patch } do |f|
+        .form-group
+          %label Enter Name
+          = f.text_field :map_iframe, placeholder: "https://www.google.com/maps/embed?pb=.....", class: 'form-control'
+        %button.btn.btn-success{type: "submit"}
+          %i.zwicon-my-location
+          Update Location
+
+  .card
+    .card-body
+      %h4.card-title Farm Location
       %h6.card-subtitle
         Search your location by typing in the text box. Select your location from dropdown. Verify your location and click
         %code Add Location.
       .row
         .col-12
           .form-group
-            %iframe{:allowfullscreen => "", :frameborder => "0", :height => "350", :src => "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d203562.92324147729!2d74.02519834324609!3d18.550561825254906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2e773bc012e13%3A0x58656550b6ff4cd0!2sChaitanya%20Agro%20Farm!5e0!3m2!1sen!2sin!4v1581772900080!5m2!1sen!2sin", :style => "border:0;", :width => "100%"}
-      %button.btn.btn-success{:type => "submit"}
-        %i.zwicon-my-location
-        Add Location
+            %iframe{:allowfullscreen => "", :frameborder => "0", :height => "350", :src => "#{@farm.map_iframe}", :style => "border:0;", :width => "100%"}

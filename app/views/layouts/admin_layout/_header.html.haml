@@ -5,62 +5,14 @@
       %a{href: "index.html"}
         Chaitanya
         %small Agro Farm
-    %form.search
-      %input.search__input{placeholder: "Search users", type: "text"}
-      %i.zwicon-search.search__helper
-      %i.zwicon-arrow-left.search__reset
+
+    .card
+      .card-header
+        %h5.text-warning.mb-0 Chaitanya Agro Farm
     %ul.top-nav
       %li.d-xl-none
-        %a.top-nav__search{href: "#"}
+        %a.top-nav__search{:href => "#"}
           %i.zwicon-search
-      %li.d-xl-none
-        %a{"data-notification" => "#notifications-messages", href: "#"}
-          %i.zwicon-mail
-      %li.d-xl-none
-        %a{"data-notification" => "#notifications-alerts", href: "#"}
-          %i.zwicon-bell
-      %li.d-none.d-sm-block.d-xl-none
-        %a{"data-notification" => "#notifications-tasks", href: "#"}
-          %i.zwicon-task
-      %li.dropdown.d-none.d-sm-block
-        %a{"data-toggle" => "dropdown", href: "#"}
-          %i.zwicon-grid
-        .dropdown-menu.dropdown-menu-right.top-nav__apps
-          %a{href: "#"}
-            %i.zwicon-calendar.bg-gradient-lime
-            %small.text-lime Calendar
-          %a{href: "#"}
-            %i.zwicon-folder-open.bg-gradient-red
-            %small.text-red Files
-          %a{href: "#"}
-            %i.zwicon-mail.bg-gradient-amber
-            %small.text-amber Mail
-          %a{href: "#"}
-            %i.zwicon-line-chart.bg-gradient-blue
-            %small.text-blue Analytics
-          %a{href: "#"}
-            %i.zwicon-broadcast.bg-gradient-purple
-            %small.text-purple News
-          %a{href: "#"}
-            %i.zwicon-image.bg-gradient-orange
-            %small.text-orange Gallery
-      %li.dropdown.d-none.d-sm-block
-        %a{"data-toggle" => "dropdown", href: "#"}
-          %i.zwicon-cog
-        .dropdown-menu.dropdown-menu-right
-          .dropdown-header Preferences
-          %a.dropdown-item{"data-mae-action" => "fullscreen", href: "#"}
-            %i.zwicon-expand-wide
-            Toggle Fullscreen
-          %a.dropdown-item{"data-mae-action" => "clear-localstorage", href: "#"}
-            %i.zwicon-trash
-            Clear Local Storage
-          %a.dropdown-item{href: "#"}
-            %i.zwicon-smile
-            Privacy Settings
-          %a.dropdown-item{href: "#"}
-            %i.zwicon-cog
-            Other Settings
     .user.dropdown
       %a.d-block{"data-toggle" => "dropdown", href: "#"}
         %img.user__img{alt: "", src: "demo/img/caf_img/admin.jpg"}
