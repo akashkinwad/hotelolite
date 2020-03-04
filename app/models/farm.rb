@@ -1,6 +1,7 @@
 class Farm < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
+  enum status: { inactive: 0, active: 1 }
 
   has_one_attached :banner
   has_many_attached :images
