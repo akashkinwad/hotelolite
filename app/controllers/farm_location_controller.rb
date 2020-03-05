@@ -43,7 +43,6 @@ class FarmLocationController < UsersController
     def update_lat_long
       @farm.latitude = lat_lng[:lat]
       @farm.longitude = lat_lng[:lng]
-      binding.pry
       @farm.save
     end
 end
