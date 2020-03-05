@@ -4,7 +4,15 @@ class WelcomeController < ApplicationController
   before_action :set_breadcrumb_menu
 
   def index
+    @farm = Farm.first
+  end
 
+  def show
+    @farm = Farm.first
+  end
+
+  def search
+    @farm = Farm.first
   end
 
   private

@@ -1,0 +1,36 @@
+%header.color-1.hovered.menu-3
+  .container
+    .row
+      .col-md-12
+        .nav
+          = link_to root_path, class: 'logo' do
+            %img{alt: "lets travel", src: "/assets/user/img/home_9/caf.png"}
+          .nav-menu-icon
+            %a{href: "#"}
+              %i
+          %nav.menu
+            %ul
+              %li.type-1.no-dropdown.active
+                = link_to root_path do
+                  home
+                  %span.fa.fa-angle-down
+              %li.type-1.no-dropdown
+                %a{href: "#"}
+                  About Us
+                  %span.fa.fa-angle-down
+              %li.type-1.no-dropdown
+                %a{href: "#"}
+                  Our Services
+                  %span.fa.fa-angle-down
+              %li.type-1.no-dropdown
+                %a{href: "#"}
+                  Places Nearby
+                  %span.fa.fa-angle-down
+              %li.type-1.no-dropdown
+                %a{href: "#"}
+                  Quick Booking
+                  %span.fa.fa-angle-down
+              %li.type-1.no-dropdown
+                %a{href: "#"}
+                  Contact Us
+                  %span.fa.fa-angle-down

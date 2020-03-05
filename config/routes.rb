@@ -15,7 +15,13 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
-  resources :welcome
+  resources :welcome do
+    collection do
+      get :search
+      get :enquiry
+      post :booking
+    end
+  end
   resources :dashboard
   resources :farms, only: [:edit, :update] do
     member do
