@@ -30,6 +30,10 @@
         = link_to edit_farm_banner_path(farm), class: "text-active-blue #{@breadcrumb[:farm_banner]}" do
           %i.zwicon-image-wide.text-purple
           Farm Banner
+      %li
+        = link_to edit_farm_image_path(farm), class: "text-active-blue #{@breadcrumb[:farm_images]}" do
+          %i.zwicon-image-gallery.text-blue
+          Farm Images
 
       %li.navigation__sub
         %a.text-active-blue{"data-mae-action" => "submenu-toggle", :href => "#"}
