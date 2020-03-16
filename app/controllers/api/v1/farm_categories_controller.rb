@@ -51,7 +51,7 @@ class Api::V1::FarmCategoriesController < Api::V1::BaseController
 
   private
     def farm_params
-      params.permit(category_ids: [])
+      params.require(:farm).permit(category_ids: [])
     end
 
     def set_farm
