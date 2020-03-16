@@ -52,7 +52,9 @@ class Api::V1::FarmsController < Api::V1::BaseController
         :owner_name,
         :facebook_url,
         :instagram_url,
-        :whatsapp_no
+        :whatsapp_no,
+        :district,
+        :map_iframe
       )
     end
 
