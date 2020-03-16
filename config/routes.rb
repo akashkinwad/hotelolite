@@ -64,9 +64,9 @@ Rails.application.routes.draw do
           delete :destroy_all
         end
       end
-      resource :farms, only: [:edit, :update, :show]
-      resource :farm_rates, only: [:edit, :update, :show]
-      resource :farm_category, only: [:edit, :update, :show] do
+      resource :farms, only: [:update, :show]
+      resource :farm_rates, only: [:update, :show]
+      resource :farm_category, only: [:update, :show] do
         member do
           get :categories
         end
