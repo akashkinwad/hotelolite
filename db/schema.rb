@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_162731) do
+ActiveRecord::Schema.define(version: 2020_03_17_180603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,12 @@ ActiveRecord::Schema.define(version: 2020_03_04_162731) do
     t.string "title"
   end
 
+  create_table "districts", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "farm_categories", force: :cascade do |t|
     t.bigint "category_id", null: false
     t.bigint "farm_id", null: false
@@ -96,7 +102,6 @@ ActiveRecord::Schema.define(version: 2020_03_04_162731) do
     t.text "description"
     t.string "contact_no"
     t.string "altr_contact_no"
-    t.string "district"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -115,7 +120,11 @@ ActiveRecord::Schema.define(version: 2020_03_04_162731) do
     t.string "slug"
     t.string "map_iframe"
     t.boolean "is_featured", default: false
-    t.boolean "status"
+    t.integer "status", default: 0
+    t.bigint "district_id"
+    t.integer "stars"
+    t.integer "reviews"
+    t.index ["district_id"], name: "index_farms_on_district_id"
     t.index ["slug"], name: "index_farms_on_slug", unique: true
     t.index ["user_id"], name: "index_farms_on_user_id"
   end
@@ -270,6 +279,8 @@ ActiveRecord::Schema.define(version: 2020_03_04_162731) do
   create_table "testimonials", force: :cascade do |t|
     t.string "name"
     t.string "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tournaments", force: :cascade do |t|
@@ -317,6 +328,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_162731) do
   add_foreign_key "bookings", "farms"
   add_foreign_key "farm_categories", "categories"
   add_foreign_key "farm_categories", "farms"
+  add_foreign_key "farms", "districts"
   add_foreign_key "farms", "users"
   add_foreign_key "matches", "tournaments"
   add_foreign_key "orders", "subscriptions"

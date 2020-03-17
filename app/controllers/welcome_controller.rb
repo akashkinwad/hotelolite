@@ -8,7 +8,7 @@ class WelcomeController < ApplicationController
   end
 
   def show
-    @farm = Farm.first
+    @farm = Farm.friendly.find(params[:id])
   end
 
   def search

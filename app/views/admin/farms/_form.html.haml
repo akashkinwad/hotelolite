@@ -4,22 +4,35 @@
   .card
     .card-body
       %h4.card-title
-        = "#{action_name} Farm"
+        = "#{action_name} Farm Details"
       %form
         - if farm.errors.any?
           .row
             .form-group
               = render "shared/error_messages", resource: farm
         .row
-          %label.col-sm-2.col-form-label User Name
+          %label.col-sm-2.col-form-label Featured
           .col-sm-10
             .form-group
-              = form.text_field :is_featured, class: 'form-control', placeholder: 'User Name', required: true
+              = form.label :is_featured, "Yes"
+              = form.radio_button :is_featured, true, required: true
+              = form.label :is_featured, "No"
+              = form.radio_button :is_featured, false, required: true
         .row
-          %label.col-sm-2.col-form-label Text
+          %label.col-sm-2.col-form-label Status
           .col-sm-10
             .form-group
-              = form.text_field :status, class: 'form-control', placeholder: 'Add experience here..', required: true
+              = form.select :status, options_for_select(Farm.statuses.map {|k, v| [k.humanize.capitalize, k]}, farm.status), class: 'form-control', required: true
+        .row
+          %label.col-sm-2.col-form-label Reviews Count
+          .col-sm-10
+            .form-group
+              = form.number_field :reviews, class: 'form-control', required: true
+        .row
+          %label.col-sm-2.col-form-label Stars
+          .col-sm-10
+            .form-group
+              = form.select :stars, [1,2,3,4,5], class: 'form-control', required: true
 
         %button.btn.btn-success.mt-4{type: "submit"} Update Farm
       %br

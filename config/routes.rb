@@ -48,7 +48,7 @@ Rails.application.routes.draw do
     resources :dashboard, only: :index
     resources :bookings, only: :index
     resources :testimonials
-    resources :farms, only: [:index, :edit, :update]
+    resources :farms, only: [:index, :edit, :update, :show]
     resources :users do
       collection do
         get :recently_joined

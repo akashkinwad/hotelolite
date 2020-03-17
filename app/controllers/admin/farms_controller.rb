@@ -2,7 +2,7 @@ class Admin::FarmsController < Admin::AdminsController
   before_action :set_farm, only: [:edit, :update, :destroy, :show]
 
   def index
-    @farms = Farm.all.page(params[:page]).per(20)
+    @farms = Farm.all.order(:id).page(params[:page]).per(20)
   end
 
   def show;end
@@ -25,11 +25,13 @@ class Admin::FarmsController < Admin::AdminsController
   private
 
   def set_farm
-    @farm = Farm.find(params[:id])
+    @farm = Farm.friendly.find(params[:id])
   end
 
   def farm_params
-    params.require(:farm).permit(:status, :is_featured)
+    params.require(:farm).permit(
+      :status, :is_featured, :reviews, :stars
+    )
   end
 
   def set_breadcrumb_menu
