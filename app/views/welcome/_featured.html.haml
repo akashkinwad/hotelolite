@@ -1,0 +1,46 @@
+= @featured_farms.count
+.top-baner.caf-sec-banner.mb-40
+  %img.center-image{alt: "", src: "/assets/user/img/home_5/slider.jpg"}
+  .arrows
+    .swiper-container.main-slider-5{"data-autoplay" => "0", "data-center" => "0", "data-loop" => "1", "data-slides-per-view" => "1", "data-speed" => "900"}
+      .swiper-wrapper
+        - @featured_farms.each do |farm|
+          .swiper-slide.active{"data-val" => "0"}
+            .vertical-align
+              .container
+                .row
+                  .col-xs-12.col-sm-10.col-sm-offset-1
+                    .slider-block.clearfix
+                      .slider-block-left
+                        - if farm.banner.attached?
+                          = image_tag farm.banner.variant(resize: "420x600")
+                        - else
+                          %img.center-image{alt: "", src: "/assets/user/img/home_5/slide_1.jpg"}
+                      .slider-block-right
+                        .rate-wrap
+                          .rate
+                            - farm.stars.times do
+                              %span.fa.fa-star.color-yellow
+                          %i= "#{farm.reviews} Rewies"
+                        %h4.sb-title
+                          = farm.title
+                        .sb-price.color-dark-2
+                          %span $500
+                          \/ per person
+                        .sb-text
+                          = farm.description
+                        = link_to 'view more', welcome_path(farm), class: 'c-button b-50 bg-green hv-green-o'
+                        .slide-preview
+                          %a.active{href: "img/home_5/slide_1.jpg"}
+                            %img.img-responsive{alt: "", src: "/assets/user/img/home_5/slide_preview_1.jpg"}
+                          %a{href: "img/home_5/slide_2.jpg"}
+                            %img.img-responsive{alt: "", src: "/assets/user/img/home_5/slide_preview_2.jpg"}
+                          %a{href: "img/home_5/slide_3.jpg"}
+                            %img.img-responsive{alt: "", src: "/assets/user/img/home_5/slide_preview_3.jpg"}
+      .pagination.pagination-hidden.poin-style-1
+      .arrow-wrapp.arr-s-2
+        .cont-1170
+          .swiper-arrow-left.sw-arrow
+            %span.fa.fa-angle-left
+          .swiper-arrow-right.sw-arrow
+            %span.fa.fa-angle-right

@@ -20,7 +20,7 @@ module Dynamic
     config.time_zone = "Chennai"
     config.active_record.default_timezone = :local
     config.action_mailer.asset_host = 'http://localhost:3000'
-    config.active_storage.variant_processor = :vips
+    # config.active_storage.variant_processor = :vips
     config.assets.initialize_on_precompile = false
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

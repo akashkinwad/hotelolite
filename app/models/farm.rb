@@ -16,6 +16,8 @@ class Farm < ApplicationRecord
   accepts_nested_attributes_for :rates, reject_if: :all_blank, allow_destroy: true
 
   scope :with_eager_loaded_images, -> { eager_load(images_attachments: :blob) }
+  scope :active, -> { where(status: 1) }
+  scope :featured, -> { where(is_featured: true) }
 
   def name
     title ? title : 'Default'

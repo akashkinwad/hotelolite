@@ -5,6 +5,8 @@ class WelcomeController < ApplicationController
 
   def index
     @farm = Farm.first
+    @farms = Farm.active
+    @featured_farms = Farm.active.featured
   end
 
   def show
