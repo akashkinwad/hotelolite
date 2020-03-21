@@ -1,41 +1,12 @@
 .inner-banner.caf-inner-banner.d-flex
-  %img.center-image{:alt => "", :src => "/assets/user/img/caf/testimonial-bg.jpg"}/
+  %img.center-image{:alt => "", :src => "/assets/user/img/caf/testimonial-bg.jpg"}
   %div
     .container
       %h2.color-white Select Your AGRITOURISM
 .list-wrapper.bg-grey-2
   .container
     .row
-      .col-xs-12.col-sm-4.col-md-3
-        .sidebar.bg-white.clearfix.box-shadow
-          .sidebar-block
-            %h4.sidebar-title.color-dark-2 search by name
-            .search-inputs
-              .form-block.clearfix
-                .input-style-1.b-50.color-3
-                  %img{:alt => "", :src => "/assets/user/img/loc_icon_small_grey.png"}/
-                  %input{:placeholder => "Where do you want to go?", :type => "text"}/
-            %input.c-button.b-40.bg-blue-2.hv-blue-2-o{:type => "submit", :value => "search"}/
-          .sidebar-block
-            %h4.sidebar-title.color-dark-2 search by city
-            .drop-wrap.drop-wrap-s-4.color-3
-              .drop
-                %b Select city
-                %a.drop-list{:href => "#"}
-                  %i.fa.fa-angle-down
-                %span{:style => "display: none;"}
-                  %a{:href => "#"} Pune
-                  %a{:href => "#"} Sangli
-                  %a{:href => "#"} Satara
-                  %a{:href => "#"} Kolhapur
-            %input.c-button.b-40.bg-blue-2.hv-blue-2-o{:type => "submit", :value => "search"}/
-          .sidebar-block
-            %h4.sidebar-title.color-dark-2 Distance from Pune
-            .slider-range.color-1.clearfix{"data-counter" => "$", "data-from" => "0", "data-max" => "2000", "data-min" => "0", "data-position" => "start", "data-to" => "1500"}
-              .range
-              %input.amount-start{:readonly => "readonly", :type => "text", :value => "$0"}/
-              %input.amount-end{:readonly => "readonly", :type => "text", :value => "$1500"}/
-            %input.c-button.b-40.bg-blue-2.hv-blue-2-o{:type => "submit", :value => "search"}/
+      = render partial: 'filter'
       .col-xs-12.col-sm-8.col-md-9
         .list-header.clearfix
           .drop-wrap.drop-wrap-s-4.color-4.list-sort.box-shadow
@@ -61,254 +32,46 @@
               %i.fa.fa-bars
             .change-to-label.fr.color-grey-8 View:
         .list-content.clearfix
-          .list-item-entry
-            .hotel-item.style-3.bg-white.box-shadow
-              .table-view
-                .radius-top.cell-view
-                  %img{:alt => "", :src => "/assets/user/img/tour_list/tour_grid_1.jpg"}/
-                .title.hotel-middle.clearfix.cell-view
-                  .date.list-hidden
-                    July
-                    %strong 19th
-                    to July
-                    %strong 26th
-                  .date.grid-hidden
-                    %strong 19.07 - 26.07 / 7
-                    night
-                  %h4
-                    %b Agriculture Development Trust
-                  .rate-wrap
-                    .rate
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                    %i 485 rewies
-                  %p.f-14.grid-hidden Nunc cursus libero purus ac congue arcu cur sus ut sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.
-                .title.hotel-right.clearfix.cell-view
-                  .hotel-person.color-dark-2
-                    from
-                    %span.color-blue $273
-                    person
-                  = link_to 'view more', welcome_path(@farm), class: 'c-button b-40 bg-blue hv-blue-o-o grid-hidden'
-          .list-item-entry
-            .hotel-item.style-3.bg-white.box-shadow
-              .table-view
-                .radius-top.cell-view
-                  %img{:alt => "", :src => "/assets/user/img/tour_list/tour_grid_2.jpg"}/
-                .title.hotel-middle.clearfix.cell-view
-                  .date.list-hidden
-                    July
-                    %strong 19th
-                    to July
-                    %strong 26th
-                  .date.grid-hidden
-                    %strong 19.07 - 26.07 / 7
-                    night
-                  %h4
-                    %b Ambaban Agri Tourism &amp; Adventure Park
-                  .rate-wrap
-                    .rate
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                    %i 485 rewies
-                  %p.f-14.grid-hidden Nunc cursus libero purus ac congue arcu cur sus ut sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.
-                .title.hotel-right.clearfix.cell-view
-                  .hotel-person.color-dark-2
-                    from
-                    %span.color-blue $703
-                    person
-                  = link_to 'view more', welcome_path(@farm), class: 'c-button b-40 bg-blue hv-blue-o-o grid-hidden'
-          .list-item-entry
-            .hotel-item.style-3.bg-white.box-shadow
-              .table-view
-                .radius-top.cell-view
-                  %img{:alt => "", :src => "/assets/user/img/tour_list/tour_grid_3.jpg"}/
-                .title.hotel-middle.clearfix.cell-view
-                  .date.list-hidden
-                    July
-                    %strong 19th
-                    to July
-                    %strong 26th
-                  .date.grid-hidden
-                    %strong 19.07 - 26.07 / 7
-                    night
-                  %h4
-                    %b Anand Agri Tourism
-                  .rate-wrap
-                    .rate
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                    %i 485 rewies
-                  %p.f-14.grid-hidden Nunc cursus libero purus ac congue arcu cur sus ut sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.
-                .title.hotel-right.clearfix.cell-view
-                  .hotel-person.color-dark-2
-                    from
-                    %span.color-blue $300
-                    person
-                  = link_to 'view more', welcome_path(@farm), class: 'c-button b-40 bg-blue hv-blue-o-o grid-hidden'
-          .list-item-entry
-            .hotel-item.style-3.bg-white.box-shadow
-              .table-view
-                .radius-top.cell-view
-                  %img{:alt => "", :src => "/assets/user/img/tour_list/tour_grid_4.jpg"}/
-                .title.hotel-middle.clearfix.cell-view
-                  .date.list-hidden
-                    July
-                    %strong 19th
-                    to July
-                    %strong 26th
-                  .date.grid-hidden
-                    %strong 19.07 - 26.07 / 7
-                    night
-                  %h4
-                    %b Andra Farm Agri Tourism
-                  .rate-wrap
-                    .rate
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                    %i 485 rewies
-                  %p.f-14.grid-hidden Nunc cursus libero purus ac congue arcu cur sus ut sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.
-                .title.hotel-right.clearfix.cell-view
-                  .hotel-person.color-dark-2
-                    from
-                    %span.color-blue $400
-                    person
-                  = link_to 'view more', welcome_path(@farm), class: 'c-button b-40 bg-blue hv-blue-o-o grid-hidden'
-          .list-item-entry
-            .hotel-item.style-3.bg-white.box-shadow
-              .table-view
-                .radius-top.cell-view
-                  %img{:alt => "", :src => "/assets/user/img/tour_list/tour_grid_5.jpg"}/
-                .title.hotel-middle.clearfix.cell-view
-                  .date.list-hidden
-                    July
-                    %strong 19th
-                    to July
-                    %strong 26th
-                  .date.grid-hidden
-                    %strong 19.07 - 26.07 / 7
-                    night
-                  %h4
-                    %b Ashwarya Agri Tourism
-                  .rate-wrap
-                    .rate
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                    %i 485 rewies
-                  %p.f-14.grid-hidden Nunc cursus libero purus ac congue arcu cur sus ut sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.
-                .title.hotel-right.clearfix.cell-view
-                  .hotel-person.color-dark-2
-                    from
-                    %span.color-blue $273
-                    person
-                  = link_to 'view more', welcome_path(@farm), class: 'c-button b-40 bg-blue hv-blue-o-o grid-hidden'
-          .list-item-entry
-            .hotel-item.style-3.bg-white.box-shadow
-              .table-view
-                .radius-top.cell-view
-                  %img{:alt => "", :src => "/assets/user/img/tour_list/tour_grid_6.jpg"}/
-                .title.hotel-middle.clearfix.cell-view
-                  .date.list-hidden
-                    July
-                    %strong 19th
-                    to July
-                    %strong 26th
-                  .date.grid-hidden
-                    %strong 19.07 - 26.07 / 7
-                    night
-                  %h4
-                    %b Baramati Agri and Rural Tourism Palshiwadi
-                  .rate-wrap
-                    .rate
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                    %i 485 rewies
-                  %p.f-14.grid-hidden Nunc cursus libero purus ac congue arcu cur sus ut sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.
-                .title.hotel-right.clearfix.cell-view
-                  .hotel-person.color-dark-2
-                    from
-                    %span.color-blue $500
-                    person
-                  = link_to 'view more', welcome_path(@farm), class: 'c-button b-40 bg-blue hv-blue-o-o grid-hidden'
-          .list-item-entry
-            .hotel-item.style-3.bg-white.box-shadow
-              .table-view
-                .radius-top.cell-view
-                  %img{:alt => "", :src => "/assets/user/img/tour_list/tour_grid_7.jpg"}/
-                .title.hotel-middle.clearfix.cell-view
-                  .date.list-hidden
-                    July
-                    %strong 19th
-                    to July
-                    %strong 26th
-                  .date.grid-hidden
-                    %strong 19.07 - 26.07 / 7
-                    night
-                  %h4
-                    %b Baneshwar  Agri Tourism
-                  .rate-wrap
-                    .rate
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                    %i 485 rewies
-                  %p.f-14.grid-hidden Nunc cursus libero purus ac congue arcu cur sus ut sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.
-                .title.hotel-right.clearfix.cell-view
-                  .hotel-person.color-dark-2
-                    from
-                    %span.color-blue $273
-                    person
-                  = link_to 'view more', welcome_path(@farm), class: 'c-button b-40 bg-blue hv-blue-o-o grid-hidden'
-          .list-item-entry
-            .hotel-item.style-3.bg-white.box-shadow
-              .table-view
-                .radius-top.cell-view
-                  %img{:alt => "", :src => "/assets/user/img/tour_list/tour_grid_8.jpg"}/
-                .title.hotel-middle.clearfix.cell-view
-                  .date.list-hidden
-                    July
-                    %strong 19th
-                    to July
-                    %strong 26th
-                  .date.grid-hidden
-                    %strong 19.07 - 26.07 / 7
-                    night
-                  %h4
-                    %b Ashwarya Agri Tourism
-                  .rate-wrap
-                    .rate
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                      %span.fa.fa-star.color-yellow
-                    %i 485 rewies
-                  %p.f-14.grid-hidden Nunc cursus libero purus ac congue arcu cur sus ut sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.
-                .title.hotel-right.clearfix.cell-view
-                  .hotel-person.color-dark-2
-                    from
-                    %span.color-blue $300
-                    person
-                  = link_to 'view more', welcome_path(@farm), class: 'c-button b-40 bg-blue hv-blue-o-o grid-hidden'
+          - if @farms.present?
+            - @farms.each do |farm|
+              .list-item-entry
+                .hotel-item.style-3.bg-white.box-shadow
+                  .table-view
+                    .radius-top.cell-view
+                      %img{:alt => "", :src => "/assets/user/img/tour_list/tour_grid_1.jpg"}
+                    .title.hotel-middle.clearfix.cell-view
+                      .date.list-hidden
+                        July
+                        %strong 19th
+                        to July
+                        %strong 26th
+                      .date.grid-hidden
+                        %strong 19.07 - 26.07 / 7
+                        night
+                      %h4
+                        %b
+                          = farm.title
+                      .rate-wrap
+                        .rate
+                          - farm.stars.times do
+                            %span.fa.fa-star.color-yellow
+                        %i= "#{farm.reviews} Reviews"
+                      %p.f-14.grid-hidden
+                        = farm.description
+                    .title.hotel-right.clearfix.cell-view
+                      .hotel-person.color-dark-2
+                        from
+                        %span.color-blue $273
+                        person
+                      = link_to 'view more', welcome_path(farm), class: 'c-button b-40 bg-blue hv-blue-o-o grid-hidden'
+          - else
+            .list-item-entry
+              .hotel-item.style-3.bg-white.box-shadow
+                .table-view
+                  .title.hotel-middle.clearfix.cell-view
+                    %h4
+                      %b No Matching seach found...!
+
         .c_pagination.clearfix.padd-120
           %a.c-button.b-40.bg-blue-2.hv-blue-2-o.fl{:href => "#"} prev page
           %a.c-button.b-40.bg-blue-2.hv-blue-2-o.fr{:href => "#"} next page

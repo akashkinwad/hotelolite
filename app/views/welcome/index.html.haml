@@ -244,86 +244,8 @@
               %img{alt: "", src: "/assets/user/img/calendar_icon_grey.png"}
               %span.font-style-2.color-grey-3 Only Available on festival date
 / HOTEL-ITEM
-.main-wraper.padd-90.caf-booking-outer
-  .container
-    .row
-      .col-xs-12.col-sm-8.col-sm-offset-2
-        .second-title
-          %h4.subtitle.color-dr-blue-2 For the following event
-          %h2.color-dark-2 Booking Available
-    .row.d-flex
-      .item.hotels.gal-item.style-3.col-sm-12.col-sm-4.material
-        %a.black-hover{href: "#"}
-          .gal-item-icon.zoom-img
-            %img.img-full.img-responsive{alt: "", src: "/assets/user/img/caf/wedding.jpg"}
-            .tour-layer.delay-1
-            .vertical-align
-              %span.c-button.small.bg-white.delay-2
-                %span Book Now
-          .gal-item-desc.delay-1
-            %h4
-              %b Wedding Ceremony
-            / <h5>sea tours</h5>
-      .item.hotels.gal-item.style-3.col-xs-12.col-sm-4.material
-        %a.black-hover{href: "#"}
-          .gal-item-icon.zoom-img
-            %img.img-full.img-responsive{alt: "", src: "/assets/user/img/caf/baby_shower.jpg"}
-            .tour-layer.delay-1
-            .vertical-align
-              %span.c-button.small.bg-white.delay-2
-                %span Book Now
-          .gal-item-desc.delay-1
-            %h4
-              %b Baby Shower
-            / <h5>mountain tours</h5>
-      .item.hotels.gal-item.style-3.col-xs-12.col-sm-4.material
-        %a.black-hover{href: "#"}
-          .gal-item-icon.zoom-img
-            %img.img-full.img-responsive{alt: "", src: "/assets/user/img/caf/birthday.jpg"}
-            .tour-layer.delay-1
-            .vertical-align
-              %span.c-button.small.bg-white.delay-2
-                %span Book Now
-          .gal-item-desc.delay-1
-            %h4
-              %b Birthday Party
-            / <h5>sea tours</h5>
-      .item.hotels.gal-item.style-3.col-sm-12.col-sm-4.material
-        %a.black-hover{href: "#"}
-          .gal-item-icon.zoom-img
-            %img.img-full.img-responsive{alt: "", src: "/assets/user/img/caf/trip.JPG"}
-            .tour-layer.delay-1
-            .vertical-align
-              %span.c-button.small.bg-white.delay-2
-                %span Book Now
-          .gal-item-desc.delay-1
-            %h4
-              %b School Trip
-            / <h5>sea tours</h5>
-      .item.hotels.gal-item.style-3.col-xs-12.col-sm-4.material
-        %a.black-hover{href: "#"}
-          .gal-item-icon.zoom-img
-            %img.img-full.img-responsive{alt: "", src: "/assets/user/img/caf/engagement.jpg"}
-            .tour-layer.delay-1
-            .vertical-align
-              %span.c-button.small.bg-white.delay-2
-                %span Book Now
-          .gal-item-desc.delay-1
-            %h4
-              %b Engagement
-            / <h5>mountain tours</h5>
-      .item.hotels.gal-item.style-3.col-xs-12.col-sm-4.material
-        %a.black-hover{href: "#"}
-          .gal-item-icon.zoom-img
-            %img.img-full.img-responsive{alt: "", src: "/assets/user/img/caf/adults.JPG"}
-            .tour-layer.delay-1
-            .vertical-align
-              %span.c-button.small.bg-white.delay-2
-                %span Book Now
-          .gal-item-desc.delay-1
-            %h4
-              %b Senior Citizens' Day
-            / <h5>sea tours</h5>
+= render partial: 'categories'
+
 .top-baner.arrows.caf-sec-slider-outer
   #tour-slide-2.swiper-container{"data-autoplay" => "0", "data-center" => "0", "data-loop" => "1", "data-slides-per-view" => "1", "data-speed" => "1000"}
     .swiper-wrapper
