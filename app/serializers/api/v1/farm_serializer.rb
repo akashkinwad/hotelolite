@@ -15,6 +15,6 @@ class Api::V1::FarmSerializer < Api::V1::BaseSerializer
              :facebook_url,
              :instagram_url,
              :whatsapp_no,
-             :district,
+             :district_id,
              :map_iframe
 end

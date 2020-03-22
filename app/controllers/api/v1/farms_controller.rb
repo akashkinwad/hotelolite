@@ -51,7 +51,7 @@ class Api::V1::FarmsController < Api::V1::BaseController
         :facebook_url,
         :instagram_url,
         :whatsapp_no,
-        :district,
+        :district_id,
         :map_iframe
       )
     end
