@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       get :search
     end
     member do
+      get :gallery
       get :enquiry
       post :booking
     end

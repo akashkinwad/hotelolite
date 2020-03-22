@@ -228,7 +228,7 @@
             %h5.color-white sea tours
       / View More
       .item.hotels.gal-item.style-2.col-mob-12.col-xs-6.col-sm-4.no-padding.material
-        %a.black-hover{:href => "gallery_detail.html"}
+        = link_to gallery_welcome_path(@farm), class: 'black-hover' do
           %img.img-full.img-responsive{:alt => "", :src => "/assets/user/img/caf/view_more.jpg"}/
           .tour-layer.delay-1
           .vertical-align

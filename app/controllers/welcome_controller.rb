@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
   layout 'welcome'
 
   before_action :set_breadcrumb_menu
-  before_action :set_farm, only: [:show, :enquiry, :booking]
+  before_action :set_farm, only: [:show, :enquiry, :booking, :gallery]
 
   def index
     @farm = Farm.first
@@ -41,6 +41,10 @@ class WelcomeController < ApplicationController
     else
       redirect_to enquiry_welcome_path(@farm)
     end
+  end
+
+  def gallery
+    @images = @farm.images
   end
 
   private
