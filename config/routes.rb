@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
-  resources :welcome do
+  resources :welcome, only: [:index, :show] do
     collection do
       get :search
     end
@@ -72,6 +72,17 @@ Rails.application.routes.draw do
       resource :farm_category, only: [:update, :show] do
         member do
           get :categories
+        end
+      end
+      resources :welcome, only: [:index, :show] do
+        collection do
+          get :search
+          get :featured
+          get :testimonials
+        end
+        member do
+          get :gallery
+          post :booking
         end
       end
     end

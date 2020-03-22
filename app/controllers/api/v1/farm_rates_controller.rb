@@ -8,7 +8,7 @@ class Api::V1::FarmRatesController < Api::V1::BaseController
         data: @farm_rates.map{ |rate| Api::V1::FarmRateSerializer.new(rate, root: false)},
         errors: []
       },
-      status: 201
+      status: 200
     )
   end
 
@@ -20,7 +20,7 @@ class Api::V1::FarmRatesController < Api::V1::BaseController
           data: @farm_rates.map{ |rate| Api::V1::FarmRateSerializer.new(rate, root: false)},
           errors: []
         },
-        status: 201
+        status: 200
       )
     else
       render(

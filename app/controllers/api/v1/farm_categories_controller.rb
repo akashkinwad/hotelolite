@@ -9,7 +9,7 @@ class Api::V1::FarmCategoriesController < Api::V1::BaseController
         data: categories.map{ |rate| Api::V1::CategorySerializer.new(rate, root: false)},
         errors: []
       },
-      status: 201
+      status: 200
     )
   end
 
@@ -21,7 +21,7 @@ class Api::V1::FarmCategoriesController < Api::V1::BaseController
           data: @farm.category_ids,
           errors: []
         },
-        status: 201
+        status: 200
       )
     else
       render(
@@ -43,7 +43,7 @@ class Api::V1::FarmCategoriesController < Api::V1::BaseController
         data: categories.map{ |cat| Api::V1::CategorySerializer.new(cat, root: false)},
         errors: []
       },
-      status: 201
+      status: 200
     )
   end
 

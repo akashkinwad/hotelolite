@@ -3,8 +3,8 @@ class Farm < ApplicationRecord
   friendly_id :title, use: :slugged
   enum status: { inactive: 0, active: 1 }
 
-  has_one_attached :banner
-  has_many_attached :images
+  has_one_attached :banner, dependent: :destroy
+  has_many_attached :images, dependent: :destroy
 
   belongs_to :user
   has_many :bookings

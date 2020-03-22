@@ -144,3 +144,4 @@ categories = [
   }
 ]
 Category.create(categories)
+ApiToken.create(token: '2e1f85f04fe0d55f388465972f5dc47f')

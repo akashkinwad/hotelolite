@@ -8,7 +8,7 @@ class Api::V1::FarmsController < Api::V1::BaseController
         data: JSON.parse(Api::V1::FarmSerializer.new(@farm, root: false).to_json),
         errors: []
       },
-      status: 201
+      status: 200
     )
   end
 
@@ -20,7 +20,7 @@ class Api::V1::FarmsController < Api::V1::BaseController
           data: JSON.parse(Api::V1::FarmSerializer.new(@farm, root: false).to_json),
           errors: []
         },
-        status: 201
+        status: 200
       )
     else
       render(

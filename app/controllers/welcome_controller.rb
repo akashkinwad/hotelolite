@@ -6,8 +6,8 @@ class WelcomeController < ApplicationController
 
   def index
     @farm = Farm.first
-    @farms = Farm.active
-    @featured_farms = Farm.active.featured
+    @farms = Farm.with_eager_loaded_images.active
+    @featured_farms = Farm.with_eager_loaded_images.active.featured
   end
 
   def show
@@ -22,10 +22,10 @@ class WelcomeController < ApplicationController
       elsif params[:city_id].present?
         Farm.where(city_id: params[:city_id])
       else
-        Farm.active
+        Farm.with_eager_loaded_images.active
       end
     else
-      Farm.active
+      Farm.with_eager_loaded_images.active
     end
     @farm = Farm.first
   end
@@ -63,5 +63,4 @@ class WelcomeController < ApplicationController
         :contact_no, :altr_contact_no, :check_in
       )
     end
-
 end

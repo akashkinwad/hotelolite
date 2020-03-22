@@ -7,7 +7,7 @@ class Api::V1::BookingsController < Api::V1::BaseController
         data: bookings.map{ |b| Api::V1::BookingSerializer.new(b, root: false)},
         errors: []
       },
-      status: 201
+      status: 200
     )
   end
 
