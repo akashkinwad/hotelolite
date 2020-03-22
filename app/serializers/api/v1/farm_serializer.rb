@@ -1,4 +1,6 @@
 class Api::V1::FarmSerializer < Api::V1::BaseSerializer
+  include Rails.application.routes.url_helpers
+
   attributes :id,
              :title,
              :description,
@@ -16,5 +18,19 @@ class Api::V1::FarmSerializer < Api::V1::BaseSerializer
              :instagram_url,
              :whatsapp_no,
              :district_id,
-             :map_iframe
+             :map_iframe,
+             :banner,
+             :gallery
+
+  def gallery
+    return unless object.images.attachments
+    image_urls = object.images.map do |image|
+      rails_blob_path(image, only_path: true)
+    end
+    image_urls
+  end
+
+  def banner
+    rails_blob_path(object.banner, only_path: true) if object.banner.attached?
+  end
 end
