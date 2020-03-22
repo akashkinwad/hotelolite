@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   resources :welcome do
     collection do
       get :search
+    end
+    member do
       get :enquiry
       post :booking
     end

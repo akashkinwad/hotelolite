@@ -1,0 +1,39 @@
+.inner-banner.caf-inner-banner.d-flex
+  %img.center-image{:alt => "", :src => "/assets/user/img/caf/testimonial-bg.jpg"}
+  %div
+    .container
+      %h2.color-white AGRICULTURE DEVELOPMENT TRUST
+.container.caf-form-outer
+  = form_for @booking, url: booking_welcome_path(@farm), html: { class: 'hotel-filter' } do |f|
+    .baner-bar.cars-bar
+      .row
+        .col-md-12
+          .hotels-block
+            .col-md-6.col-sm-12
+              %h4 First Name
+              .input-style-1
+                = f.text_field :first_name, required: true, placeholder: 'First Name'
+            .col-md-6.col-sm-12
+              %h4 Last Name
+              .input-style-1
+                = f.text_field :last_name, required: true, placeholder: 'Last Name'
+            .col-md-6.col-sm-12
+              %h4 Mobile Number
+              .input-style-1
+                = f.text_field :contact_no, required: true, placeholder: 'Mobile No'
+            .col-md-6.col-sm-12
+              %h4 Alternative Mobile No
+              .input-style-1
+                = f.text_field :altr_contact_no, placeholder: 'Alternative No'
+            .col-md-6.col-sm-12
+              %h4 Email Id
+              .input-style-1
+                = f.text_field :email, required: true, placeholder: 'Email'
+            .col-md-6.col-sm-12
+              %h4 Check in
+              .input-style-1
+                %img{:alt => "", :src => "/assets/user/img/calendar_icon_grey.png"}
+                = f.text_field :check_in, required: true, class: 'datepicker'
+            .col-md-10.col-sm-10.col-md-offset-2
+              .submit
+                %input.c-button.b-60.bg-white.hv-orange{:type => "submit", :value => "book now"}
