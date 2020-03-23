@@ -9,7 +9,7 @@ class Api::V1::WelcomeController < Api::V1::ApiController
         data: farms.map{ |farm| Api::V1::FarmSerializer.new(farm, root: false)},
         errors: []
       },
-      status: 201
+      status: 200
     )
   end
 
@@ -42,7 +42,7 @@ class Api::V1::WelcomeController < Api::V1::ApiController
         data: farms.map{ |farm| Api::V1::FarmSerializer.new(farm, root: false)},
         errors: []
       },
-      status: 201
+      status: 200
     )
   end
 
@@ -66,7 +66,7 @@ class Api::V1::WelcomeController < Api::V1::ApiController
         data: farms.map{ |farm| Api::V1::FarmSerializer.new(farm, root: false)},
         errors: []
       },
-      status: 201
+      status: 200
     )
   end
 
@@ -92,11 +92,11 @@ class Api::V1::WelcomeController < Api::V1::ApiController
     testimonials = Testimonial.all
     render(
       json: {
-        success: false,
+        success: true,
         data: testimonials.map{ |test| Api::V1::TestimonialsSerializer.new(test, root: false)},
         errors: []
       },
-      status: 201
+      status: 200
     )
   end
 
