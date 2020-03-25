@@ -20,7 +20,9 @@ class Api::V1::FarmSerializer < Api::V1::BaseSerializer
              :district_id,
              :map_iframe,
              :banner,
-             :gallery
+             :gallery,
+             :latitude,
+             :longitude
 
   def gallery
     return unless object.images.attachments
