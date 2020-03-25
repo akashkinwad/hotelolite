@@ -1,4 +1,6 @@
 class Api::V1::BookingsController < Api::V1::BaseController
+  before_action :set_farm, only: :destroy_all
+
   def index
     bookings = @current_user.bookings
     render(
@@ -30,7 +32,7 @@ class Api::V1::BookingsController < Api::V1::BaseController
   end
 
   def destroy_all
-    @current_user.bookings.destroy_all
+    @farm.bookings.destroy_all
     render(
       json: {
         success: true,
@@ -38,5 +40,11 @@ class Api::V1::BookingsController < Api::V1::BaseController
       },
       status: 200
     )
+  end
+
+  private
+
+  def set_farm
+    @farm = @current_user.farm
   end
 end
