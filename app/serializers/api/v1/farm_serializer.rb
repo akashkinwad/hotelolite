@@ -22,7 +22,9 @@ class Api::V1::FarmSerializer < Api::V1::BaseSerializer
              :banner,
              :gallery,
              :latitude,
-             :longitude
+             :longitude,
+             :stars,
+             :reviews
 
   def gallery
     return unless object.images.attachments
