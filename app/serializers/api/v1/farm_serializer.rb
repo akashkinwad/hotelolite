@@ -35,6 +35,6 @@ class Api::V1::FarmSerializer < Api::V1::BaseSerializer
   end
 
   def banner
-    rails_blob_path(object.banner, only_path: true) if object.banner.attached?
+    rails_blob_url(object.banner, only_path: true) if object&.banner&.attached?
   end
 end

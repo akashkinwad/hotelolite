@@ -1,8 +1,8 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
-set :application, 'dynamic'
+set :application, 'hotelolite'
 set :rvm_ruby_version, '2.5.3'
-set :repo_url, 'git@bitbucket.org:definelabs/dynamic_rails.git'
+set :repo_url, 'git@github.com:akashkinwad/hotelolite.git'
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default branch is :master
