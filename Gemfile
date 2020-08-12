@@ -28,7 +28,7 @@ gem 'redis', '~> 4.0'
 gem 'redis-rails'
 gem 'rest-client', '~> 2.0.2'
 gem 'jquery-rails'
-gem 'chartkick', '~> 3.2.0'
+gem 'chartkick', '~> 3.4.0'
 gem 'whenever', '~> 1.0.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
